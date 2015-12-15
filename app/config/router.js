@@ -1,9 +1,17 @@
-module.exports = function($routeProvider) {
+var router = function($routeProvider) {
     $routeProvider
+
         .when('/edit', {
-            template: 'lemmons piss blood'
-        }).when('/', {
-            templateUrl: '../views/main-view.html',
-            controller: 'MainController'
+            templateUrl: 'views/edit/edit-view.html',
+            controller: 'EditController'
+        })
+        .when('/profile/:username', {
+            templateUrl: 'views/profile/profile-view.html',
+            controller: 'ProfileController'
+        })
+        .when('/', {
+            templateUrl: 'views/landing/landing-view.html',
         });
 };
+
+module.exports = router;

@@ -1,3 +1,19 @@
-body {  
-    background-color: red;
-}
+// Since webpack intercepts the relative paths inside bootsrap,
+// we need to hard-code a better path
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+ 
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,300");
+@import url("https://fonts.googleapis.com/css?family=Lato:400,300");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+@import "../views/landing/font-awesome/css/font-awesome.min.css";
+@import "modules/fonts";
+@import "modules/variables";
+@import "modules/utilities";
+@import "partials/base";
+@import "partials/landing";
+@import "partials/alerts";
+@import "partials/buttons";
+@import "partials/forms";
+@import "partials/icons";
+@import "partials/sidebar";
