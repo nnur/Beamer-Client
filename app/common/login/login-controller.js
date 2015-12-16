@@ -20,19 +20,14 @@ module.exports = function LoginController($scope, auth, $location) {
     };
 
     // Authenticates user credentials.
-    $scope.login = (function() {
-        // var user = {
-        //     email: $scope.user.email,
-        //     password: $scope.user.pwd
-        // };
-
-        // TODO:delete this ine, for testing only
-        user = {
-            email: 'dharness@uwo.ca',
-            password: 'bluecakes'
+    $scope.login = function() {
+        var user = {
+            email: $scope.user.email,
+            password: $scope.user.pwd
         };
-        // auth.loginUser(user).then(loginSuccess, loginError);
-    })();
+
+        auth.loginUser(user).then(loginSuccess, loginError);
+    };
 
     // This parses the error and adds it to the scope to be shown
     function signupErr(res) {

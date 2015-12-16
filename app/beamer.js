@@ -21,6 +21,9 @@ module.exports = {
         },
         routeListItem: {
             module: require('./common/routeListItem/route-list-item.js')
+        },
+        sidebar: {
+            module: require('./common/sidebar/sidebar.js')
         }
     },
     config: {

@@ -8,7 +8,7 @@ module.exports = {
     entry: ['webpack/hot/dev-server', './core/bootstrap.js'],
     output: {
         path: APP,
-        filename: 'bundle.js',
+        filename: 'beamer.bundle.js',
     },
     devtool: 'sourcemap',
     module: {

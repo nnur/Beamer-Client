@@ -33,7 +33,6 @@ var auth = function($http, session, $q) {
         }).then(function(res) {
             var data = res.data.data;
             if (data.token) {
-                session.create(data.token);
                 return data;
             } else {
                 return {

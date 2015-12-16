@@ -15,4 +15,6 @@ module.exports = function() {
     require('angular-route');
     require('ng-smooth-scroll');
     require('angular-jwt');
+    require('js-data');
+    require('js-data-angular');
 };
