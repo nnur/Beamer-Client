@@ -20,6 +20,17 @@ $bm-sidebar-width: 250px;
     }
 }
 
+.bm-sidebar-list {
+    list-style-type: none;
+    li {
+        width: 100%;
+        background: $purple;
+        color: white;
+        padding: remify(15);
+        margin-top: remify(1.5);
+    }
+} 
+
 .bm-right-panel {
     width: 100%;
     position: relative;

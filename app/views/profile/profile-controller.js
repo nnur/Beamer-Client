@@ -1,4 +1,4 @@
-var ProfileController = function($scope, user) {
+var ProfileController = function($scope, $http, user) {
     console.log('IN PROFILE CONTROLLER', user);
 };
 
