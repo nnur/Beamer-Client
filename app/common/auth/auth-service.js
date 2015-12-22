@@ -15,7 +15,7 @@ var auth = function($http, session, $q) {
             url: root + '/users/signup',
             data: user
         }).then(function(res) {
-            console.log(res);
+            console.log('poooooopsssiies');
             if (res.data.token) {
                 session.create(res.data.token);
             }
@@ -33,12 +33,9 @@ var auth = function($http, session, $q) {
         }).then(function(res) {
             var data = res.data.data;
             if (data.token) {
-                return data;
-            } else {
-                return {
-                    err: 'No token'
-                };
+                 session.create(data.token);
             }
+                return data;
         });
         return promise;
     };

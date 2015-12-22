@@ -16,12 +16,6 @@ var app = angular.module('beamer', [
 
 app.constant('apiEndpoint', 'http://127.0.0.1:1337/');
 
-// 'beamer.views.edit', 'beamer.views.profile',
-// 'beamer.common.login', 'beamer.common.auth', 'beamer.common.session',
-// 'beamer.common.sidebar', 'beamer.common.routeListItem', 'ngFileUpload',
-// 'ngResource', 'ngRoute', 'angular-jwt', 'smoothScroll', 'js-data'
-// 
-
 function jwtConfig(jwtInterceptorProvider) {
     // Send a jwt on all http requests
     jwtInterceptorProvider.tokenGetter = ['session',
@@ -57,7 +51,7 @@ app.run(function(DS, $rootScope, apiEndpoint) {
         // set just for this resource
         afterFind: function(resource, data, cb) {
             // do something more specific to "users"
-            cb(null, data.data);
+            cb(null, data.data.user);
         }
     });
 
@@ -75,13 +69,9 @@ app.run(function(DS, $rootScope, apiEndpoint) {
                 }
             }
         },
-        beforeInject: function(resource, data) {
+        afterFindAll: function(resource, data, cb) {
             // do something more specific to "users"
-            console.log(data);
-            // return data;
-            return {
-                owner_username: 'dharness'
-            };
+            cb(null, data.data.routes);
         }
     });
 

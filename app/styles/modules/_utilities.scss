@@ -4,24 +4,39 @@
 }
 
 @mixin placeholder {
-  ::-webkit-input-placeholder {@content}
-  :-moz-placeholder           {@content}
-  ::-moz-placeholder          {@content}
-  :-ms-input-placeholder      {@content}  
+    ::-webkit-input-placeholder {
+        @content
+    }
+    :-moz-placeholder {
+        @content
+    }
+    ::-moz-placeholder {
+        @content
+    }
+    :-ms-input-placeholder {
+        @content
+    }
+}
+
+@mixin transition($transition...) {
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    -webkit-transition: $transition;
+    transition: $transition;
 }
 
 %bm-no-glow {
-	outline:none;
-	box-shadow:none;
+    outline: none;
+    box-shadow: none;
 }
 
-%bm-flex-container-vertical-center {    
-  display: flex!important;
-  justify-content: center;
-  flex-direction: column;
+%bm-flex-container-vertical-center {
+    display: flex!important;
+    justify-content: center;
+    flex-direction: column;
 }
 
-@function remify($px){
-	$rem: $px/16;
-	@return $rem - 0rem; 
+@function remify($px) {
+    $rem: $px/16;
+    @return $rem - 0rem;
 }

@@ -2,7 +2,7 @@
 // we need to hard-code a better path
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
- 
+@import "~snapjs/snap.css";
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,300");
 @import url("https://fonts.googleapis.com/css?family=Lato:400,300");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");

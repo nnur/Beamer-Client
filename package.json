@@ -22,7 +22,9 @@
     "bootstrap-sass": "^3.3.6",
     "js-data": "^2.8.2",
     "js-data-angular": "^3.1.0",
-    "ng-smooth-scroll": "^1.7.3"
+    "mobile-angular-ui": "0.0.0",
+    "ng-smooth-scroll": "^1.7.3",
+    "snapjs": "^1.2.1"
   },
   "devDependencies": {
     "css-loader": "^0.23.0",

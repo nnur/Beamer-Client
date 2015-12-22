@@ -17,4 +17,5 @@ module.exports = function() {
     require('angular-jwt');
     require('js-data');
     require('js-data-angular');
+    require('../../node_modules/snapjs/snap.js');
 };

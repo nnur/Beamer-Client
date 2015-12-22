@@ -25,7 +25,6 @@ module.exports = function LoginController($scope, auth, $location) {
             email: $scope.user.email,
             password: $scope.user.pwd
         };
-
         auth.loginUser(user).then(loginSuccess, loginError);
     };
 
@@ -49,6 +48,7 @@ module.exports = function LoginController($scope, auth, $location) {
 
     // A successful login routes view to profile
     function loginSuccess(res) {
+        sessionStorage.token
         $location.path("/profile/" + res.user.username);
     }
 };
