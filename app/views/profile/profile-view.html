@@ -1,4 +1,4 @@
-<side-bar>
+<!-- <side-bar>
     <ul class="bm-sidebar-list">
         <li>username</li>
         <li>butter@nutter.com</li>
@@ -14,4 +14,27 @@
     <p>
         <route-list-item routes="profileCtrl.userRoutes"></route-list-item>
     </p>
+</div> -->
+<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+<div layout="horizontal" ng-cloak layout-fill>
+    <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z3" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+        <md-toolbar class="md-whiteframe-z1">
+            <h1>Users</h1>
+        </md-toolbar>
+        <md-list>
+            <md-list-item>
+                <md-button>
+                    I am an entry
+                </md-button>
+            </md-list-item>
+        </md-list>
+    </md-sidenav>
+    <div flex layout="vertical" tabIndex="-1" role="main" class="md-whiteframe-z2">
+        <md-content flex>
+            <md-button hide-gt-sm ng-click="profileCtrl.toggleList()">
+                OPEN
+            </md-button>
+            I am the content on the right
+        </md-content>
+    </div>
 </div>

@@ -5,6 +5,7 @@ var app = angular.module('beamer', [
     'ngRoute',
     'smoothScroll',
     'angular-jwt',
+    'ngMaterial',
     'js-data',
     beamer.common.auth.module.name,
     beamer.common.login.module.name,

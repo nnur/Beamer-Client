@@ -19,12 +19,14 @@
   "homepage": "https://github.com/nnur/Beamer-Client#readme",
   "dependencies": {
     "angular": "^1.4.8",
+    "angular-animate": "^1.4.8",
+    "angular-aria": "^1.4.8",
+    "angular-material": "^1.0.1",
     "bootstrap-sass": "^3.3.6",
     "js-data": "^2.8.2",
     "js-data-angular": "^3.1.0",
     "mobile-angular-ui": "0.0.0",
-    "ng-smooth-scroll": "^1.7.3",
-    "snapjs": "^1.2.1"
+    "ng-smooth-scroll": "^1.7.3"
   },
   "devDependencies": {
     "css-loader": "^0.23.0",

@@ -1,17 +1,11 @@
-var ProfileController = function($scope, $http, user) {
+var ProfileController = function($scope, $http, user, $mdSidenav) {
     console.log('IN PROFILE CONTROLLER', user);
-    this.snapper_ = new Snap({
-        element: document.getElementById('bm-profile-content'),
-        drag: false
-    });
+    this.$mdSidenav_ = $mdSidenav;
 };
 
-ProfileController.prototype.toggleSidebar = function() {
-    if (this.snapper_.state().state == "left") {
-        this.snapper_.close();
-    } else {
-        this.snapper_.open('left');
-    }
-};
+
+ProfileController.prototype.toggleList = function() {
+    this.$mdSidenav_('left').toggle();
+}
 
 module.exports = ProfileController;

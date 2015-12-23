@@ -13,9 +13,11 @@ module.exports = function() {
     /* Angular */
     require('angular');
     require('angular-route');
-    require('ng-smooth-scroll');
+    require('angular-aria');
+    require('angular-animate');
+    require('angular-material');
     require('angular-jwt');
     require('js-data');
     require('js-data-angular');
-    require('../../node_modules/snapjs/snap.js');
+    require('ng-smooth-scroll');
 };
