@@ -7,7 +7,6 @@ var routeAccess = function($rootScope, $location, auth, unprotected) {
 
     $rootScope.$on('$routeChangeStart', function() {
         if (isRouteProtected($location.url()) && !auth.isAuthenticated()) {
-            debugger;
             console.warn('Route ' + $location.url() + ' requires an auth token.');
             $location.path('/');
         }

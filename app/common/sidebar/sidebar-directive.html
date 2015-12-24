@@ -1,7 +1,5 @@
 <div class="bm-sidebar">
-    <div class="snap-drawers">
-        <div class="snap-drawer snap-drawer-left">
-            <ng-transclude></ng-transclude>
-        </div>
-    </div>
+    <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z3" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+        <ng-transclude></ng-transclude>
+    </md-sidenav>
 </div>

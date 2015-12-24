@@ -1,7 +1,10 @@
 $bm-sidebar-width: 264px;
 .bm-sidebar {
-    .snap-drawers {
+    md-sidenav {
         background: url($bg);
+    }
+    .md-button {
+        @extend .sidebarBtn;
     }
 }
 

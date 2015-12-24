@@ -22,10 +22,11 @@ app.constant('unprotected', [
 ]);
 
 // CONFIGURATION
-app.config(beamer.config.jwtConfig);
+app.config(beamer.config.jwt);
 app.config(beamer.config.router);
 
+// RUN
 app.run(beamer.config.routeAccess);
-app.run(beamer.config.dsConfig);
+app.run(beamer.config.ds);
 
 module.exports = app;

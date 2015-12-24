@@ -1,5 +1,8 @@
 var session = function($window, jwtHelper) {
 
+    /**
+     * Never access the token property directly, always use this method
+     */
     this.getToken = function() {
         if (_.isUndefined(this.token)) {
             this.token = sessionStorage.token;
@@ -24,8 +27,8 @@ var session = function($window, jwtHelper) {
 
     // Checks if token is expired and returns the result
     this.isValid = function() {
-        if (this.token) {
-            return !jwtHelper.isTokenExpired(this.token);
+        if (this.getToken()) {
+            return !jwtHelper.isTokenExpired(this.getToken());
         } else {
             return false;
         }

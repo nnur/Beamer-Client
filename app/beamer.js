@@ -28,8 +28,8 @@ module.exports = {
     },
     config: {
         router: require('./config/router'),
-        jwtConfig: require('./config/jwtConfig'),
-        dsConfig: require('./config/dsConfig'),
+        jwt: require('./config/jwt'),
+        ds: require('./config/ds'),
         routeAccess: require('./config/routeAccess'),
     }
 };
