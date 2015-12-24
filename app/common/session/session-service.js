@@ -1,4 +1,4 @@
-var session = function(jwtHelper) {
+var session = function($window, jwtHelper) {
 
     this.getToken = function() {
         if (_.isUndefined(this.token)) {
@@ -10,10 +10,9 @@ var session = function(jwtHelper) {
     // Extracts token information and saves it in the session
     this.create = function(token) {
         this.expDate = jwtHelper.getTokenExpirationDate(token);
-        // this.userid = jwtHelper.decodeToken(token).id;
-        this.userid = '566135093d2411aff5c123e8';
+        this.userid = jwtHelper.decodeToken(token).id;
         this.token = token;
-        sessionStorage.token = token;
+        $window.sessionStorage.token = token;
     };
 
     // Sets session attributes to null

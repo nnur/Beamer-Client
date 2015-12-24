@@ -5,7 +5,7 @@ var APP = __dirname + '/app';
 
 module.exports = {
     context: APP,
-    entry: ['webpack/hot/dev-server', './core/bootstrap.js'],
+    entry: ['./core/bootstrap.js'],
     output: {
         path: APP,
         filename: 'beamer.bundle.js',

@@ -5,9 +5,9 @@ describe('session service', function() {
     beforeEach(function() {
 
         angular.module('angular-jwt', []);
-        module('beamer.common.session');
+        angular.mock.module('beamer.common.session');
 
-        module(function($provide) {
+        angular.mock.module(function($provide) {
             jwtHelper = {};
             $provide.value('jwtHelper', jwtHelper);
         });
@@ -18,15 +18,11 @@ describe('session service', function() {
         session = _session_;
     }));
 
-
-
-
     it('should initialize a session', function() {
         expect(session.expDate).toBeUndefined();
         expect(session.userid).toBeUndefined();
         expect(session.token).toBeUndefined();
     });
-
 
     it('should create a session', function() {
 

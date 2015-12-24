@@ -26,7 +26,7 @@ function jwtConfig(jwtInterceptorProvider) {
     ];
 }
 
-app.config(jwtConfig);
+// app.config(jwtConfig);
 
 app.config(function($httpProvider, $locationProvider) {
     $httpProvider.interceptors.push('jwtInterceptor');

@@ -3,11 +3,11 @@ describe('LoginController', function() {
     var auth, deferred, controller, $scope, rootScope;
 
     beforeEach(function() {
-        module('beamer.common.login');
+        angular.mock.module('beamer.common.login');
     });
 
     beforeEach(function() {
-        module(function($provide) {
+        angular.mock.module(function($provide) {
             jwtHelper = {};
             $provide.value('jwtHelper', jwtHelper);
 
@@ -15,9 +15,13 @@ describe('LoginController', function() {
     });
 
     beforeEach(function() {
-        module(function($provide) {
+        angular.mock.module(function($provide) {
             $provide.service('auth', function() {
-                this.createNewUser = function() {};
+                this.createNewUser = function() {
+                    return {
+                        then: jasmine.createSpy('createNewUser.then')
+                    };
+                };
             });
         });
     });
@@ -36,16 +40,6 @@ describe('LoginController', function() {
 
     describe('$scope.signup', function() {
 
-        it("should create error if pwd values don't match", function() {
-            $scope.user = {
-                newEmail: 'testEmail',
-                pwd1: 'testPwd',
-                pwd2: 'testPwd2'
-            };
-            $scope.signup();
-            expect($scope.error).toEqual("passwords don't match");
-        });
-
         it("should call auth.createNewUser and the returned promise", function() {
             var resolvedValue;
             var promise = deferred.promise;
@@ -54,21 +48,27 @@ describe('LoginController', function() {
             });
 
             $scope.user = {
+                username: 'testUsername',
                 newEmail: 'testEmail',
-                pwd1: 'testPwd',
-                pwd2: 'testPwd'
+                pwd: 'testPwd'
             };
-            var user = {};
-
 
             spyOn(auth, 'createNewUser').and.returnValue(promise);
             $scope.signup();
             expect(auth.createNewUser).toHaveBeenCalled();
 
-            deferred.resolve(123);
+            deferred.resolve({
+                user: {
+                    username: 'testUsername'
+                }
+            });
             expect(resolvedValue).toBeUndefined();
             rootScope.$apply();
-            expect(resolvedValue).toEqual(123);
+            expect(resolvedValue).toEqual({
+                user: {
+                    username: 'testUsername'
+                }
+            });
         });
 
     });
