@@ -27,6 +27,9 @@ module.exports = {
         }
     },
     config: {
-        router: require('./config/router')
+        router: require('./config/router'),
+        jwtConfig: require('./config/jwtConfig'),
+        dsConfig: require('./config/dsConfig'),
+        routeAccess: require('./config/routeAccess'),
     }
 };

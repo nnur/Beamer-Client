@@ -25,7 +25,8 @@ module.exports = function LoginController($scope, auth, $location) {
             email: $scope.user.email,
             password: $scope.user.pwd
         };
-        auth.loginUser(user).then(loginSuccess, loginError);
+        auth.loginUser(user)
+            .then(loginSuccess, loginError);
     };
 
     // This parses the error and adds it to the scope to be shown
@@ -48,7 +49,6 @@ module.exports = function LoginController($scope, auth, $location) {
 
     // A successful login routes view to profile
     function loginSuccess(res) {
-        sessionStorage.token
         $location.path("/profile/" + res.user.username);
     }
 };

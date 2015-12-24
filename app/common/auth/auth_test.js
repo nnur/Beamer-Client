@@ -1,17 +1,17 @@
 describe('auth service', function() {
 
-    var auth, jwtHelper, $httpBackend, mockSession;
+    var auth, jwtHelper, $httpBackend, mockSession, $window;
     var deferred, promise, authRequestHandler;
     var root = 'http://localhost:1337';
 
 
     beforeEach(function() {
         angular.module('angular-jwt', []);
-        module('beamer.common.auth');
+        angular.mock.module('beamer.common.auth');
     });
 
     beforeEach(function() {
-        module(function($provide) {
+        angular.mock.module(function($provide) {
             $provide.service('session', function() {
                 this.isValid = jasmine.createSpy('session.isValid');
                 this.destroy = jasmine.createSpy('session.destroy');
@@ -28,9 +28,13 @@ describe('auth service', function() {
     });
 
     beforeEach(
-        inject(function(_auth_, _session_, $q) {
+        inject(function(_auth_, _session_, $q, _$window_) {
             auth = _auth_;
             mockSession = _session_;
+            $window = _$window_;
+            $window.sessionStorage = {
+                token: 'someToken'
+            };
             //handling promises
             deferred = $q.defer();
         }));
@@ -56,7 +60,7 @@ describe('auth service', function() {
                 token: 'testToken'
             };
 
-            $httpBackend.expectPOST(root + '/user/signup', user)
+            $httpBackend.expectPOST(root + '/users/signup', user)
                 .respond(res);
             auth.createNewUser(user);
             //TODO
@@ -67,8 +71,9 @@ describe('auth service', function() {
     it('should send a post to /login and receive a promise',
         function() {
             var user = 'testUser';
-            $httpBackend.expectPOST(root + '/user/login', user)
-                .respond(deferred.promise);
+            $httpBackend.expectPOST(root + '/users/login', user).respond({
+                data: 'testData'
+            });
             auth.loginUser(user);
             $httpBackend.flush();
         });
