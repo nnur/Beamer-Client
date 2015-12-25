@@ -1,5 +1,7 @@
-var ProfileController = function($scope, $http, user, $mdSidenav) {
+var ProfileController = function($scope, $http, user, $mdSidenav, auth) {
     console.log('IN PROFILE CONTROLLER', user);
+    this.$scope_ = $scope;
+    this.auth_ = auth;
     this.User_ = user;
     this.user = {
         username: user.username,
@@ -16,18 +18,17 @@ ProfileController.prototype.toggleList = function() {
     this.$mdSidenav_('left').toggle();
 };
 
-
 ProfileController.prototype.toggleEditMode = function() {
-
     // This branch is clicking cancel
     if (this.isEditMode) {
         this.user.email = this.goldenUser.email;
         this.user.username = this.goldenUser.username;
-
         this.isEditMode = false;
     } else {
         // This branch is clicking edit
         this.isEditMode = true;
+        // When we click edit, the error message can dissapear
+        this.updateError = false;
         // Wait for interpolation to happen so input is editable
         setTimeout(function() {
             $('#email').focus();
@@ -38,20 +39,26 @@ ProfileController.prototype.toggleEditMode = function() {
 };
 
 ProfileController.prototype.deleteUser = function() {
-    console.log('sdfsdfdsf');
-    this.User_.DSDestroy().catch(function(err) {
-        console.log(err);
+    //TODO: alert warning
+    var self = this;
+    this.User_.DSDestroy().then(function(destroyedUser) {
+        self.auth_.logoutUser();
+        self.$scope_.$emit('userLogoutSuccess');
     });
 };
 
 ProfileController.prototype.saveUserData = function() {
+    var self = this;
     this.isEditMode = false;
     // If it hasn't changed, do nothing
     if (this.User_.email === this.user.email) return;
     this.User_.email = this.user.email;
     // users/dharness/
-    this.User_.DSSave();
+    this.User_.DSSave().catch(function(err) {
+        self.updateError = 'Invalid email. Email not set.';
+        self.user.email = self.goldenUser.email;
+        self.User_.email = self.goldenUser.email;
+    });
 };
-
 
 module.exports = ProfileController;

@@ -27,12 +27,15 @@ var session = function($window, jwtHelper) {
     this.destroy = function() {
         this.expDate = null;
         this.userid = null;
-        this.setToken(null);
+        this.token = null;
+        delete $window.sessionStorage.token;
+        delete $window.sessionStorage.username;
     };
 
     // Checks if token is expired and returns the result
     this.isValid = function() {
         if (this.getToken()) {
+
             return !jwtHelper.isTokenExpired(this.getToken());
         } else {
             return false;

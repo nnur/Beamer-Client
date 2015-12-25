@@ -13,6 +13,13 @@
             <div id="bm-sidebar-bottom">
                 <md-list>
                     <md-list-item>
+                        <!-- ERRORS -->
+                        <div class="alert bm-update-error" ng-show="profileCtrl.updateError">
+                            <span class="glyphicon glyphicon-exclamation-sign"></span>
+                            <span class="sr-only">Error:</span> {{profileCtrl.updateError}}
+                        </div>
+                    </md-list-item>
+                    <md-list-item>
                         <input id="email" class="bm-default-cursor md-button md-ink-ripple" type="text" ng-disabled="!profileCtrl.isEditMode" ng-model="profileCtrl.user.email">
                         </input>
                     </md-list-item>

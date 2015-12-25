@@ -22,7 +22,7 @@ var auth = function($http, session, $q) {
                     user: data.user
                 });
             }
-            return res.data;
+            return data;
         });
         return promise;
     };
@@ -50,7 +50,6 @@ var auth = function($http, session, $q) {
     // Destroys the session
     this.logoutUser = function() {
         session.destroy();
-        $scope.$emit('userLogoutSuccess');
     };
 };
 

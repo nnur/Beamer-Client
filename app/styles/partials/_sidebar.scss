@@ -71,3 +71,10 @@ $bm-sidebar-width: 264px;
 .bm-default-cursor {
     cursor: default!important;
 }
+
+.bm-update-error {
+    @extend .bm-login-error;
+    @extend .center-block;
+    color: $medium-grey!important;
+    margin-bottom: 0px;
+}
