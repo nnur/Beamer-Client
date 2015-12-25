@@ -49,7 +49,7 @@ describe('auth service', function() {
 
     it('should logout the user by destroying their session',
         function() {
-            auth.logout();
+            auth.logoutUser();
             expect(mockSession.destroy).toHaveBeenCalled();
         });
     /** createNewUser */
@@ -57,7 +57,9 @@ describe('auth service', function() {
         function() {
             var user = 'testUser';
             var res = {
-                token: 'testToken'
+                data: {
+                    token: 'testToken'
+                }
             };
 
             $httpBackend.expectPOST(root + '/users/signup', user)

@@ -1,6 +1,7 @@
 describe('session service', function() {
 
-    var session, jwtHelper;
+    var session, jwtHelper,
+        $window;
 
     beforeEach(function() {
 
@@ -14,7 +15,11 @@ describe('session service', function() {
 
     });
 
-    beforeEach(inject(function(_session_) {
+    beforeEach(inject(function(_session_, _$window_) {
+        $window = _$window_;
+        $window.sessionStorage = {
+            username: 'someusername'
+        };
         session = _session_;
     }));
 
@@ -26,8 +31,6 @@ describe('session service', function() {
 
     it('should create a session', function() {
 
-        var token = 'testToken';
-
         var jwtHelperSpy = jasmine.createSpyObj('jwtHelper', ['getTokenExpirationDate', 'decodeToken']);
         jwtHelperSpy.getTokenExpirationDate.and
             .returnValue('testDate');
@@ -38,14 +41,20 @@ describe('session service', function() {
 
         angular.extend(jwtHelper, jwtHelperSpy);
 
-        session.create(token);
+        session.create({
+            token: 'testToken',
+            user: {
+                username: 'testUsername'
+            }
+        });
 
-        expect(jwtHelper.getTokenExpirationDate).toHaveBeenCalledWith(token);
-        expect(jwtHelper.decodeToken).toHaveBeenCalledWith(token);
+        expect(jwtHelper.getTokenExpirationDate).toHaveBeenCalledWith('testToken');
+        expect(jwtHelper.decodeToken).toHaveBeenCalledWith('testToken');
 
         expect(session.expDate).toEqual('testDate');
         expect(session.userid).toEqual('testId');
         expect(session.token).toEqual('testToken');
+        expect($window.sessionStorage.username).toEqual('testUsername');
     });
 
 

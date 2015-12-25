@@ -1,6 +1,23 @@
 // Karma configuration
 var webpackConfig = require('./webpack.config.js');
 webpackConfig.entry = {};
+webpackConfig.devtool = 'inline-source-map';
+webpackConfig.module = {
+    loaders: [{
+        test: /\.scss$/,
+        loader: 'null'
+    }, {
+        test: /\.(png|jpg)$/,
+        loader: 'url?limit=25000'
+    }, {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "url-loader?limit=10000&minetype=application/font-woff"
+    }, {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "file-loader"
+    }]
+};
+
 
 module.exports = function(config) {
     config.set({
@@ -29,7 +46,7 @@ module.exports = function(config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            './app/core/bootstrap.js': ['webpack'],
+            './app/core/bootstrap.js': ['webpack', 'coverage', 'sourcemap'],
             './app/**/*_test.js': ['webpack'],
         },
 

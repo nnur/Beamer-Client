@@ -1,43 +1,45 @@
 {
-    "name": "beamer-front",
-    "version": "1.0.0",
-    "description": "",
-    "main": "app-module.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node node_modules/.bin/webpack-dev-server --content-base app/ --hot"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/nnur/Beamer-Client.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/nnur/Beamer-Client/issues"
-    },
-    "homepage": "https://github.com/nnur/Beamer-Client#readme",
-    "dependencies": {
-        "angular": "^1.4.8",
-        "angular-animate": "^1.4.8",
-        "angular-aria": "^1.4.8",
-        "angular-jwt": "0.0.9",
-        "angular-material": "^1.0.1",
-        "angular-route": "^1.4.8",
-        "bootstrap-sass": "^3.3.6",
-        "js-data": "^2.8.2",
-        "js-data-angular": "^3.1.0",
-        "mobile-angular-ui": "0.0.0",
-        "ng-smooth-scroll": "^1.7.3"
-    },
-    "devDependencies": {
-        "css-loader": "^0.23.0",
-        "file-loader": "^0.8.5",
-        "node-sass": "^3.4.2",
-        "sass-loader": "^3.1.2",
-        "style-loader": "^0.13.0",
-        "url-loader": "^0.5.7",
-        "webpack": "^1.12.9",
-        "webpack-dev-server": "^1.14.0"
-    }
+  "name": "beamer-front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app-module.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node node_modules/.bin/webpack-dev-server --content-base app/ --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nnur/Beamer-Client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nnur/Beamer-Client/issues"
+  },
+  "homepage": "https://github.com/nnur/Beamer-Client#readme",
+  "dependencies": {
+    "angular": "^1.4.8",
+    "angular-animate": "^1.4.8",
+    "angular-aria": "^1.4.8",
+    "angular-jwt": "0.0.9",
+    "angular-material": "^1.0.1",
+    "angular-route": "^1.4.8",
+    "bootstrap-sass": "^3.3.6",
+    "js-data": "^2.8.2",
+    "js-data-angular": "^3.1.0",
+    "mobile-angular-ui": "0.0.0",
+    "ng-smooth-scroll": "^1.7.3"
+  },
+  "devDependencies": {
+    "css-loader": "^0.23.0",
+    "file-loader": "^0.8.5",
+    "karma-sourcemap-loader": "^0.3.6",
+    "node-sass": "^3.4.2",
+    "null-loader": "^0.1.1",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  }
 }

@@ -19,7 +19,7 @@ var session = function($window, jwtHelper) {
     this.create = function(data) {
         this.expDate = jwtHelper.getTokenExpirationDate(data.token);
         this.userid = jwtHelper.decodeToken(data.token).id;
-        sessionStorage.username = data.user.username;
+        $window.sessionStorage.username = data.user.username;
         this.setToken(data.token);
     };
 
