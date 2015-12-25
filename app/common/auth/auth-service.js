@@ -15,9 +15,14 @@ var auth = function($http, session, $q) {
             url: root + '/users/signup',
             data: user
         }).then(function(res) {
-            if (res.data.token) {
-                session.create(res.data.token);
+            var data = res.data.data;
+            if (data.token) {
+                session.create({
+                    token: data.token,
+                    user: data.user
+                });
             }
+            return res.data;
         });
         return promise;
     };
@@ -32,7 +37,10 @@ var auth = function($http, session, $q) {
         }).then(function(res) {
             var data = res.data.data;
             if (data.token) {
-                session.create(data.token);
+                session.create({
+                    token: data.token,
+                    user: data.user
+                });
             }
             return data;
         });
@@ -40,8 +48,9 @@ var auth = function($http, session, $q) {
     };
 
     // Destroys the session
-    this.logout = function() {
+    this.logoutUser = function() {
         session.destroy();
+        $scope.$emit('userLogoutSuccess');
     };
 };
 

@@ -1,24 +1,45 @@
 <div layout="horizontal" ng-cloak layout-fill>
     <side-bar>
-        <md-list>
-            <md-list-item>
-                <md-button>
-                    {{profileCtrl.user.email}}
-                </md-button>
-            </md-list-item>
-            <md-list-item>
-                <md-button>
-                    {{profileCtrl.user.username}}
-                </md-button>
-            </md-list-item>
-            <md-list-item>
-                <md-button>
-                    Delete User
-                </md-button>
-            </md-list-item>
-        </md-list>
+        <div id="bm-settings-sidebar">
+            <!-- ICON -->
+            <div id="bm-sidebar-top">
+                <div class="bm-sidebar-icon">
+                    <md-button class="md-fab">
+                        <div class="bm-icon-letter">{{profileCtrl.user.initial}}</div>
+                    </md-button>
+                </div>
+            </div>
+            <!-- LIST -->
+            <div id="bm-sidebar-bottom">
+                <md-list>
+                    <md-list-item>
+                        <input id="email" class="bm-default-cursor md-button md-ink-ripple" type="text" ng-disabled="!profileCtrl.isEditMode" ng-model="profileCtrl.user.email">
+                        </input>
+                    </md-list-item>
+                    <md-list-item>
+                        <input class="bm-default-cursor md-button md-ink-ripple" type="email" ng-disabled="true" ng-model="profileCtrl.user.username">
+                        </input>
+                    </md-list-item>
+                    <md-list-item>
+                        <md-button aria-label="aria-sucks" ng-click="profileCtrl.deleteUser()">
+                            <md-icon md-svg-src="../../assets/images/icons/delete_user.svg"></md-icon>
+                            Delete user
+                        </md-button>
+                    </md-list-item>
+                    <md-list-item>
+                        <md-button class="bm-half-bar-btn " ng-click="profileCtrl.toggleEditMode()" ng-class="{'bm-editmode-dark': profileCtrl.isEditMode}" aria-label="aria-sucks">
+                            {{profileCtrl.isEditMode ? 'Cancel':'Edit'}}
+                        </md-button>
+                        <md-button class="bm-half-bar-btn" ng-click="profileCtrl.saveUserData();" aria-label="aria-sucks">
+                            Save
+                        </md-button>
+                    </md-list-item>
+                </md-list>
+            </div>
+        </div>
     </side-bar>
     <!-- 
+        PAGE CONTENTS
      -->
     <div flex layout="vertical" tabIndex="-1" role="main" class="md-whiteframe-z2">
         <md-content flex>

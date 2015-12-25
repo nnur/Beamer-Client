@@ -17,6 +17,9 @@ var ds = function(DS, $rootScope, apiEndpoint) {
         afterFind: function(resource, data, cb) {
             // do something more specific to "users"
             cb(null, data.data.user);
+        },
+        afterUpdate: function(resource, data, cb) {
+            cb(null, data.data);
         }
     });
 

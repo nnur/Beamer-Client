@@ -10,19 +10,24 @@ var session = function($window, jwtHelper) {
         return this.token;
     };
 
-    // Extracts token information and saves it in the session
-    this.create = function(token) {
-        this.expDate = jwtHelper.getTokenExpirationDate(token);
-        this.userid = jwtHelper.decodeToken(token).id;
+    this.setToken = function(token) {
         this.token = token;
         $window.sessionStorage.token = token;
+    }
+
+    // Extracts token information and saves it in the session
+    this.create = function(data) {
+        this.expDate = jwtHelper.getTokenExpirationDate(data.token);
+        this.userid = jwtHelper.decodeToken(data.token).id;
+        sessionStorage.username = data.user.username;
+        this.setToken(data.token);
     };
 
     // Sets session attributes to null
     this.destroy = function() {
         this.expDate = null;
         this.userid = null;
-        this.token = null;
+        this.setToken(null);
     };
 
     // Checks if token is expired and returns the result

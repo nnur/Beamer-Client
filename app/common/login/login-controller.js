@@ -49,6 +49,6 @@ module.exports = function LoginController($scope, auth, $location) {
 
     // A successful login routes view to profile
     function loginSuccess(res) {
-        $location.path("/profile/" + res.user.username);
+        $location.path("/profile/" + res.data.user.username);
     }
 };

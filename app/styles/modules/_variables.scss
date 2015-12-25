@@ -1,6 +1,10 @@
 // IMAGE PATHS
 $bg: "../assets/images/background.png";
-// FONTS
+
+/*
+* Fonts
+*/
+
 $font-lato: 'Lato',
 sans-serif;
 $font-roboto: 'Roboto',
@@ -11,14 +15,26 @@ Helvetica,
 Arial,
 sans-serif;
 $font-heiti: 'STHeiti';
-// COLORS
+$font-phosphate: 'phosphateinline';
+
+/*
+* Colors
+*/
+
 $pink: #D16982;
 $dark-pink: darken($pink, 5%);
 $purple: #6F6889;
+$light-purple: #7D83A9;
+$medium-purple: #483E6E;
 $dark-purple: #262039;
 $yellow: #E2E470;
 $white: #FFFFFF;
 $grey: #eeeeee;
-$bidvine-teal: #48bdbc;
-// COMPONENT SPECIFIC
+$bm-teal: #48bdbc;
+$bm-teal-light: #8EE6E6;
+
+/*
+* Component Specific
+*/
+
 $form-width: 301;
