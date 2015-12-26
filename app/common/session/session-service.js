@@ -5,7 +5,7 @@ var session = function($window, jwtHelper) {
      */
     this.getToken = function() {
         if (_.isUndefined(this.token)) {
-            this.token = sessionStorage.token;
+            this.token = $window.sessionStorage.token;
         }
         return this.token;
     };

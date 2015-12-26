@@ -4,15 +4,11 @@ describe('session service', function() {
         $window;
 
     beforeEach(function() {
-
-        angular.module('angular-jwt', []);
         angular.mock.module('beamer.common.session');
-
         angular.mock.module(function($provide) {
             jwtHelper = {};
             $provide.value('jwtHelper', jwtHelper);
         });
-
     });
 
     beforeEach(inject(function(_session_, _$window_) {
@@ -72,6 +68,8 @@ describe('session service', function() {
         expect(session.expDate).toBeNull();
         expect(session.userid).toBeNull();
         expect(session.token).toBeNull();
+        expect($window.sessionStorage.token).toBeUndefined();
+        expect($window.sessionStorage.username).toBeUndefined();
     });
 
 
@@ -81,8 +79,20 @@ describe('session service', function() {
         session.isValid();
         expect(jwtHelper.isTokenExpired).toHaveBeenCalledWith("testToken");
         expect(session.isValid()).toEqual(false);
+    });
 
+    it('should set the token if one is given', function() {
+        var token = "testToken";
+        session.setToken(token);
+        expect(session.token).toEqual('testToken');
+        expect($window.sessionStorage.token).toEqual('testToken');
+    });
 
+    it('should get the token if one is present', function() {
+        $window.sessionStorage.token = 'testToken';
+        expect(token).toBeUndefined();
+        var token = session.getToken();
+        expect(token).toEqual('testToken');
     });
 
 });

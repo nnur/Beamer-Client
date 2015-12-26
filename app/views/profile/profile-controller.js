@@ -1,17 +1,15 @@
-var ProfileController = function($scope, $http, user, $mdSidenav, auth) {
-    console.log('IN PROFILE CONTROLLER', user);
+var ProfileController = function($scope, user, $mdSidenav, auth) {
     this.$scope_ = $scope;
     this.auth_ = auth;
     this.User_ = user;
+    this.goldenUser = angular.copy(this.user);
+    this.$mdSidenav_ = $mdSidenav;
+    this.isEditMode = false;
     this.user = {
         username: user.username,
         email: user.email,
         initial: user.username.charAt(0)
     };
-    this.goldenUser = angular.copy(this.user);
-    this.$mdSidenav_ = $mdSidenav;
-    this.isEditMode = false;
-    this.editOrCancel = 'Edit';
 };
 
 ProfileController.prototype.toggleList = function() {

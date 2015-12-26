@@ -6,7 +6,6 @@ describe('auth service', function() {
 
 
     beforeEach(function() {
-        angular.module('angular-jwt', []);
         angular.mock.module('beamer.common.auth');
     });
 
