@@ -1,34 +1,53 @@
-<!-- <side-bar>
-    <ul class="bm-sidebar-list">
-        <li>username</li>
-        <li>butter@nutter.com</li>
-        <li>delete account</li>
-    </ul>
-</side-bar>
-<div id="bm-profile-content" class="snap-content" style="background:white">
-    <button ng-click="profileCtrl.toggleSidebar()">Toggle sidebar</button>
-    <div class="bm-profile-icon">
-        <img src="assets/images/profile_icon.svg">
-    </div>
-    <h4>I am The Title Now</h4>
-    <p>
-        <route-list-item routes="profileCtrl.userRoutes"></route-list-item>
-    </p>
-</div> -->
-<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
 <div layout="horizontal" ng-cloak layout-fill>
-    <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z3" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
-        <md-toolbar class="md-whiteframe-z1">
-            <h1>Users</h1>
-        </md-toolbar>
-        <md-list>
-            <md-list-item>
-                <md-button>
-                    I am an entry
-                </md-button>
-            </md-list-item>
-        </md-list>
-    </md-sidenav>
+    <side-bar>
+        <div id="bm-settings-sidebar">
+            <!-- ICON -->
+            <div id="bm-sidebar-top">
+                <div class="bm-sidebar-icon">
+                    <md-button class="md-fab">
+                        <div class="bm-icon-letter">{{profileCtrl.user.initial}}</div>
+                    </md-button>
+                </div>
+            </div>
+            <!-- LIST -->
+            <div id="bm-sidebar-bottom">
+                <md-list>
+                    <md-list-item>
+                        <!-- ERRORS -->
+                        <div class="alert bm-update-error" ng-show="profileCtrl.updateError">
+                            <span class="glyphicon glyphicon-exclamation-sign"></span>
+                            <span class="sr-only">Error:</span> {{profileCtrl.updateError}}
+                        </div>
+                    </md-list-item>
+                    <md-list-item>
+                        <input id="email" class="bm-default-cursor md-button md-ink-ripple" type="text" ng-disabled="!profileCtrl.isEditMode" ng-model="profileCtrl.user.email">
+                        </input>
+                    </md-list-item>
+                    <md-list-item>
+                        <input class="bm-default-cursor md-button md-ink-ripple" type="email" ng-disabled="true" ng-model="profileCtrl.user.username">
+                        </input>
+                    </md-list-item>
+                    <md-list-item>
+                        <md-button aria-label="aria-sucks" ng-click="profileCtrl.deleteUser()">
+                            <md-icon md-svg-src="../../assets/images/icons/delete_user.svg"></md-icon>
+                            Delete user
+                        </md-button>
+                    </md-list-item>
+                    <md-list-item>
+                        <md-button class="bm-half-bar-btn " ng-click="profileCtrl.toggleEditMode()" ng-class="{'bm-editmode-dark': profileCtrl.isEditMode}" aria-label="aria-sucks">
+                            {{profileCtrl.isEditMode ? 'Cancel':'Edit'}}
+                        </md-button>
+                        <md-button class="bm-half-bar-btn" ng-click="profileCtrl.saveUserData();" aria-label="aria-sucks">
+                            Save
+                        </md-button>
+                    </md-list-item>
+                </md-list>
+            </div>
+        </div>
+    </side-bar>
+    <!-- 
+        PAGE CONTENTS
+     -->
     <div flex layout="vertical" tabIndex="-1" role="main" class="md-whiteframe-z2">
         <md-content flex>
             <md-button hide-gt-sm ng-click="profileCtrl.toggleList()">

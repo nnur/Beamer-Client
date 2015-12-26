@@ -1,8 +1,7 @@
 .bm-landing-page-old {
     $bg-img-path: '../assets/images/background.png';
     $map-img-path: '../assets/images/map-image.png';
-
-        overflow-x: hidden;
+    overflow-x: hidden;
     body {
         overflow-x: hidden;
         font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -226,7 +225,6 @@
         background: red!important;
         &:after {
             content: '';
-
             width: 80%;
             position: absolute;
             left: 10%;
@@ -681,7 +679,7 @@
     ul.social-buttons li a:hover,
     ul.social-buttons li a:focus,
     ul.social-buttons li a:active {
-        background-color: $bidvine-teal;
+        background-color: $bm-teal;
     }
     .btn:focus,
     .btn:active,
@@ -766,7 +764,7 @@
         text-shadow: none;
         background: #e2e470;
     }
-    .bm-social-icon-btn{
+    .bm-social-icon-btn {
         @extend %bm-flex-container-vertical-center;
     }
     img::selection {

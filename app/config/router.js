@@ -23,7 +23,8 @@ var router = function($routeProvider) {
         })
         .when('/', {
             templateUrl: 'views/landing/landing-view.html',
-        });
+        })
+        .otherwise('/');
 };
 
 module.exports = router;

@@ -8,7 +8,7 @@ module.exports = function() {
     require('../views/landing/js/cbpAnimatedHeader');
 
     /* Styles */
-    // require('../styles/importer.scss');
+    require('../styles/importer.scss');
 
     /* Angular */
     require('angular');

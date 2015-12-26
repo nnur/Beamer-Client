@@ -1,7 +1,59 @@
 $bm-sidebar-width: 264px;
 .bm-sidebar {
-    .snap-drawers {
+    md-sidenav {
         background: url($bg);
+        height: 100vh!important;
+    }
+    md-list {
+        md-list-item {
+            padding: 0px;
+        }
+        .md-button {
+            @extend .bm-sidebarBtn;
+            margin-bottom: remify(1)!important;
+            height: remify(56);
+            &[disabled="disabled"] {
+                color: white!important;
+            }
+            &[aria-disabled="false"] {
+                color: $bm-teal-light!important;
+                background: transparentize($purple, 0.5)!important;
+            }
+        }
+        .bm-half-bar-btn {
+            margin-left: remify(0.5)!important;
+            margin-right: remify(0.5)!important;
+        }
+    }
+    .md-ripple-container {
+        border-radius: 0!important;
+    }
+}
+
+#bm-settings-sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    #bm-sidebar-top {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1;
+    }
+    #bm-sidebar-bottom {
+        flex: 2;
+    }
+}
+
+.bm-sidebar-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .md-fab {
+        width: 120px!important;
+        height: 120px!important;
+        background: $medium-purple!important;
+        border: solid 1px white;
     }
 }
 
@@ -14,4 +66,15 @@ $bm-sidebar-width: 264px;
         padding: remify(15);
         margin-top: remify(1.5);
     }
+}
+
+.bm-default-cursor {
+    cursor: default!important;
+}
+
+.bm-update-error {
+    @extend .bm-login-error;
+    @extend .center-block;
+    color: $medium-grey!important;
+    margin-bottom: 0px;
 }
