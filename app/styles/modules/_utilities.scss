@@ -18,6 +18,12 @@
     }
 }
 
+@mixin on-small {
+    @media screen and (max-width: $screen-xs) {
+        @content;
+    }
+}
+
 @mixin transition($transition...) {
     -moz-transition: $transition;
     -o-transition: $transition;

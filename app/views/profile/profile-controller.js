@@ -2,15 +2,19 @@ var ProfileController = function($scope, user, $mdSidenav, auth) {
     this.$scope_ = $scope;
     this.auth_ = auth;
     this.User_ = user;
-    this.goldenUser = angular.copy(this.user);
-    this.$mdSidenav_ = $mdSidenav;
-    this.isEditMode = false;
     this.user = {
         username: user.username,
         email: user.email,
-        initial: user.username.charAt(0)
+        initial: user.username.charAt(0),
+        routes: ['jeremy', 'cuddlemore', 'backmassagestoo', 'howbetterbf']
     };
+    console.log(this.user);
+    this.goldenUser = angular.copy(this.user);
+    this.$mdSidenav_ = $mdSidenav;
+    this.isEditMode = false;
 };
+
+
 
 ProfileController.prototype.toggleList = function() {
     this.$mdSidenav_('left').toggle();

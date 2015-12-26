@@ -1,0 +1,45 @@
+.bm-routes-panel {
+    .bm-route-item-text {
+        font-size: remify(22);
+        color: $list-purple;
+        font-family: $font-heiti;
+        text-transform: none!important;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        margin: 0px;
+        padding-left: remify(15);
+        border-radius: 0;
+        height: 100%;
+        width: 100vw;
+        z-index: 1;
+        position: absolute;
+        md-divider {
+            margin: 0;
+        }
+    }
+    .md-fab-toolbar-content {
+        display: flex;
+        flex-direction: row;
+    }
+    md-toolbar {
+        width: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: auto;
+        margin-right: 0px !important;
+        .md-fab {
+            box-shadow: none!important;
+        }
+    }
+    .md-fab {
+        box-shadow: none;
+    }
+}
+
+.bm-route-options {
+    background: none!important;
+    @include on-small {
+        background-color: white!important;
+    }
+}
