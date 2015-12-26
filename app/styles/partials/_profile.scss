@@ -1,3 +1,21 @@
-#bm-profile-content {
-    background: white;
+.bm-profile-toolbar {
+    $user-icon-size: 70px;
+    display: flex;
+    height: $user-icon-size;
+    flex-direction: column;
+    justify-content: center;
+    background: none!important;
+    @include svg-color($medium-grey);
+    button {
+        height: $user-icon-size!important;
+        width: $user-icon-size!important;
+        md-icon {
+            width: auto;
+            height: auto;
+        }
+    }
+}
+
+.bm-profile-center-panel {
+    margin-top: remify(20);
 }

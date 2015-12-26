@@ -53,7 +53,17 @@
             <md-button hide-gt-sm ng-click="profileCtrl.toggleList()">
                 OPEN
             </md-button>
-            <routes-panel routes=profileCtrl.user.routes></routes-panel>
+            <md-toolbar class="bm-profile-toolbar">
+                <div class="md-toolbar-tools">
+                    <span flex></span>
+                    <md-button class="md-icon-button" aria-label="More">
+                        <md-icon md-svg-icon="assets/images/icons/user.svg"></md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+            <div class="bm-profile-center-panel">
+                <routes-panel routes=profileCtrl.user.routes></routes-panel>
+            </div>
         </md-content>
     </div>
 </div>

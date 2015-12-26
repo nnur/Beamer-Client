@@ -3,6 +3,12 @@
     height: $height;
 }
 
+@mixin svg-color($color) {
+    * {
+        fill: $color;
+    }
+}
+
 @mixin placeholder {
     ::-webkit-input-placeholder {
         @content
@@ -18,8 +24,14 @@
     }
 }
 
-@mixin on-small {
+@mixin on-xsmall {
     @media screen and (max-width: $screen-xs) {
+        @content;
+    }
+}
+
+@mixin on-small {
+    @media screen and (max-width: $screen-sm) {
         @content;
     }
 }

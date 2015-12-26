@@ -1,4 +1,9 @@
 .bm-routes-panel {
+    @extend .center-block;
+    width: 85%;
+    @include on-small {
+        width: 100%;
+    }
     .bm-route-item-text {
         font-size: remify(22);
         color: $list-purple;
@@ -35,11 +40,21 @@
     .md-fab {
         box-shadow: none;
     }
+    .bm-routes-header {
+        background-color: $really-light-purple;
+        color: $medium-purple;
+        font-size: remify(28);
+        padding: remify(10);
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: remify(15);
+        font-family: $font-heiti;
+    }
 }
 
 .bm-route-options {
     background: none!important;
-    @include on-small {
+    @include on-xsmall {
         background-color: white!important;
     }
 }
