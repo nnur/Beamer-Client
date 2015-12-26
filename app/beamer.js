@@ -1,6 +1,6 @@
 /**
  * @file Defines the structure for the `beamer` module. Represents a top level
- *       	glob for all the angular components of the app.
+ *          glob for all the angular components of the app.
  * @author Naila Nur
  */
 module.exports = {
@@ -24,6 +24,9 @@ module.exports = {
         },
         sidebar: {
             module: require('./common/sidebar/sidebar.js')
+        },
+        routesPanel: {
+            module: require('./common/routesPanel/routes-panel.js')
         }
     },
     config: {

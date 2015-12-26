@@ -10,6 +10,7 @@ var app = angular.module('beamer', [
     beamer.common.auth.module.name,
     beamer.common.login.module.name,
     beamer.common.routeListItem.module.name,
+    beamer.common.routesPanel.module.name,
     beamer.common.session.module.name,
     beamer.common.sidebar.module.name,
     beamer.views.profile.module.name
