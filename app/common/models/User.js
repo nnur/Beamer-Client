@@ -1,8 +1,14 @@
 var User = function(DS, apiEndpoint) {
     var User = DS.defineResource({
         name: 'users',
+        computed: {
+            initial: ['username', function(username) {
+                return username.charAt(0);
+            }]
+        },
         idAttribute: 'username',
         basePath: apiEndpoint,
+        linkRelations: true,
         relations: {
             hasMany: {
                 routes: [{

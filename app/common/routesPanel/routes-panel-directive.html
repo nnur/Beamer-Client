@@ -2,7 +2,7 @@
     <div class="bm-routes-header">
         routes
     </div>
-    <div ng-repeat="route in user.routes">
+    <div ng-repeat="route in currentUser.routes">
         <md-fab-toolbar md-open="false" md-direction="left">
             <md-button class="bm-route-item-text" style="width: 100vw">
                 /{{route.routename}}
@@ -14,13 +14,16 @@
             </md-fab-trigger>
             <md-toolbar>
                 <md-fab-actions class="md-toolbar-tools">
+                    <!-- COPY -->
                     <md-button aria-label="copy" class="md-icon-button" clipboard text="route.routename" on-copied="routesPanelCtrl.copySuccess()" on-error="routesPanelCtrl.copyFail(err)">
                         <md-icon md-svg-src="assets/images/icons/copy.svg"></md-icon>
                     </md-button>
+                    <!-- EDIT -->
                     <md-button aria-label="edit" class="md-icon-button">
                         <md-icon class="bm-svg-purple" md-svg-src="assets/images/icons/edit.svg"></md-icon>
                     </md-button>
-                    <md-button aria-label="delete" class="md-icon-button">
+                    <!-- DELETE -->
+                    <md-button aria-label="delete" ng-click="routesPanelCtrl.deleteRoute(route.routename)" class="md-icon-button">
                         <md-icon md-svg-src="assets/images/icons/delete.svg"></md-icon>
                     </md-button>
                 </md-fab-actions>

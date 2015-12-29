@@ -5,7 +5,7 @@
             <div id="bm-sidebar-top">
                 <div class="bm-sidebar-icon">
                     <md-button class="md-fab">
-                        <div class="bm-icon-letter">{{profileCtrl.user.initial}}</div>
+                        <div class="bm-icon-letter">{{profileCtrl.currentUser.initial}}</div>
                     </md-button>
                 </div>
             </div>
@@ -21,12 +21,12 @@
                     </md-list-item>
                     <!-- EMAIL -->
                     <md-list-item>
-                        <input id="email" class="bm-default-cursor md-button md-ink-ripple" type="text" ng-disabled="!profileCtrl.isEditMode" ng-model="profileCtrl.user.email">
+                        <input id="email" class="bm-default-cursor md-button md-ink-ripple" type="text" ng-disabled="!profileCtrl.isEditMode" ng-model="profileCtrl.currentUser.email">
                         </input>
                     </md-list-item>
                     <!-- USERNAME -->
                     <md-list-item>
-                        <input class="bm-default-cursor md-button md-ink-ripple" type="email" ng-disabled="true" ng-model="profileCtrl.user.username">
+                        <input class="bm-default-cursor md-button md-ink-ripple" type="email" ng-disabled="true" ng-model="profileCtrl.currentUser.username">
                         </input>
                     </md-list-item>
                     <!-- DELETE USER -->
@@ -74,7 +74,7 @@
         CENTER PANEL
          -->
             <div class="bm-profile-center-panel">
-                <routes-panel user="profileCtrl.user"></routes-panel>
+                <routes-panel current-user="profileCtrl.currentUser"></routes-panel>
             </div>
         </md-content>
     </div>

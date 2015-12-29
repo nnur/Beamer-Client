@@ -5,7 +5,7 @@
 var profileController = require('./profile-controller');
 
 var profileModule = angular.module('beamer.views.profile', [])
-    .controller('ProfileController', ['$scope', 'user', '$mdSidenav', 'auth', '$mdDialog',
+    .controller('ProfileController', ['$scope', 'currentUser', '$mdSidenav', 'auth', '$mdDialog', 'User',
         profileController
     ]);
 

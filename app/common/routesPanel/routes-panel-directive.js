@@ -5,7 +5,7 @@ var routesPanel = function() {
         restrict: 'E',
         templateUrl: 'common/routesPanel/routes-panel-directive.html',
         scope: {
-            user: '=user'
+            currentUser: '='
         },
         controller: RoutesPanelCtrl,
         controllerAs: 'routesPanelCtrl'

@@ -1,19 +1,15 @@
-var ProfileController = function($scope, user, $mdSidenav, auth, $mdDialog) {
+var ProfileController = function($scope, currentUser, $mdSidenav, auth, $mdDialog, User) {
+    // Private
     this.$scope_ = $scope;
     this.auth_ = auth;
-    this.User_ = user;
-    this.user = {
-        username: user.username,
-        email: user.email,
-        initial: user.username.charAt(0),
-        routes: user.routes
-    };
-    this.goldenUser = angular.copy(this.user);
     this.$mdSidenav_ = $mdSidenav;
     this.$mdDialog_ = $mdDialog;
+
+    // Public
+    this.currentUser = currentUser;
+    this.goldenUser = angular.copy(this.currentUser);
     this.isEditMode = false;
 };
-
 
 ProfileController.prototype.openUserMenu = function($mdOpenMenu) {
     // Do not allow user to toggle sidenav in desktop
@@ -27,8 +23,8 @@ ProfileController.prototype.openUserMenu = function($mdOpenMenu) {
 ProfileController.prototype.toggleEditMode = function() {
     // This branch is clicking cancel
     if (this.isEditMode) {
-        this.user.email = this.goldenUser.email;
-        this.user.username = this.goldenUser.username;
+        this.currentUser.email = this.goldenUser.email;
+        this.currentUser.username = this.goldenUser.username;
         this.isEditMode = false;
     } else {
         // This branch is clicking edit
@@ -47,7 +43,7 @@ ProfileController.prototype.toggleEditMode = function() {
 ProfileController.prototype.deleteUser = function() {
     //TODO: alert warning
     var self = this;
-    this.User_.DSDestroy().then(function(destroyedUser) {
+    this.currentUser.DSDestroy().then(function(destroyedUser) {
         self.logoutUser();
     });
 };
@@ -57,20 +53,18 @@ ProfileController.prototype.logoutUser = function() {
     this.$scope_.$emit('userLogoutSuccess');
 };
 
-
 ProfileController.prototype.saveUserData = function() {
     var self = this;
     this.isEditMode = false;
     // If it hasn't changed, do nothing
-    if (this.User_.email === this.user.email) return;
-    this.User_.email = this.user.email;
+    if (this.currentUser.email === this.goldenUser.email) return;
+    // this.currentUser.email = this.user.email;
     // users/dharness/
-    this.User_.DSSave().then(function(user) {
-        self.goldenUser = angular.copy(self.user);
+    this.currentUser.DSSave().then(function(user) {
+        self.goldenUser = angular.copy(self.currentUser);
     }).catch(function(err) {
         self.updateError = 'Invalid email. Email not set.';
-        self.user.email = self.goldenUser.email;
-        self.User_.email = self.goldenUser.email;
+        self.currentUser.email = self.goldenUser.email;
     });
 };
 
