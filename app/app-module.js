@@ -1,6 +1,5 @@
 var beamer = require('./beamer');
 
-
 var app = angular.module('beamer', [
     'ngRoute',
     'smoothScroll',
@@ -13,6 +12,7 @@ var app = angular.module('beamer', [
     beamer.common.routesPanel.module.name,
     beamer.common.session.module.name,
     beamer.common.sidebar.module.name,
+    beamer.common.models.module.name,
     beamer.views.profile.module.name
 ]);
 

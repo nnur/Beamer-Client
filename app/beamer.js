@@ -27,6 +27,9 @@ module.exports = {
         },
         routesPanel: {
             module: require('./common/routesPanel/routes-panel.js')
+        },
+        models: {
+            module: require('./common/models/models.js')
         }
     },
     config: {

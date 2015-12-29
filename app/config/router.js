@@ -10,10 +10,10 @@ var router = function($routeProvider) {
             controller: 'ProfileController',
             controllerAs: 'profileCtrl',
             resolve: {
-                user: function($route, DS) {
+                user: function($route, DS, User) {
                     var username = $route.current.params.username;
-                    return DS.find('users', username).then(function(user) {
-                        return DS.loadRelations('users', user.username, ['routes'])
+                    return User.find(username).then(function(user) {
+                        return User.loadRelations(user.username, ['routes'])
                             .then(function(user) {
                                 return user;
                             });

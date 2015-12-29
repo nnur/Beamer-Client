@@ -19,5 +19,6 @@ module.exports = function() {
     require('angular-jwt');
     require('js-data');
     require('js-data-angular');
+    require('js-data-http');
     require('ng-smooth-scroll');
 };

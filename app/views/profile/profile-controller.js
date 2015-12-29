@@ -1,4 +1,4 @@
-var ProfileController = function($scope, user, $mdSidenav, auth) {
+var ProfileController = function($scope, user, $mdSidenav, auth, $mdDialog) {
     this.$scope_ = $scope;
     this.auth_ = auth;
     this.User_ = user;
@@ -6,18 +6,22 @@ var ProfileController = function($scope, user, $mdSidenav, auth) {
         username: user.username,
         email: user.email,
         initial: user.username.charAt(0),
-        routes: ['jeremy', 'cuddlemore', 'backmassagestoo', 'howbetterbf']
+        routes: user.routes
     };
-    console.log(this.user);
     this.goldenUser = angular.copy(this.user);
     this.$mdSidenav_ = $mdSidenav;
+    this.$mdDialog_ = $mdDialog;
     this.isEditMode = false;
 };
 
 
-
-ProfileController.prototype.toggleList = function() {
-    this.$mdSidenav_('left').toggle();
+ProfileController.prototype.openUserMenu = function($mdOpenMenu) {
+    // Do not allow user to toggle sidenav in desktop
+    if (!this.$mdSidenav_('left').isLockedOpen()) {
+        this.$mdSidenav_('left').toggle();
+    } else {
+        $mdOpenMenu();
+    }
 };
 
 ProfileController.prototype.toggleEditMode = function() {
@@ -44,10 +48,15 @@ ProfileController.prototype.deleteUser = function() {
     //TODO: alert warning
     var self = this;
     this.User_.DSDestroy().then(function(destroyedUser) {
-        self.auth_.logoutUser();
-        self.$scope_.$emit('userLogoutSuccess');
+        self.logoutUser();
     });
 };
+
+ProfileController.prototype.logoutUser = function() {
+    this.auth_.logoutUser();
+    this.$scope_.$emit('userLogoutSuccess');
+};
+
 
 ProfileController.prototype.saveUserData = function() {
     var self = this;
@@ -56,7 +65,9 @@ ProfileController.prototype.saveUserData = function() {
     if (this.User_.email === this.user.email) return;
     this.User_.email = this.user.email;
     // users/dharness/
-    this.User_.DSSave().catch(function(err) {
+    this.User_.DSSave().then(function(user) {
+        self.goldenUser = angular.copy(self.user);
+    }).catch(function(err) {
         self.updateError = 'Invalid email. Email not set.';
         self.user.email = self.goldenUser.email;
         self.User_.email = self.goldenUser.email;

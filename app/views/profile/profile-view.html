@@ -1,7 +1,7 @@
 <div layout="horizontal" ng-cloak layout-fill>
     <side-bar>
         <div id="bm-settings-sidebar">
-            <!-- ICON -->
+            <!-- USER INITIAL ICON -->
             <div id="bm-sidebar-top">
                 <div class="bm-sidebar-icon">
                     <md-button class="md-fab">
@@ -19,20 +19,24 @@
                             <span class="sr-only">Error:</span> {{profileCtrl.updateError}}
                         </div>
                     </md-list-item>
+                    <!-- EMAIL -->
                     <md-list-item>
                         <input id="email" class="bm-default-cursor md-button md-ink-ripple" type="text" ng-disabled="!profileCtrl.isEditMode" ng-model="profileCtrl.user.email">
                         </input>
                     </md-list-item>
+                    <!-- USERNAME -->
                     <md-list-item>
                         <input class="bm-default-cursor md-button md-ink-ripple" type="email" ng-disabled="true" ng-model="profileCtrl.user.username">
                         </input>
                     </md-list-item>
+                    <!-- DELETE USER -->
                     <md-list-item>
                         <md-button aria-label="aria-sucks" ng-click="profileCtrl.deleteUser()">
                             <md-icon md-svg-src="../../assets/images/icons/delete_user.svg"></md-icon>
                             Delete user
                         </md-button>
                     </md-list-item>
+                    <!-- CANCEL/SAVE -->
                     <md-list-item>
                         <md-button class="bm-half-bar-btn " ng-click="profileCtrl.toggleEditMode()" ng-class="{'bm-editmode-dark': profileCtrl.isEditMode}" aria-label="aria-sucks">
                             {{profileCtrl.isEditMode ? 'Cancel':'Edit'}}
@@ -48,21 +52,29 @@
     <!-- 
         PAGE CONTENTS
      -->
-    <div flex layout="vertical" tabIndex="-1" role="main" class="md-whiteframe-z2">
+    <div flex layout="vertical" tabIndex="-1" role="main">
         <md-content flex>
-            <md-button hide-gt-sm ng-click="profileCtrl.toggleList()">
-                OPEN
-            </md-button>
+            <!-- 
+        TOOL BAR
+        -->
             <md-toolbar class="bm-profile-toolbar">
                 <div class="md-toolbar-tools">
                     <span flex></span>
-                    <md-button class="md-icon-button" aria-label="More">
-                        <md-icon md-svg-icon="assets/images/icons/user.svg"></md-icon>
-                    </md-button>
+                    <!-- <md-menu>
+                        <md-button ng-click="profileCtrl.openUserMenu($mdOpenMenu, ev)" class="bm-user-icon" aria-label="Open sample menu">
+                            <md-icon md-menu-origin md-svg-icon="assets/images/icons/user.svg"></md-icon>
+                        </md-button> -->
+                    <!-- <md-menu-content> -->
+                    <md-button class="bm-logout-btn" ng-click="profileCtrl.logoutUser()">Logout</md-button>
+                    <!-- </md-menu-content> -->
+                    <!--  </md-menu> -->
                 </div>
             </md-toolbar>
+            <!-- 
+        CENTER PANEL
+         -->
             <div class="bm-profile-center-panel">
-                <routes-panel routes=profileCtrl.user.routes></routes-panel>
+                <routes-panel user="profileCtrl.user"></routes-panel>
             </div>
         </md-content>
     </div>

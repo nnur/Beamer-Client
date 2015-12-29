@@ -10,7 +10,7 @@
                 </div>
                 <!-- INPUTS -->
                 <input type="email" ng-model="user.email" placeholder="email" required>
-                <input type="password" ng-model="user.pwd" name='pwd' placeholder="password" required>
+                <input type="password" ng-model="user.pwd" name='pwd' placeholder="password" required ng-keyup="$event.keyCode == 13 && login()">
             </div>
             <!-- BUTTON -->
             <div class="row">
@@ -41,7 +41,7 @@
                 <!-- INPUTS -->
                 <input type="text" ng-model="user.username" placeholder="username" required>
                 <input type="email" ng-model="user.newEmail" placeholder="email" required/>
-                <input type="password" ng-model="user.pwd1" name="uPwd" placeholder="password" required ng-minlength="6" ng-maxlength="40" />
+                <input type="password" ng-model="user.pwd1" name="uPwd" placeholder="password" required ng-minlength="6" ng-maxlength="40" ng-keyup="$event.keyCode == 13 && signup()" />
             </div>
             <!-- BUTTONS -->
             <div class="row">

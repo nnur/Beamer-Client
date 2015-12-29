@@ -7,6 +7,7 @@
     background: none!important;
     @include svg-color($medium-grey);
     button {
+        text-transform: none!important;
         height: $user-icon-size!important;
         width: $user-icon-size!important;
         md-icon {
@@ -14,8 +15,25 @@
             height: auto;
         }
     }
+    @include on-medium {
+        display: none;
+    }
 }
 
 .bm-profile-center-panel {
     margin-top: remify(20);
+    @include on-medium {
+        margin-top: 0;
+    }
+}
+
+.bm-user-icon {
+    @extend %bm-no-glow
+}
+
+.bm-logout-btn {
+    color: $light-purple!important;
+    height: 0px!important;
+    font-family: $font-heiti;
+    font-size: remify(14);
 }

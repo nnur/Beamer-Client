@@ -10,17 +10,14 @@
 }
 
 .bm-form-group {
-
     .bm-btn-group {
         margin-top: remify(15);
         @extend .center-block;
         display: flex;
         layout-direction: row;
         justify-content: space-between;
-
         width: remify($form-width);
     }
-
     input {
         @extend %bm-input;
         @include size(remify($form-width), remify(45));
@@ -31,11 +28,9 @@
         @extend .bm-alert-error;
         width: remify($form-width);
     }
-
     @include placeholder {
         color: white;
     }
-
     margin-bottom: 1.5rem;
 }
 
@@ -43,10 +38,9 @@
     @extend .center-block;
     border-radius: 0;
     border-style: none;
-    font-weight:300;
-    font-family: $font-roboto;
+    font-weight: 300;
+    font-family: $font-heiti;
     letter-spacing: 0.3rem;
-
     /* makes a clear bg, underlined input */
     background-color: transparent;
     color: $white;
@@ -55,5 +49,5 @@
     border-top: none;
     border-left: none;
     border-right: none;
-    border-bottom: solid $white 2px;  
+    border-bottom: solid $white 2px;
 }

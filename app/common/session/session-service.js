@@ -1,5 +1,9 @@
 var session = function($window, jwtHelper) {
 
+    this.getUsername = function() {
+        return $window.sessionStorage.username;
+    };
+
     /**
      * Never access the token property directly, always use this method
      */

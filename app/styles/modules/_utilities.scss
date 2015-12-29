@@ -36,6 +36,27 @@
     }
 }
 
+@mixin on-medium {
+    @media screen and (max-width: 960px) {
+        @content;
+    }
+}
+
+@mixin placeholder {
+    ::-webkit-input-placeholder {
+        @content;
+    }
+    :-moz-placeholder {
+        @content;
+    }
+    ::-moz-placeholder {
+        @content;
+    }
+    :-ms-input-placeholder {
+        @content;
+    }
+}
+
 @mixin transition($transition...) {
     -moz-transition: $transition;
     -o-transition: $transition;
