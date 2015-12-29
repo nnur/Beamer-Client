@@ -2,9 +2,10 @@ var beamer = require('./beamer');
 
 var app = angular.module('beamer', [
     'ngRoute',
+    'ngMaterial',
     'smoothScroll',
     'angular-jwt',
-    'ngMaterial',
+    'angular-clipboard',
     'js-data',
     beamer.common.auth.module.name,
     beamer.common.login.module.name,

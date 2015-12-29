@@ -17,6 +17,7 @@ module.exports = function() {
     require('angular-animate');
     require('angular-material');
     require('angular-jwt');
+    require('angular-clipboard');
     require('js-data');
     require('js-data-angular');
     require('js-data-http');

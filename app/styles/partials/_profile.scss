@@ -36,4 +36,7 @@
     height: 0px!important;
     font-family: $font-heiti;
     font-size: remify(14);
+    &:hover {
+        background-color: white!important;
+    }
 }

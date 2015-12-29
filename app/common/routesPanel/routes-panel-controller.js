@@ -1,10 +1,12 @@
-var RoutesPanelCtrl = function($scope, DS, DSHttpAdapter, apiEndpoint, User, Route) {
+var RoutesPanelCtrl = function($scope, DS, DSHttpAdapter, apiEndpoint, User, Route, $mdToast) {
     this.newRoute = "";
     this.$scope_ = $scope;
     this.DS_ = DS;
     this.DSHttpAdapter_ = DSHttpAdapter;
     this.apiEndpoint_ = apiEndpoint;
     this.Route_ = Route;
+    this.textToCopy = "dillydoo";
+    this.$mdToast_ = $mdToast;
 };
 
 RoutesPanelCtrl.prototype.addRoute = function() {
@@ -24,4 +26,30 @@ RoutesPanelCtrl.prototype.addRoute = function() {
     });
     this.newRoute = "";
 };
+
+/**
+ * Called on successful copy of route to the clipboard
+ */
+RoutesPanelCtrl.prototype.copySuccess = function() {
+    this.$mdToast_.show(
+        this.$mdToast_.simple()
+        .textContent('Route coppied!')
+        .position('top right')
+        .hideDelay(3000)
+    );
+};
+
+/*
+ * Called on successful copy of route to the clipboard
+ * TODO: add a prettier err message here
+ */
+RoutesPanelCtrl.prototype.copyFail = function(err) {
+    this.$mdToast_.show(
+        this.$mdToast_.simple()
+        .textContent('Route not coppied, ' + err)
+        .position('top right')
+        .hideDelay(3000)
+    );
+};
+
 module.exports = RoutesPanelCtrl;
