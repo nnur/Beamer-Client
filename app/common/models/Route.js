@@ -1,6 +1,11 @@
 var Route = function(DS, apiEndpoint) {
     var route = DS.defineResource({
         name: 'routes',
+        computed: {
+            routeSlashName: ['routename', function(routename) {
+                return '/' + routename;
+            }]
+        },
         idAttribute: 'routename',
         basePath: apiEndpoint,
         cacheResponse: true,

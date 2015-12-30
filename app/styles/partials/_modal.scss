@@ -1,0 +1,42 @@
+.bm-modal-dialogue {
+    display: flex;
+    flex-direction: column;
+    .bm-noodle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        input {
+            border: none;
+            margin-bottom: remify(30);
+            margin-top: remify(30);
+            margin-left: remify(10);
+            margin-right: remify(10);
+            @extend %routes-panel-text;
+            @extend %bm-no-glow;
+            border-bottom: $really-light-purple 1px solid;
+            &:focus {
+                margin-bottom: remify(29);
+                border: none;
+                border-bottom: $really-light-purple 2px solid;
+            }
+        }
+    }
+    .bm-modal-button-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background: $purple!important;
+        button {
+            flex: 1;
+            margin: 0;
+            padding-left: remify(15);
+            padding-right: remify(15);
+            padding-top: remify(5);
+            padding-bottom: remify(5);
+            color: white;
+            border-radius: 0!important;
+            text-transform: lowercase!important;
+            font-family: $font-heiti;
+        }
+    }
+}

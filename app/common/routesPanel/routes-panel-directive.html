@@ -2,11 +2,15 @@
     <div class="bm-routes-header">
         routes
     </div>
-    <div ng-repeat="route in currentUser.routes">
+    <div ng-repeat="route in currentUser.routes track by $index">
+        <button>{{routesPanelCtrl.editMode[$index]}}</button>
         <md-fab-toolbar md-open="false" md-direction="left">
-            <md-button class="bm-route-item-text" style="width: 100vw">
+            <!--           <md-button class="bm-route-item-text" style="width: 100vw">
                 /{{route.routename}}
-            </md-button>
+            </md-button> -->
+            <form ng-submit="routesPanelCtrl.addRoute()">
+                <input class="bm-route-item-text bm-route-input" ng-model="route.routeSlashName" ng-disabled="!routesPanelCtrl.editMode[$index]" placeholder="+ add a new route">
+            </form>
             <md-fab-trigger class="align-with-text">
                 <md-button aria-label="menu" class="md-fab md-primary bm-route-options">
                     <md-icon class="bm-svg-purple" md-svg-src="assets/images/icons/ellipses.svg"></md-icon>
@@ -19,7 +23,7 @@
                         <md-icon md-svg-src="assets/images/icons/copy.svg"></md-icon>
                     </md-button>
                     <!-- EDIT -->
-                    <md-button aria-label="edit" class="md-icon-button">
+                    <md-button aria-label="edit" ng-click="routesPanelCtrl.toggleEditMode(route)" class="md-icon-button">
                         <md-icon class="bm-svg-purple" md-svg-src="assets/images/icons/edit.svg"></md-icon>
                     </md-button>
                     <!-- DELETE -->

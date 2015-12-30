@@ -1,4 +1,4 @@
-var RoutesPanelCtrl = function($scope, DS, DSHttpAdapter, apiEndpoint, User, Route, $mdToast) {
+var RoutesPanelCtrl = function($scope, DS, DSHttpAdapter, apiEndpoint, User, Route, $mdToast, $mdDialog) {
     // Private
     this.$scope_ = $scope;
     this.DS_ = DS;
@@ -7,10 +7,13 @@ var RoutesPanelCtrl = function($scope, DS, DSHttpAdapter, apiEndpoint, User, Rou
     this.Route_ = Route;
     this.User_ = User;
     this.$mdToast_ = $mdToast;
-
+    this.$mdDialog_ = $mdDialog;
+    this.editMode = {};
     // Public
     this.newRoute = "";
 };
+
+
 
 RoutesPanelCtrl.prototype.addRoute = function() {
     var self = this;
@@ -49,7 +52,7 @@ RoutesPanelCtrl.prototype.deleteRoute = function(routename) {
     }).catch(function(err) {
         self.showToast(err.statusText + ', route not deleted');
     });
-}
+};
 
 RoutesPanelCtrl.prototype.showToast = function(text, options) {
     this.$mdToast_.show(
@@ -58,6 +61,21 @@ RoutesPanelCtrl.prototype.showToast = function(text, options) {
         .position('top right')
         .hideDelay(3000)
     );
+};
+
+RoutesPanelCtrl.prototype.toggleEditMode = function(route) {
+    var self = this;
+
+    this.$mdDialog_.show({
+        templateUrl: './common/routesPanel/edit-route-dialogue.html',
+        parent: angular.element(document.body),
+        controller: require('./edit-route-dialogue-controller.js'),
+        controllerAs: 'editRouteDialgoueCtrl',
+        locals: {
+            routename: '/' + route.routename
+        },
+        clickOutsideToClose: true,
+    });
 };
 
 /**
