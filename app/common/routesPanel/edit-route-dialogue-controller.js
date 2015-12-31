@@ -26,7 +26,7 @@ EditRouteDialogueController.prototype.updateRouteName = function() {
     this.DSHttpAdapter_.update(this.Route_, this.oldRouteName, changedRoute, {
         basePath: this.apiEndpoint_ + '/users/dharness/'
     }).then(function(updatedRoute) {
-        return self.User_.DSRefresh();
+        return self.User_.refresh();
     }).then(function(user) {
         console.log(user);
 
