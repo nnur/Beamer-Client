@@ -1,6 +1,10 @@
 <div class="bm-routes-panel">
     <div class="bm-routes-header">
-        routes
+        <md-icon id="hamburger" md-svg-src="assets/images/icons/hamburger.svg" hide-gt-sm ng-click="routesPanelCtrl.openUserMenu($mdOpenMenu)"></md-icon>
+        <div class="bm-routes-header-text">
+            routes
+        </div>
+        <md-icon id="user" md-svg-src="assets/images/icons/user.svg" hide-gt-sm ng-click="routesPanelCtrl.showLogoutMenu()"></md-icon>
     </div>
     <div ng-repeat="route in currentUser.routes track by $index">
         <md-fab-toolbar md-open="false" md-direction="left">

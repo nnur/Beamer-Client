@@ -1,19 +1,19 @@
-var RoutesPanelCtrl = function($scope, DS, DSHttpAdapter, apiEndpoint, User, Route, $mdToast, $mdDialog) {
+var RoutesPanelCtrl = function($scope, DS, DSHttpAdapter, apiEndpoint, User, Route, $mdToast, $mdSidenav, $mdDialog, auth) {
     // Private
+    this.auth_ = auth;
     this.$scope_ = $scope;
     this.DS_ = DS;
     this.DSHttpAdapter_ = DSHttpAdapter;
     this.apiEndpoint_ = apiEndpoint;
     this.Route_ = Route;
     this.User_ = User;
+    this.$mdSidenav_ = $mdSidenav;
     this.$mdToast_ = $mdToast;
     this.$mdDialog_ = $mdDialog;
     this.editMode = {};
     // Public
     this.newRoute = "";
 };
-
-
 
 RoutesPanelCtrl.prototype.addRoute = function() {
     var self = this;
@@ -41,6 +41,15 @@ RoutesPanelCtrl.prototype.addRoute = function() {
     });
 };
 
+RoutesPanelCtrl.prototype.openUserMenu = function($mdOpenMenu) {
+    // Do not allow user to toggle sidenav in desktop
+    if (!this.$mdSidenav_('left').isLockedOpen()) {
+        this.$mdSidenav_('left').toggle();
+    } else {
+        $mdOpenMenu();
+    }
+};
+
 RoutesPanelCtrl.prototype.deleteRoute = function(routename) {
     var self = this;
 
@@ -51,6 +60,27 @@ RoutesPanelCtrl.prototype.deleteRoute = function(routename) {
         return self.Route_.eject(routename);
     }).catch(function(err) {
         self.showToast(err.statusText + ', route not deleted');
+    });
+};
+
+RoutesPanelCtrl.prototype.logoutUser = function() {
+    this.auth_.logoutUser();
+    this.$mdDialog_.hide();
+    this.$scope_.$emit('userLogoutSuccess');
+};
+
+RoutesPanelCtrl.prototype.showLogoutMenu = function() {
+    this.$mdDialog_.show({
+        templateUrl: './common/routesPanel/logout-dialogue.html',
+        parent: angular.element(document.body),
+        controller: RoutesPanelCtrl,
+        controllerAs: 'routesPanelCtrl',
+        locals: {
+            username: this.$scope_.currentUser.username,
+            email: this.$scope_.currentUser.email
+        },
+        bindToController: true,
+        clickOutsideToClose: true
     });
 };
 
