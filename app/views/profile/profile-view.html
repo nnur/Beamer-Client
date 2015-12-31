@@ -1,4 +1,4 @@
-<div layout="horizontal" ng-cloak layout-fill>
+<div layout="horizontal" ng-cloak layout-fill class="bm-profile-view">
     <side-bar>
         <div id="bm-settings-sidebar">
             <!-- USER INITIAL ICON -->
@@ -17,8 +17,8 @@
                         <div class="alert bm-update-error" ng-show="profileCtrl.updateError">
                             <span class="glyphicon glyphicon-exclamation-sign"></span>
                             <span class="sr-only">Error:</span> {{profileCtrl.updateError}}
-                        </div>
-                    </md-list-item>
+                        </div></md-list-item>
+
                     <!-- EMAIL -->
                     <md-list-item>
                         <input id="email" class="bm-default-cursor md-button md-ink-ripple" type="text" ng-disabled="!profileCtrl.isEditMode" ng-model="profileCtrl.currentUser.email">
@@ -60,7 +60,8 @@
             <md-toolbar class="bm-profile-toolbar">
                 <div class="md-toolbar-tools">
                     <span flex></span>
-                    <md-button class="bm-logout-btn" ng-click="profileCtrl.logoutUser()">Logout</md-button>
+                    <md-icon id="user" md-svg-src="assets/images/icons/user.svg" ng-click="profileCtrl.showLogoutMenu()"></md-icon>
+                    <!-- <md-button class="bm-logout-btn" ng-click="profileCtrl.logoutUser()">Logout</md-button> -->
                 </div>
             </md-toolbar>
             <!-- 

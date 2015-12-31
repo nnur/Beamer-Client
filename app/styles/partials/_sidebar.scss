@@ -41,10 +41,10 @@ $bm-sidebar-width: 264px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        flex: 1;
-    }
-    #bm-sidebar-bottom {
-        flex: 2;
+        // Less padding on the bottom because the errors provide some padding
+        // but are hidden most of the time
+        padding-bottom: remify(25)!important;
+        padding-top: remify(50)!important;
     }
 }
 

@@ -40,6 +40,7 @@ ProfileController.prototype.toggleEditMode = function() {
 
 };
 
+
 ProfileController.prototype.deleteUser = function() {
     var self = this;
 
@@ -66,6 +67,29 @@ ProfileController.prototype.deleteAccount = function() {
 
 };
 
+ProfileController.prototype.showLogoutMenu = function() {
+    this.$mdDialog_.show({
+        templateUrl: './common/routesPanel/logout-dialogue.html',
+        parent: angular.element(document.body),
+        controller: function($scope, username, email, auth, $mdDialog) {
+            $scope.username = username;
+            $scope.email = email;
+            $scope.auth = auth;
+
+            $scope.logoutUser = function() {
+                $mdDialog.hide();
+                $scope.auth.logoutUser();
+                $scope.$emit('userLogoutSuccess');
+            }
+        },
+        locals: {
+            username: this.currentUser.username,
+            email: this.currentUser.email,
+            auth: this.auth_
+        },
+        clickOutsideToClose: true
+    });
+};
 ProfileController.prototype.logoutUser = function() {
     this.auth_.logoutUser();
     this.$scope_.$emit('userLogoutSuccess');

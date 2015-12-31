@@ -18,8 +18,7 @@ EditRouteDialogueController.prototype.updateRouteName = function() {
     var routename = this.routename;
     var changedRoute = {
         routename: routename.replace(/\//g, '')
-    }
-
+    };
     this.DSHttpAdapter_.update(this.Route_, this.oldRouteName, changedRoute, {
         basePath: this.apiEndpoint_ + '/users/dharness/'
     }).then(function(updatedRoute) {
@@ -36,7 +35,6 @@ EditRouteDialogueController.prototype.updateRouteName = function() {
         //change route back
         self.routename = self.oldRouteName;
     });
-
 }
 EditRouteDialogueController.prototype.cancelEditMode = function() {
     this.$mdDialog_.hide();
