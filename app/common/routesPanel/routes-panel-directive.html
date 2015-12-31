@@ -2,7 +2,7 @@
     <div class="bm-routes-header">
         routes
     </div>
-    <div ng-repeat="route in currentUser.routes track by $index | orderBy:'routeSlashName'">
+    <div ng-repeat="route in currentUser.sortedRoutes track by $index">
         <md-fab-toolbar md-open="false" md-direction="left">
             <form ng-submit="routesPanelCtrl.addRoute()">
                 <input class="bm-route-item-text bm-route-input" ng-model="route.routeSlashName" ng-disabled="!routesPanelCtrl.editMode[$index]">
