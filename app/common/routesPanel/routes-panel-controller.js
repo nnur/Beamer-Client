@@ -72,7 +72,8 @@ RoutesPanelCtrl.prototype.toggleEditMode = function(route) {
         controller: require('./edit-route-dialogue-controller.js'),
         controllerAs: 'editRouteDialgoueCtrl',
         locals: {
-            routename: '/' + route.routename
+            routename: '/' + route.routename,
+            currentUser: self.$scope_.currentUser
         },
         clickOutsideToClose: true,
     });
