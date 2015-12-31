@@ -31,7 +31,7 @@ module.exports = {
         models: {
             module: require('./common/models/models.js')
         }
-    },
+    },  
     config: {
         router: require('./config/router'),
         jwt: require('./config/jwt'),

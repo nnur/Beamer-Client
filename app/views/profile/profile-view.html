@@ -55,26 +55,33 @@
     <div flex layout="vertical" tabIndex="-1" role="main">
         <md-content flex>
             <!-- 
-        TOOL BAR
-        -->
+                TOOL BAR
+            -->
             <md-toolbar class="bm-profile-toolbar">
                 <div class="md-toolbar-tools">
                     <span flex></span>
-                    <!-- <md-menu>
-                        <md-button ng-click="profileCtrl.openUserMenu($mdOpenMenu, ev)" class="bm-user-icon" aria-label="Open sample menu">
-                            <md-icon md-menu-origin md-svg-icon="assets/images/icons/user.svg"></md-icon>
-                        </md-button> -->
-                    <!-- <md-menu-content> -->
                     <md-button class="bm-logout-btn" ng-click="profileCtrl.logoutUser()">Logout</md-button>
-                    <!-- </md-menu-content> -->
-                    <!--  </md-menu> -->
                 </div>
             </md-toolbar>
             <!-- 
-        CENTER PANEL
-         -->
+                CENTER PANEL
+             -->
             <div class="bm-profile-center-panel">
                 <routes-panel current-user="profileCtrl.currentUser"></routes-panel>
+            </div>
+            <div class="bm-usage-icons-row">
+                <div class="bm-usage-icon">
+                    <md-button class="md-fab">5</md-button>
+                    <center>
+                        <div>beams</div>
+                    </center>
+                </div>
+                <div class="bm-usage-icon">
+                    <md-button class="md-fab">6</md-button>
+                    <center>
+                        <div>drafts</div>
+                    </center>
+                </div>
             </div>
         </md-content>
     </div>

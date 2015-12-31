@@ -11,3 +11,42 @@
 .bm-svg-purple {
     @include svg-color($list-purple);
 }
+
+.bm-usage-icons-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .bm-usage-icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: remify(15);
+        color: $bm-light-pink;
+        font-size: remify(18);
+        font-family: $font-heiti;
+        letter-spacing: remify(2);
+        font-weight: bold;
+        .md-fab {
+            @extend .bm-icon-letter;
+            font-size: remify(90)!important;
+            background: white!important;
+            color: $bm-light-pink;
+            border: solid 2.5px $bm-teal-light;
+            width: 108px!important;
+            height: 108px!important;
+            box-shadow: none!important;
+        }
+    }
+}
+
+.bm-sidebar-icon {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .md-fab {
+        width: 120px!important;
+        height: 120px!important;
+        background: $medium-purple!important;
+        border: solid 1px white;
+    }
+}

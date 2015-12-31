@@ -45,18 +45,6 @@ $bm-sidebar-width: 264px;
     }
 }
 
-.bm-sidebar-icon {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    .md-fab {
-        width: 120px!important;
-        height: 120px!important;
-        background: $medium-purple!important;
-        border: solid 1px white;
-    }
-}
-
 .bm-sidebar-list {
     list-style-type: none;
     li {

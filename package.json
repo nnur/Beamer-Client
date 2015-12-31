@@ -5,7 +5,7 @@
   "main": "app-module.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node node_modules/.bin/webpack-dev-server --content-base app/ --hot --host 127.0.0.1"
+    "start": "node node_modules/.bin/webpack-dev-server --content-base app/ --hot --host 0.0.0.0"
   },
   "repository": {
     "type": "git",
