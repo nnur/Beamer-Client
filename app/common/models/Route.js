@@ -7,7 +7,7 @@ var Route = function(DS, apiEndpoint) {
             }]
         },
         idAttribute: 'routename',
-        basePath: apiEndpoint,
+        basePath: apiEndpoint + '/users/dharness/',
         cacheResponse: true,
         relations: {
             belongsTo: {

@@ -4,6 +4,11 @@ var User = function(DS, apiEndpoint) {
         computed: {
             initial: ['username', function(username) {
                 return username.charAt(0);
+            }],
+            sortedRoutes: ['routes', function(routes) {
+                return _.sortBy(routes, function(n) {
+                    return n.routename;
+                })
             }]
         },
         idAttribute: 'username',
