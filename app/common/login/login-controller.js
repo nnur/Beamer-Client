@@ -44,6 +44,7 @@ module.exports = function LoginController($scope, auth, $location) {
 
     // Adds the login error to the scope to be shown
     function loginError(res) {
+        console.log(res);
         $scope.login.error = res.data.err;
     }
 
