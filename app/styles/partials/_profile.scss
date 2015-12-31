@@ -1,3 +1,7 @@
+.bm-profile-view {
+    overflow-y: hidden;
+}
+
 .bm-profile-toolbar {
     $user-icon-size: 70px;
     display: flex;
@@ -15,7 +19,12 @@
             height: auto;
         }
     }
-    @include on-medium {
+    #user {
+        @extend %bm-no-glow;
+        width: remify(50);
+        height: remify(50);
+    }
+    @include on-xsmall {
         display: none;
     }
 }

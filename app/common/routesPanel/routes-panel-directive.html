@@ -1,16 +1,13 @@
 <div class="bm-routes-panel">
     <div class="bm-routes-header">
-        <md-icon id="hamburger" md-svg-src="assets/images/icons/hamburger.svg" hide-gt-sm ng-click="routesPanelCtrl.openUserMenu($mdOpenMenu)"></md-icon>
+        <md-icon id="hamburger" md-svg-src="assets/images/icons/hamburger.svg" ng-click="routesPanelCtrl.openUserMenu($mdOpenMenu)"></md-icon>
         <div class="bm-routes-header-text">
             routes
         </div>
-        <md-icon id="user" md-svg-src="assets/images/icons/user.svg" hide-gt-sm ng-click="routesPanelCtrl.showLogoutMenu()"></md-icon>
+        <md-icon id="user" md-svg-src="assets/images/icons/user.svg" ng-click="routesPanelCtrl.showLogoutMenu()"></md-icon>
     </div>
     <div ng-repeat="route in currentUser.routes track by $index">
         <md-fab-toolbar md-open="false" md-direction="left">
-            <!--           <md-button class="bm-route-item-text" style="width: 100vw">
-                /{{route.routename}}
-            </md-button> -->
             <form ng-submit="routesPanelCtrl.addRoute()">
                 <input class="bm-route-item-text bm-route-input" ng-model="route.routeSlashName" ng-disabled="!routesPanelCtrl.editMode[$index]" placeholder="+ add a new route">
             </form>
