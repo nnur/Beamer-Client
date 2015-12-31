@@ -16,33 +16,22 @@ EditRouteDialogueController.prototype.updateRouteName = function() {
     var self = this;
     var routename = this.routename;
     var changedRoute = {
-            routename: routename.replace(/\//g, '')
-        }
-        // this.Route_.update(this.oldRouteName, changedRoute).then(function(updatedRoute) {
-        //         return self.User_.loadRelations(self.currentUser_.username, ['routes']);
-        //     }).then(function(user) {
-        //         console.log(user);
-        //     })
+        routename: routename.replace(/\//g, '')
+    }
+
     this.DSHttpAdapter_.update(this.Route_, this.oldRouteName, changedRoute, {
         basePath: this.apiEndpoint_ + '/users/dharness/'
     }).then(function(updatedRoute) {
-        console.log(updatedRoute);
         return self.User_.refresh(self.currentUser_.username);
     }).then(function(user) {
-
-        console.log(user);
+        self.Route_.eject(self.oldRouteName.replace(/\//g, ''));
+        //update oldRoute and hide dialog
         self.oldRouteName = self.routename;
         self.$mdDialog_.hide();
     }).catch(function(err) {
+        //change route back
         self.routename = self.oldRouteName;
-
     });
-    // }).then(function(refreshedUser) {
-    //     // By this point, the route has been 
-    //     // updated and the user is in sync
-    //     self.oldRouteName = self.routename;
-    //     self.$mdDialog_.hide();
-    // })
 
 }
 EditRouteDialogueController.prototype.cancelEditMode = function() {
