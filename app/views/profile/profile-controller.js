@@ -41,11 +41,29 @@ ProfileController.prototype.toggleEditMode = function() {
 };
 
 ProfileController.prototype.deleteUser = function() {
-    //TODO: alert warning
     var self = this;
+
+    this.$mdDialog_.show({
+        templateUrl: 'views/profile/confirm-delete-account.html',
+        parent: angular.element(document.body),
+        controller: ProfileController,
+        controllerAs: 'deleteUserConfirmation',
+        locals: {
+            currentUser: self.$scope_.currentUser
+        },
+        clickOutsideToClose: true,
+    });
+};
+
+ProfileController.prototype.cancelDelete = function() { 
+    this.$mdDialog_.hide();
+};
+
+ProfileController.prototype.deleteAccount = function() {
     this.currentUser.DSDestroy().then(function(destroyedUser) {
         self.logoutUser();
     });
+
 };
 
 ProfileController.prototype.logoutUser = function() {

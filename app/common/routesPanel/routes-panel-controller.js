@@ -27,6 +27,8 @@ RoutesPanelCtrl.prototype.addRoute = function() {
         var username = self.$scope_.currentUser.username;
         return self.User_.refresh(username);
     }).then(function(refreshedUser) {
+        //updates computed properties
+        refreshedUser.DSCompute();
         // By this point, the route has been 
         // added and the user is in sync
         self.newRoute = "";
@@ -49,6 +51,8 @@ RoutesPanelCtrl.prototype.deleteRoute = function(routename) {
     }).then(function(route) {
         var username = self.$scope_.currentUser.username;
         return self.Route_.eject(routename);
+    }).then(function() {
+        self.$scope_.currentUser.DSCompute();
     }).catch(function(err) {
         self.showToast(err.statusText + ', route not deleted');
     });

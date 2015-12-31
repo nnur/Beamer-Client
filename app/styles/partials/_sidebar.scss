@@ -1,8 +1,11 @@
 $bm-sidebar-width: 264px;
 .bm-sidebar {
     md-sidenav {
-        background: url($bg);
-        height: 100vh!important;
+        background: url($bg) no-repeat fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
     }
     md-list {
         md-list-item {

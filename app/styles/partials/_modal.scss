@@ -1,6 +1,7 @@
 .bm-modal-dialogue {
     display: flex;
     flex-direction: column;
+    border-radius: 0!important;
     .bm-noodle {
         display: flex;
         flex-direction: column;
@@ -25,7 +26,8 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        background: $purple!important;
+        background: $bright-purple!important;
+        border-radius: 0!important;
         button {
             flex: 1;
             margin: 0;
@@ -38,5 +40,15 @@
             text-transform: lowercase!important;
             font-family: $font-heiti;
         }
+        .bm-modal-bright-btn {
+            border-left: $light-purple 1px solid;
+        }
+    }
+    .bm-are-you-sure {
+        text-align: center;
+        font-family: $font-heiti;
+        margin-top: remify(30);
+        padding-bottom: remify(5);
+        color: $purple;
     }
 }
