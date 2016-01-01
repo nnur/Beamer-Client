@@ -19,9 +19,6 @@ module.exports = {
         session: {
             module: require('./common/session/session.js')
         },
-        routeListItem: {
-            module: require('./common/routeListItem/route-list-item.js')
-        },
         sidebar: {
             module: require('./common/sidebar/sidebar.js')
         },
@@ -31,7 +28,7 @@ module.exports = {
         models: {
             module: require('./common/models/models.js')
         }
-    },  
+    },
     config: {
         router: require('./config/router'),
         jwt: require('./config/jwt'),

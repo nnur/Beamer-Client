@@ -1,4 +1,3 @@
-
 var EditRouteDialogueController = function($mdDialog, apiEndpoint, routename,
     currentUser, DSHttpAdapter, Route, User) {
     //public
@@ -15,9 +14,9 @@ var EditRouteDialogueController = function($mdDialog, apiEndpoint, routename,
 
 EditRouteDialogueController.prototype.updateRouteName = function() {
     var self = this;
-    var routename = this.routename;
+    var routename = this.routename.replace(/[^a-zA-Z ]/g, "");
     var changedRoute = {
-        routename: routename.replace(/\//g, '')
+        routename: routename
     };
     this.DSHttpAdapter_.update(this.Route_, this.oldRouteName, changedRoute, {
         basePath: this.apiEndpoint_ + '/users/dharness/'
@@ -25,10 +24,10 @@ EditRouteDialogueController.prototype.updateRouteName = function() {
         return self.User_.refresh(self.currentUser_.username);
     }).then(function(user) {
         //removes old name from store
-        self.Route_.eject(self.oldRouteName.replace(/\//g, ''));
+        self.Route_.eject(self.oldRouteName.replace(/[^a-zA-Z ]/g, ""));
         self.currentUser_.DSCompute();
         //update oldRoute and hide dialog
-        self.oldRouteName = self.routename;
+        self.oldRouteName = routename.replace(/[^a-zA-Z ]/g, "");
         self.$mdDialog_.hide();
 
     }).catch(function(err) {

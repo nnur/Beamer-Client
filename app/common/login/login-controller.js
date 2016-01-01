@@ -1,7 +1,7 @@
 /**
  * Login Controller handles login and signup forms
  */
-module.exports = function LoginController($scope, auth, $location) {
+module.exports = function LoginController($scope, auth, $location, $mdToast) {
     $scope.showButt = true;
     $scope.login = {};
     $scope.signup = {};
@@ -45,7 +45,8 @@ module.exports = function LoginController($scope, auth, $location) {
     // Adds the login error to the scope to be shown
     function loginError(res) {
         console.log(res);
-        $scope.login.error = res.data.err;
+        //$scope.login.error = res.data.err;
+        showToast(res.data.errors[0]);
     }
 
     // A successful login routes view to profile
