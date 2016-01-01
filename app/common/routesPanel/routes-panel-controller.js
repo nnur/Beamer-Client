@@ -17,7 +17,7 @@ var RoutesPanelCtrl = function($scope, DS, DSHttpAdapter, apiEndpoint, User, Rou
 
 RoutesPanelCtrl.prototype.addRoute = function() {
     var self = this;
-    this.newRoute = this.newRoute.replace(/[^a-zA-Z ]/g, "");
+    this.newRoute = this.newRoute //.replace(/[^a-zA-Z ]/g, "");
     var newRoute = {
         routename: this.newRoute
     };

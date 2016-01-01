@@ -45,8 +45,7 @@ module.exports = function LoginController($scope, auth, $location, $mdToast) {
     // Adds the login error to the scope to be shown
     function loginError(res) {
         console.log(res);
-        //$scope.login.error = res.data.err;
-        showToast(res.data.errors[0]);
+        $scope.login.error = res.data.err;
     }
 
     // A successful login routes view to profile
