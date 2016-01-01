@@ -30,13 +30,16 @@ module.exports = function LoginController($scope, auth, $location, $mdToast) {
 
     // This parses the error and adds it to the scope to be shown
     function signupErr(res) {
+
         var errorObj = res.data.err;
         var errors = Object.keys(errorObj.invalidAttributes);
         var length = errors.length;
 
         for (var i = 0; i < length; i++) {
             if (errors[i] == 'email') {
-                $scope.signup.error = errorObj.invalidAttributes.email[0].message;
+                $scope.signup.error = 'That email already exists!'
+            } else if (errors[i] == 'username') {
+                $scope.signup.error = 'That username already exists!'
             }
         }
     }
