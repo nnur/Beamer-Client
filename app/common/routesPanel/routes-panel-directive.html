@@ -4,7 +4,7 @@
         <div class="bm-routes-header-text">
             routes
         </div>
-        <md-icon id="user" md-svg-src="assets/images/icons/user.svg" ng-click="routesPanelCtrl.showLogoutMenu()"></md-icon>
+        <md-icon id="user" md-svg-src="assets/images/icons/user.svg" ng-click="routesPanelCtrl.logoutModal.show()"></md-icon>
     </div>
     <div ng-repeat="route in currentUser.sortedRoutes track by $index">
         <md-fab-toolbar md-open="false" md-direction="left">

@@ -1,4 +1,4 @@
-var ProfileController = function($scope, currentUser, $mdSidenav, auth, $mdDialog, User) {
+var ProfileController = function($scope, currentUser, $mdSidenav, auth, $mdDialog, User, logoutModal) {
     // Private
     this.$scope_ = $scope;
     this.auth_ = auth;
@@ -9,6 +9,7 @@ var ProfileController = function($scope, currentUser, $mdSidenav, auth, $mdDialo
     this.currentUser = currentUser;
     this.goldenUser = angular.copy(this.currentUser);
     this.isEditMode = false;
+    this.logoutModal = logoutModal;
 };
 
 ProfileController.prototype.openUserMenu = function($mdOpenMenu) {
@@ -67,29 +68,6 @@ ProfileController.prototype.deleteAccount = function() {
 
 };
 
-ProfileController.prototype.showLogoutMenu = function() {
-    this.$mdDialog_.show({
-        templateUrl: './common/routesPanel/logout-dialogue.html',
-        parent: angular.element(document.body),
-        controller: function($scope, username, email, auth, $mdDialog) {
-            $scope.username = username;
-            $scope.email = email;
-            $scope.auth = auth;
-
-            $scope.logoutUser = function() {
-                $mdDialog.hide();
-                $scope.auth.logoutUser();
-                $scope.$emit('userLogoutSuccess');
-            }
-        },
-        locals: {
-            username: this.currentUser.username,
-            email: this.currentUser.email,
-            auth: this.auth_
-        },
-        clickOutsideToClose: true
-    });
-};
 ProfileController.prototype.logoutUser = function() {
     this.auth_.logoutUser();
     this.$scope_.$emit('userLogoutSuccess');

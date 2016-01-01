@@ -30,8 +30,11 @@ module.exports = {
         },
         models: {
             module: require('./common/models/models.js')
+        },
+        logoutModal: {
+            module: require('./common/logoutModal/logout-modal.js')
         }
-    },  
+    },
     config: {
         router: require('./config/router'),
         jwt: require('./config/jwt'),
