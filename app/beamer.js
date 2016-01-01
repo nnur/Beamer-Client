@@ -27,6 +27,15 @@ module.exports = {
         },
         models: {
             module: require('./common/models/models.js')
+        },
+        logoutModal: {
+            module: require('./common/logoutModal/logout-modal.js')
+        },
+        editRouteModal: {
+            module: require('./common/editRouteModal/edit-route-modal.js')
+        },
+        confirmDeleteModal: {
+            module: require('./common/confirmDeleteModal/confirm-delete-modal.js')
         }
     },
     config: {

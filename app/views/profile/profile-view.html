@@ -31,7 +31,7 @@
                     </md-list-item>
                     <!-- DELETE USER -->
                     <md-list-item>
-                        <md-button aria-label="aria-sucks" ng-click="profileCtrl.deleteUser()">
+                        <md-button aria-label="aria-sucks" ng-click="profileCtrl.confirmDeleteModal.showConfirmation()">
                             <md-icon md-svg-src="../../assets/images/icons/delete_user.svg"></md-icon>
                             Delete account
                         </md-button>
@@ -59,9 +59,9 @@
             -->
             <md-toolbar class="bm-profile-toolbar">
                 <div class="md-toolbar-tools">
-                    <md-icon id="hamburger" hide-gt-sm ng-click="profileCtrl.openUserMenu()" md-svg-src="assets/images/icons/hamburger.svg" ng-click="profileCtrl.showLogoutMenu()"></md-icon>
+                    <md-icon id="hamburger" hide-gt-sm ng-click="profileCtrl.openUserMenu()" md-svg-src="assets/images/icons/hamburger.svg"></md-icon>
                     <span flex></span>
-                    <md-icon id="user" md-svg-src="assets/images/icons/user.svg" ng-click="profileCtrl.showLogoutMenu()"></md-icon>
+                    <md-icon id="user" md-svg-src="assets/images/icons/user.svg" ng-click="profileCtrl.logoutModal.show()"></md-icon>
                 </div>
             </md-toolbar>
             <!-- 

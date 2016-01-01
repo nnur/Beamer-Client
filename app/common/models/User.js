@@ -1,4 +1,4 @@
-var User = function(DS, apiEndpoint) {
+var User = function(DS, apiEndpoint, session) {
     var User = DS.defineResource({
         name: 'users',
         computed: {

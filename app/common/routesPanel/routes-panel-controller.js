@@ -1,4 +1,4 @@
-var RoutesPanelCtrl = function($scope, DS, DSHttpAdapter, apiEndpoint, User, Route, $mdToast, $mdSidenav, $mdDialog, auth) {
+var RoutesPanelCtrl = function($scope, DS, DSHttpAdapter, apiEndpoint, User, Route, $mdToast, $mdSidenav, $mdDialog, auth, logoutModal, editRouteModal) {
     // Private
     this.auth_ = auth;
     this.$scope_ = $scope;
@@ -10,9 +10,34 @@ var RoutesPanelCtrl = function($scope, DS, DSHttpAdapter, apiEndpoint, User, Rou
     this.$mdSidenav_ = $mdSidenav;
     this.$mdToast_ = $mdToast;
     this.$mdDialog_ = $mdDialog;
-    this.editMode = {};
+
     // Public
+    this.editMode = {};
     this.newRoute = "";
+    this.logoutModal = logoutModal;
+    this.editRouteModal = editRouteModal;
+};
+/**
+ * Utility function to display a toast in the upper right hand corner
+ * @param  {string} text - the message to show on the toast
+ * @param  {object} options - in case of the need for customization in the future
+ */
+RoutesPanelCtrl.prototype.showToast = function(text, options) {
+    this.$mdToast_.show(
+        this.$mdToast_.simple()
+        .textContent(text)
+        .position('top right')
+        .hideDelay(3000)
+    );
+};
+
+RoutesPanelCtrl.prototype.openUserMenu = function($mdOpenMenu) {
+    // Do not allow user to toggle sidenav in desktop
+    if (!this.$mdSidenav_('left').isLockedOpen()) {
+        this.$mdSidenav_('left').toggle();
+    } else {
+        $mdOpenMenu();
+    }
 };
 
 RoutesPanelCtrl.prototype.addRoute = function() {
@@ -33,23 +58,9 @@ RoutesPanelCtrl.prototype.addRoute = function() {
         // added and the user is in sync
         self.newRoute = "";
     }).catch(function(err) {
-        self.$mdToast_.show(
-            self.$mdToast_.simple()
-            .textContent(err.statusText + ', route not added')
-            .position('top right')
-            .hideDelay(3000)
-        );
+        self.showToast(err.statusText + ', route not added')
         self.newRoute = "";
     });
-};
-
-RoutesPanelCtrl.prototype.openUserMenu = function($mdOpenMenu) {
-    // Do not allow user to toggle sidenav in desktop
-    if (!this.$mdSidenav_('left').isLockedOpen()) {
-        this.$mdSidenav_('left').toggle();
-    } else {
-        $mdOpenMenu();
-    }
 };
 
 RoutesPanelCtrl.prototype.deleteRoute = function(routename) {
@@ -64,61 +75,6 @@ RoutesPanelCtrl.prototype.deleteRoute = function(routename) {
         self.$scope_.currentUser.DSCompute();
     }).catch(function(err) {
         self.showToast(err.statusText + ', route not deleted');
-    });
-};
-
-RoutesPanelCtrl.prototype.logoutUser = function() {
-    this.auth_.logoutUser();
-    this.$mdDialog_.hide();
-    this.$scope_.$emit('userLogoutSuccess');
-};
-
-RoutesPanelCtrl.prototype.showLogoutMenu = function() {
-    this.$mdDialog_.show({
-        templateUrl: './common/routesPanel/logout-dialogue.html',
-        parent: angular.element(document.body),
-        controller: function($scope, username, email, auth, $mdDialog) {
-            $scope.username = username;
-            $scope.email = email;
-            $scope.auth = auth;
-
-            $scope.logoutUser = function() {
-                $mdDialog.hide();
-                $scope.auth.logoutUser();
-                $scope.$emit('userLogoutSuccess');
-            }
-        },
-        locals: {
-            username: this.$scope_.currentUser.username,
-            email: this.$scope_.currentUser.email,
-            auth: this.auth_
-        },
-        clickOutsideToClose: true
-    });
-};
-
-RoutesPanelCtrl.prototype.showToast = function(text, options) {
-    this.$mdToast_.show(
-        this.$mdToast_.simple()
-        .textContent(text)
-        .position('top right')
-        .hideDelay(3000)
-    );
-};
-
-RoutesPanelCtrl.prototype.toggleEditMode = function(route) {
-    var self = this;
-
-    this.$mdDialog_.show({
-        templateUrl: './common/routesPanel/edit-route-dialogue.html',
-        parent: angular.element(document.body),
-        controller: require('./edit-route-dialogue-controller.js'),
-        controllerAs: 'editRouteDialgoueCtrl',
-        locals: {
-            routename: '/' + route.routename,
-            currentUser: self.$scope_.currentUser
-        },
-        clickOutsideToClose: true,
     });
 };
 

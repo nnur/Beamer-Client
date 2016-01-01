@@ -4,7 +4,7 @@
         <div class="bm-routes-header-text">
             routes
         </div>
-        <md-icon id="user" md-svg-src="assets/images/icons/user.svg" ng-click="routesPanelCtrl.showLogoutMenu()"></md-icon>
+        <md-icon id="user" md-svg-src="assets/images/icons/user.svg" ng-click="routesPanelCtrl.logoutModal.show()"></md-icon>
     </div>
     <div ng-repeat="route in currentUser.sortedRoutes track by $index">
         <md-fab-toolbar md-open="false" md-direction="left">
@@ -23,7 +23,7 @@
                         <md-icon md-svg-src="assets/images/icons/copy.svg"></md-icon>
                     </md-button>
                     <!-- EDIT -->
-                    <md-button aria-label="edit" ng-click="routesPanelCtrl.toggleEditMode(route)" class="md-icon-button">
+                    <md-button aria-label="edit" ng-click="routesPanelCtrl.editRouteModal.openEditMenu(route)" class="md-icon-button">
                         <md-icon class="bm-svg-purple" md-svg-src="assets/images/icons/edit.svg"></md-icon>
                     </md-button>
                     <!-- DELETE -->
