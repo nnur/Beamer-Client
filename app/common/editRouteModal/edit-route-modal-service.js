@@ -1,6 +1,6 @@
 var editRouteModalController = require('./edit-route-modal-controller.js');
 
-var logoutModal = function($mdDialog, User, session) {
+var editRouteModal = function($mdDialog, User, session) {
     this.openEditMenu = function(route) {
         $mdDialog.show({
             templateUrl: './common/editRouteModal/edit-route-modal-template.html',
@@ -16,4 +16,4 @@ var logoutModal = function($mdDialog, User, session) {
     };
 };
 
-module.exports = logoutModal;
+module.exports = editRouteModal;

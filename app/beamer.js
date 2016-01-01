@@ -36,6 +36,9 @@ module.exports = {
         },
         editRouteModal: {
             module: require('./common/editRouteModal/edit-route-modal.js')
+        },
+        confirmDeleteModal: {
+            module: require('./common/confirmDeleteModal/confirm-delete-modal.js')
         }
     },
     config: {

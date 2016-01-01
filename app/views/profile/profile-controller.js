@@ -1,4 +1,4 @@
-var ProfileController = function($scope, currentUser, $mdSidenav, auth, $mdDialog, User, logoutModal) {
+var ProfileController = function($scope, currentUser, $mdSidenav, auth, $mdDialog, User, logoutModal, confirmDeleteModal) {
     // Private
     this.$scope_ = $scope;
     this.auth_ = auth;
@@ -10,6 +10,7 @@ var ProfileController = function($scope, currentUser, $mdSidenav, auth, $mdDialo
     this.goldenUser = angular.copy(this.currentUser);
     this.isEditMode = false;
     this.logoutModal = logoutModal;
+    this.confirmDeleteModal = confirmDeleteModal;
 };
 
 ProfileController.prototype.openUserMenu = function($mdOpenMenu) {
@@ -21,6 +22,9 @@ ProfileController.prototype.openUserMenu = function($mdOpenMenu) {
     }
 };
 
+/**
+ * Toggles if a User's Username is editable
+ */
 ProfileController.prototype.toggleEditMode = function() {
     // This branch is clicking cancel
     if (this.isEditMode) {
@@ -38,34 +42,6 @@ ProfileController.prototype.toggleEditMode = function() {
             $('#email').click()
         }, 25);
     }
-
-};
-
-
-ProfileController.prototype.deleteUser = function() {
-    var self = this;
-
-    this.$mdDialog_.show({
-        templateUrl: 'views/profile/confirm-delete-account.html',
-        parent: angular.element(document.body),
-        controller: ProfileController,
-        controllerAs: 'deleteUserConfirmation',
-        locals: {
-            currentUser: self.$scope_.currentUser
-        },
-        clickOutsideToClose: true,
-    });
-};
-
-ProfileController.prototype.cancelDelete = function() { 
-    this.$mdDialog_.hide();
-};
-
-ProfileController.prototype.deleteAccount = function() {
-    this.currentUser.DSDestroy().then(function(destroyedUser) {
-        self.logoutUser();
-    });
-
 };
 
 ProfileController.prototype.saveUserData = function() {
