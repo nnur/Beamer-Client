@@ -71,10 +71,10 @@
             @include on-xsmall {
                 display: flex;
                 @extend %bm-no-glow;
-                width: remify(40);
-                height: remify(40);
+                width: remify(30);
+                height: remify(30);
                 margin-left: 0;
-                margin-bottom: remify(12);
+                margin-bottom: remify(17);
                 @include svg-color(white);
             }
         }
