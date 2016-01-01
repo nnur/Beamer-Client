@@ -40,22 +40,6 @@ RoutesPanelCtrl.prototype.openUserMenu = function($mdOpenMenu) {
     }
 };
 
-RoutesPanelCtrl.prototype.toggleEditMode = function(route) {
-    var self = this;
-
-    this.$mdDialog_.show({
-        templateUrl: './common/routesPanel/edit-route-dialogue.html',
-        parent: angular.element(document.body),
-        controller: require('./edit-route-dialogue-controller.js'),
-        controllerAs: 'editRouteDialgoueCtrl',
-        locals: {
-            routename: '/' + route.routename,
-            currentUser: self.$scope_.currentUser
-        },
-        clickOutsideToClose: true,
-    });
-};
-
 RoutesPanelCtrl.prototype.addRoute = function() {
     var self = this;
     this.newRoute = this.newRoute.replace(/\s+/g, '');

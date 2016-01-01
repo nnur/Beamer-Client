@@ -1,10 +1,17 @@
 /**
  * Login Controller handles login and signup forms
  */
-module.exports = function LoginController($scope, auth, $location) {
+module.exports = function LoginController($scope, auth, $location, $mdToast) {
     $scope.showButt = true;
     $scope.login = {};
     $scope.signup = {};
+
+    $mdToast.show(
+        $mdToast.simple()
+        .textContent('res.data.err')
+        .position('bottom left')
+        .hideDelay(3000)
+    );
 
     // Creates user obj with form info and sends it off for authentication.
     $scope.signup = function() {
@@ -44,7 +51,11 @@ module.exports = function LoginController($scope, auth, $location) {
 
     // Adds the login error to the scope to be shown
     function loginError(res) {
-        $scope.login.error = res.data.err;
+        if (res.data.err) {
+            $scope.login.error = res.data.err;
+        } else if (res.status == 422) {
+            $scope.login.error = 'Invalid credentials!';
+        }
     }
 
     // A successful login routes view to profile
