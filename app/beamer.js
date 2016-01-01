@@ -33,6 +33,9 @@ module.exports = {
         },
         logoutModal: {
             module: require('./common/logoutModal/logout-modal.js')
+        },
+        editRouteModal: {
+            module: require('./common/editRouteModal/edit-route-modal.js')
         }
     },
     config: {

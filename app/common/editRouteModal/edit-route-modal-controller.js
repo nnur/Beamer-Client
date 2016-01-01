@@ -1,5 +1,4 @@
-
-var EditRouteDialogueController = function($mdDialog, apiEndpoint, routename,
+var EditRouteModalController = function($mdDialog, apiEndpoint, routename,
     currentUser, DSHttpAdapter, Route, User) {
     //public
     this.routename = routename;
@@ -13,14 +12,14 @@ var EditRouteDialogueController = function($mdDialog, apiEndpoint, routename,
     this.User_ = User;
 };
 
-EditRouteDialogueController.prototype.updateRouteName = function() {
+EditRouteModalController.prototype.updateRouteName = function() {
     var self = this;
     var routename = this.routename;
     var changedRoute = {
         routename: routename.replace(/\//g, '')
     };
     this.DSHttpAdapter_.update(this.Route_, this.oldRouteName, changedRoute, {
-        basePath: this.apiEndpoint_ + '/users/dharness/'
+        basePath: this.apiEndpoint_
     }).then(function(updatedRoute) {
         return self.User_.refresh(self.currentUser_.username);
     }).then(function(user) {
@@ -36,8 +35,8 @@ EditRouteDialogueController.prototype.updateRouteName = function() {
         self.routename = self.oldRouteName;
     });
 }
-EditRouteDialogueController.prototype.cancelEditMode = function() {
+EditRouteModalController.prototype.cancelEditMode = function() {
     this.$mdDialog_.hide();
 };
 
-module.exports = EditRouteDialogueController;
+module.exports = EditRouteModalController;

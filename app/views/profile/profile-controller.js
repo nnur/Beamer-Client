@@ -68,11 +68,6 @@ ProfileController.prototype.deleteAccount = function() {
 
 };
 
-ProfileController.prototype.logoutUser = function() {
-    this.auth_.logoutUser();
-    this.$scope_.$emit('userLogoutSuccess');
-};
-
 ProfileController.prototype.saveUserData = function() {
     var self = this;
     this.isEditMode = false;

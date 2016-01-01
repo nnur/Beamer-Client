@@ -1,4 +1,4 @@
-var RoutesPanelCtrl = function($scope, DS, DSHttpAdapter, apiEndpoint, User, Route, $mdToast, $mdSidenav, $mdDialog, auth, logoutModal) {
+var RoutesPanelCtrl = function($scope, DS, DSHttpAdapter, apiEndpoint, User, Route, $mdToast, $mdSidenav, $mdDialog, auth, logoutModal, editRouteModal) {
     // Private
     this.auth_ = auth;
     this.$scope_ = $scope;
@@ -15,6 +15,7 @@ var RoutesPanelCtrl = function($scope, DS, DSHttpAdapter, apiEndpoint, User, Rou
     this.editMode = {};
     this.newRoute = "";
     this.logoutModal = logoutModal;
+    this.editRouteModal = editRouteModal;
 };
 /**
  * Utility function to display a toast in the upper right hand corner
@@ -91,12 +92,6 @@ RoutesPanelCtrl.prototype.deleteRoute = function(routename) {
     }).catch(function(err) {
         self.showToast(err.statusText + ', route not deleted');
     });
-};
-
-RoutesPanelCtrl.prototype.logoutUser = function() {
-    this.auth_.logoutUser();
-    this.$mdDialog_.hide();
-    this.$scope_.$emit('userLogoutSuccess');
 };
 
 /**
