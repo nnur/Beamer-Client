@@ -21,8 +21,12 @@
     }
     #user {
         @extend %bm-no-glow;
-        width: remify(50);
-        height: remify(50);
+        width: remify(34);
+        height: remify(34);
+        @include on-xsmall {
+            width: remify(50);
+            height: remify(50);
+        }
     }
     @include on-xsmall {
         display: none;
