@@ -77,13 +77,22 @@ RoutesPanelCtrl.prototype.showLogoutMenu = function() {
     this.$mdDialog_.show({
         templateUrl: './common/routesPanel/logout-dialogue.html',
         parent: angular.element(document.body),
-        controller: RoutesPanelCtrl,
-        controllerAs: 'routesPanelCtrl',
+        controller: function($scope, username, email, auth, $mdDialog) {
+            $scope.username = username;
+            $scope.email = email;
+            $scope.auth = auth;
+
+            $scope.logoutUser = function() {
+                $mdDialog.hide();
+                $scope.auth.logoutUser();
+                $scope.$emit('userLogoutSuccess');
+            }
+        },
         locals: {
             username: this.$scope_.currentUser.username,
-            email: this.$scope_.currentUser.email
+            email: this.$scope_.currentUser.email,
+            auth: this.auth_
         },
-        bindToController: true,
         clickOutsideToClose: true
     });
 };

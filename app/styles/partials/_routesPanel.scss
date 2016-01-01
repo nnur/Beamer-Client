@@ -60,8 +60,8 @@
             @include on-xsmall {
                 display: flex;
                 @extend %bm-no-glow;
-                width: remify(50);
-                height: remify(50);
+                width: remify(45);
+                height: remify(45);
                 margin-right: 0;
                 @include svg-color(white);
             }
@@ -118,6 +118,7 @@ md-dialog {
         margin: 0!important;
         padding-bottom: remify(10);
         padding-top: remify(10);
+        font-family: $font-heiti;
         &:hover {
             border-radius: none!important;
             margin: 0!important;
