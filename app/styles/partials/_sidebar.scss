@@ -1,7 +1,50 @@
 $bm-sidebar-width: 264px;
 .bm-sidebar {
-    .snap-drawers {
-        background: url($bg);
+    md-sidenav {
+        background: url($bg) no-repeat fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    md-list {
+        md-list-item {
+            padding: 0px;
+        }
+        .md-button {
+            @extend .bm-sidebarBtn;
+            margin-bottom: remify(1)!important;
+            height: remify(56);
+            &[disabled="disabled"] {
+                color: white!important;
+            }
+            &[aria-disabled="false"] {
+                color: $bm-teal-light!important;
+                background: transparentize($purple, 0.5)!important;
+            }
+        }
+        .bm-half-bar-btn {
+            margin-left: remify(0.5)!important;
+            margin-right: remify(0.5)!important;
+        }
+    }
+    .md-ripple-container {
+        border-radius: 0!important;
+    }
+}
+
+#bm-settings-sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    #bm-sidebar-top {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        // Less padding on the bottom because the errors provide some padding
+        // but are hidden most of the time
+        padding-bottom: remify(25)!important;
+        padding-top: remify(50)!important;
     }
 }
 
@@ -14,4 +57,15 @@ $bm-sidebar-width: 264px;
         padding: remify(15);
         margin-top: remify(1.5);
     }
+}
+
+.bm-default-cursor {
+    cursor: default!important;
+}
+
+.bm-update-error {
+    @extend .bm-login-error;
+    @extend .center-block;
+    color: $medium-grey!important;
+    margin-bottom: 0px;
 }

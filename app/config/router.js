@@ -10,20 +10,18 @@ var router = function($routeProvider) {
             controller: 'ProfileController',
             controllerAs: 'profileCtrl',
             resolve: {
-                user: function($route, DS) {
+                currentUser: function($route, DS, User) {
                     var username = $route.current.params.username;
-                    return DS.find('users', username).then(function(user) {
-                        return DS.loadRelations('users', user.username, ['routes'])
-                            .then(function(user) {
-                                return user;
-                            });
+                    return User.find(username).then(function(currentUser) {
+                        return currentUser;
                     });
                 }
             }
         })
         .when('/', {
             templateUrl: 'views/landing/landing-view.html',
-        });
+        })
+        .otherwise('/');
 };
 
 module.exports = router;

@@ -8,7 +8,7 @@ module.exports = function() {
     require('../views/landing/js/cbpAnimatedHeader');
 
     /* Styles */
-    // require('../styles/importer.scss');
+    require('../styles/importer.scss');
 
     /* Angular */
     require('angular');
@@ -17,7 +17,9 @@ module.exports = function() {
     require('angular-animate');
     require('angular-material');
     require('angular-jwt');
+    require('angular-clipboard');
     require('js-data');
     require('js-data-angular');
+    require('js-data-http');
     require('ng-smooth-scroll');
 };

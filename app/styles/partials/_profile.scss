@@ -1,3 +1,54 @@
-#bm-profile-content {
-    background: white;
+.bm-profile-view {
+    overflow-y: hidden;
+}
+
+.bm-profile-toolbar {
+    $user-icon-size: 70px;
+    display: flex;
+    height: $user-icon-size;
+    flex-direction: column;
+    justify-content: center;
+    background: none!important;
+    @include svg-color($medium-grey);
+    button {
+        text-transform: none!important;
+        height: $user-icon-size!important;
+        width: $user-icon-size!important;
+        md-icon {
+            width: auto;
+            height: auto;
+        }
+    }
+    #user {
+        @extend %bm-no-glow;
+        width: remify(34);
+        height: remify(34);
+    }
+    #hamburger {
+        @extend %bm-no-glow;
+    }
+    @include on-xsmall {
+        display: none;
+    }
+}
+
+.bm-profile-center-panel {
+    margin-top: remify(20);
+    @include on-medium {
+        margin-top: 0;
+    }
+}
+
+.bm-user-icon {
+    @extend %bm-no-glow
+}
+
+.bm-logout-btn {
+    color: $light-purple!important;
+    height: 0px!important;
+    font-family: $font-heiti;
+    font-size: remify(14);
+    &:hover {
+        background-color: white!important;
+    }
 }

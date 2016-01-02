@@ -1,0 +1,44 @@
+<div class="bm-routes-panel">
+    <div class="bm-routes-header">
+        <md-icon id="hamburger" md-svg-src="assets/images/icons/hamburger.svg" ng-click="routesPanelCtrl.openUserMenu($mdOpenMenu)"></md-icon>
+        <div class="bm-routes-header-text">
+            routes
+        </div>
+        <md-icon id="user" md-svg-src="assets/images/icons/user.svg" ng-click="routesPanelCtrl.logoutModal.show()"></md-icon>
+    </div>
+    <div ng-repeat="route in currentUser.sortedRoutes track by $index">
+        <md-fab-toolbar md-open="false" md-direction="left">
+            <form ng-submit="routesPanelCtrl.addRoute()">
+                <md-button aria-label="routes" class="bm-route-item-text bm-route-input">{{route.routeSlashName}}</md-button>
+            </form>
+            <md-fab-trigger class="align-with-text">
+                <md-button aria-label="menu" class="md-fab md-primary bm-route-options">
+                    <md-icon class="bm-svg-purple" md-svg-src="assets/images/icons/ellipses.svg"></md-icon>
+                </md-button>
+            </md-fab-trigger>
+            <md-toolbar>
+                <md-fab-actions class="md-toolbar-tools">
+                    <!-- COPY -->
+                    <md-button aria-label="copy" class="md-icon-button" clipboard text="route.routename" on-copied="routesPanelCtrl.copySuccess()" on-error="routesPanelCtrl.copyFail(err)">
+                        <md-icon md-svg-src="assets/images/icons/copy.svg"></md-icon>
+                    </md-button>
+                    <!-- EDIT -->
+                    <md-button aria-label="edit" ng-click="routesPanelCtrl.editRouteModal.openEditMenu(route)" class="md-icon-button">
+                        <md-icon class="bm-svg-purple" md-svg-src="assets/images/icons/edit.svg"></md-icon>
+                    </md-button>
+                    <!-- DELETE -->
+                    <md-button aria-label="delete" ng-click="routesPanelCtrl.deleteRoute(route.routename)" class="md-icon-button">
+                        <md-icon md-svg-src="assets/images/icons/delete.svg"></md-icon>
+                    </md-button>
+                </md-fab-actions>
+            </md-toolbar>
+        </md-fab-toolbar>
+        <md-divider></md-divider>
+    </div>
+    <md-fab-toolbar md-open="false" md-direction="left">
+        <form ng-submit="routesPanelCtrl.addRoute()">
+            <input class="bm-route-item-text bm-route-input" ng-model="routesPanelCtrl.newRoute" placeholder="+ add a new route">
+        </form>
+    </md-fab-toolbar>
+    <md-divider></md-divider>
+</div>

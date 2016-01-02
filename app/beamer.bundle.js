@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "e40cc87dd883da17675a"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "92a32e4c79273271d43a"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -68262,7 +68262,8 @@
 	            email: $scope.user.email,
 	            password: $scope.user.pwd
 	        };
-	        auth.loginUser(user).then(loginSuccess, loginError);
+	        auth.loginUser(user)
+	            .then(loginSuccess, loginError);
 	    };
 	
 	    // This parses the error and adds it to the scope to be shown
@@ -68392,10 +68393,8 @@
 	    // Extracts token information and saves it in the session
 	    this.create = function(token) {
 	        this.expDate = jwtHelper.getTokenExpirationDate(token);
-	        // this.userid = jwtHelper.decodeToken(token).id;
-	        this.userid = '566135093d2411aff5c123e8';
+	        this.userid = jwtHelper.decodeToken(token).id;
 	        this.token = token;
-	        console.log($window);
 	        $window.sessionStorage.token = token;
 	    };
 	

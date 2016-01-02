@@ -1,23 +1,49 @@
 // IMAGE PATHS
 $bg: "../assets/images/background.png";
-// FONTS
+
+/*
+* Fonts
+*/
+
 $font-lato: 'Lato',
 sans-serif;
 $font-roboto: 'Roboto',
 sans-serif;
-$font-montserrat: "Montserrat",
+$font-montserrat: 'Montserrat',
 "Helvetica Neue",
 Helvetica,
 Arial,
 sans-serif;
-// COLORS
+$font-heiti: 'STHeiti';
+$font-phosphate: 'phosphateinline';
+
+/*
+* Colors
+*/
+
 $pink: #D16982;
+$bm-light-pink: #E75487;
 $dark-pink: darken($pink, 5%);
 $purple: #6F6889;
+$bright-purple:#7971AD;
+$light-purple: #7D83A9;
+$really-light-purple: #E5E4F0;
+$medium-purple: #483E6E;
+$list-purple: #7775B1;
 $dark-purple: #262039;
 $yellow: #E2E470;
 $white: #FFFFFF;
 $grey: #eeeeee;
-$bidvine-teal: #48bdbc;
-// COMPONENT SPECIFIC
+$medium-grey: #cccccc;
+$bm-teal: #48bdbc;
+$bm-teal-light: #8EE6E6;
+
+/*
+* Component Specific
+*/
+
 $form-width: 301;
+
+/*
+* DEVICE LIST
+*/

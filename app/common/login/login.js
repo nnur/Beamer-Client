@@ -3,6 +3,6 @@ var loginDirective = require('./login-directive.js');
 
 module.exports = angular.module('beamer.common.login', [])
     .controller('LoginController', ['$scope', 'auth', '$location',
-        loginController
+        '$mdToast', loginController
     ])
     .directive('loginForm', loginDirective);

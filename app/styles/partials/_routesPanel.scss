@@ -1,0 +1,135 @@
+.bm-routes-panel {
+    @extend .center-block;
+    width: 85%;
+    @include on-small {
+        width: 100%;
+    }
+    .bm-route-item-text {
+        @extend %routes-panel-text;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        margin: 0px;
+        border-radius: 0;
+        height: 100%;
+        width: 100vw;
+        z-index: 1;
+        position: absolute;
+        md-divider {
+            margin: 0;
+        }
+    }
+    input {
+        border: none;
+        @extend %bm-no-glow;
+    }
+    @include placeholder {
+        font-size: remify(18);
+        color: $list-purple;
+        font-family: $font-heiti;
+        text-transform: none!important;
+    }
+    .md-fab-toolbar-content {
+        display: flex;
+        flex-direction: row;
+    }
+    md-toolbar {
+        width: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: auto;
+        margin-right: 0px !important;
+        .md-fab {
+            box-shadow: none!important;
+        }
+    }
+    .md-fab {
+        box-shadow: none;
+    }
+    .bm-routes-header {
+        background-color: $really-light-purple;
+        color: $medium-purple;
+        font-size: remify(24);
+        padding: remify(10);
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-left: remify(15);
+        font-family: $font-heiti;
+        #user {
+            display: none;
+            @include on-xsmall {
+                display: flex;
+                @extend %bm-no-glow;
+                width: remify(45);
+                height: remify(45);
+                margin-right: 0;
+                @include svg-color(white);
+            }
+        }
+        #hamburger {
+            display: none;
+            @include on-xsmall {
+                display: flex;
+                @extend %bm-no-glow;
+                width: remify(30);
+                height: remify(30);
+                margin-left: 0;
+                margin-bottom: remify(17);
+                @include svg-color(white);
+            }
+        }
+        @include on-xsmall {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .bm-routes-header-text {
+                font-size: remify(50);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            height: remify(95)!important;
+            background: url($bg)!important;
+            background-position: center!important;
+            text-align: center;
+            color: $white;
+        }
+    }
+}
+
+.bm-route-options {
+    background: none!important;
+    @include on-xsmall {
+        background-color: white!important;
+    }
+}
+
+md-dialog {
+    border-radius: 0!important;
+}
+
+.bm-logout-info {
+    hr {
+        margin: 0;
+    }
+    button {
+        text-transform: none!important;
+        width: 100%;
+        margin: 0!important;
+        padding-bottom: remify(10);
+        padding-top: remify(10);
+        font-family: $font-heiti;
+        &:hover {
+            border-radius: none!important;
+            margin: 0!important;
+        }
+    }
+}
+
+%routes-panel-text {
+    font-size: remify(18);
+    color: $list-purple;
+    font-family: $font-heiti;
+    text-transform: none!important;
+    padding-left: remify(15);
+}
