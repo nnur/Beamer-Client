@@ -48,8 +48,8 @@ $bm-sidebar-width: 264px;
         justify-content: center;
         // Less padding on the bottom because the errors provide some padding
         // but are hidden most of the time
-        padding-bottom: remify(25)!important;
-        padding-top: remify(50)!important;
+        margin-bottom: remify(25)!important;
+        margin-top: remify(50)!important;
     }
 }
 

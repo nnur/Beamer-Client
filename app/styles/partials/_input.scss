@@ -1,8 +1,9 @@
 .bm-blog-search-bar {
     display: flex;
     flex-direction: row;
+    margin-bottom: remify(20);
     input {
-        margin-right: remify(11);
+        margin-right: remify(21);
         flex: 1;
         @extend %bm-no-glow;
         border: none;
