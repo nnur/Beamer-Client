@@ -57,6 +57,8 @@ $bm-sidebar-width: 264px;
     overflow-y: scroll;
     scrollbar-face-color: slategray;
     scrollbar-track-color: #b8c0c8;
+    height: 100%;
+    background: transparentize(black, .8);
     &::-webkit-scrollbar {
         width: remify(11);
     }
