@@ -3,10 +3,17 @@ var SearchBlogsListCtrl = require('./search-blogs-list-controller');
 var routesPanel = function() {
     return {
         restrict: 'E',
-        scope: true,
+        scope: {
+            blogs: '='
+        },
         templateUrl: 'common/searchBlogsList/search-blogs-list-directive.html',
         controller: SearchBlogsListCtrl,
-        controllerAs: 'searchBlogsListCtrl'
+        controllerAs: 'searchBlogsListCtrl',
+        link: function(scope, e, a, controller) {
+            scope.$watch('blogs', function(newVal) {
+                controller.blogs = newVal;
+            })
+        }
     }
 
 }

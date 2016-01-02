@@ -1,5 +1,5 @@
 var SearchBlogsListCtrl = function($scope) {
-    this.blogs = $scope.$parent.$parent.blogCtrl.blogsToShow;
+    this.blogs = $scope.blogs;
 };
 
 
