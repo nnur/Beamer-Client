@@ -1,0 +1,37 @@
+.bm-editor {
+    #bm-text-editor {
+        font-family: $font-lato!important;
+        .btn-toolbar {
+            font-family: $font-heiti!important;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between!important;
+            .btn-group {
+                button {
+                    height: 33px!important;
+                    border-radius: 0px;
+                    border-style: none!important;
+                    font-family: $font-heiti;
+                    background: $bright-purple;
+                    color: $white;
+                    box-shadow: none;
+                    &:hover {
+                        background: lighten($bright-purple, 10%);
+                    }
+                    &:active {
+                        background: darken($bright-purple, 10%);
+                    }
+                }
+            }
+        }
+    }
+    .ta-editor {
+        border-radius: 0px;
+        outline: none;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+        transition: all 0.2s ease-in-out;
+        &:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
+    }
+}

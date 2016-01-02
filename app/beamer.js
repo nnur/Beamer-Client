@@ -46,5 +46,6 @@ module.exports = {
         jwt: require('./config/jwt'),
         ds: require('./config/ds'),
         routeAccess: require('./config/routeAccess'),
+        textAnguarBtns: require('./config/textAngularBtns')
     }
 };

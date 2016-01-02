@@ -2,7 +2,7 @@
  * @file Requires all third-party libraries and stlyes.
  * @author Naila Nur
  */
-module.exports = function() {
+module.exports = new Promise(function(resolve, reject) {
     /* JS */
     require('../views/landing/js/agency');
     require('../views/landing/js/cbpAnimatedHeader');
@@ -22,4 +22,13 @@ module.exports = function() {
     require('js-data-angular');
     require('js-data-http');
     require('ng-smooth-scroll');
-};
+    // can't require textAngular without causing this https://github.com/webpack/webpack/issues/959
+    var $script = require("scriptjs");
+    $script("http://textangular.com/dist/textAngular-rangy.min.js", function() {
+        $script("http://textangular.com/dist/textAngular-sanitize.min.js", function() {
+            $script("http://textangular.com/dist/textAngular.min.js", function() {
+                resolve();
+            });
+        });
+    });
+});

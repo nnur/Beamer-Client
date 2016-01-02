@@ -1,6 +1,8 @@
-var BlogController = function() {
+var BlogController = function($scope) {
+    $scope.htmlcontent = 'New post!';
+    $scope.originalHtml = $scope.htmlcontent;
+    $scope.disabled = false;
 
-    console.log('in BlogController');
 }
 
 module.exports = BlogController;

@@ -3,6 +3,7 @@
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 @import "~angular-material/angular-material";
+@import "~textangular/dist/textAngular.css";
 @import "../assets/fonts/heiti.ttf";
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,300");
 @import url("https://fonts.googleapis.com/css?family=Lato:400,300");
@@ -22,3 +23,4 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "partials/sidebar";
 @import "partials/routesPanel";
 @import "partials/profile";
+@import "partials/blogEditor";

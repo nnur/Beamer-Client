@@ -28,6 +28,7 @@ app.constant('unprotected', [
 // CONFIGURATION
 app.config(beamer.config.jwt);
 app.config(beamer.config.router);
+app.config(beamer.config.textAnguarBtns);
 
 // RUN
 app.run(beamer.config.routeAccess);
