@@ -26,6 +26,7 @@
     "angular-material": "^1.0.1",
     "angular-route": "^1.4.8",
     "angular-ui-router": "^0.2.15",
+    "angular-vs-repeat": "^1.0.0-beta.1",
     "bootstrap-sass": "^3.3.6",
     "js-data": "^2.8.2",
     "js-data-angular": "^3.1.0",

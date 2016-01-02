@@ -1,0 +1,30 @@
+<div>
+    <div>
+        <md-list class="bm-blogs-list">
+            <!-- BLOG ENTRY -->
+            <div vs-repeat>
+                <div ng-repeat="blog in searchBlogsListCtrl.blogs">
+                    <md-list-item class="bm-blog-list-item">
+                        <md-button class="bm-blog-btn-container" ng-class-even="'bm-btn-dark'" aria-label="aria-sucks">
+                            <div class="bm-blog-list-item-button">
+                                <!-- Beamed/Draft Icon -->
+                                <div class="bm-blog-beamed-icon">
+                                    <md-button class="md-fab" ng-class="'bm-beamed'">
+                                        <md-icon class="bm-check" md-svg-src="assets/images/icons/check.svg"></md-icon>
+                                    </md-button>
+                                </div>
+                                <!-- Blog Name -->
+                                <div class="bm-blog-text">
+                                    <div id="text-w-ellipses">
+                                        <div>{{blog.title | limitTo: '32'}}</div>
+                                        <div ng-show="blog.title.length >= 32">...</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </md-button>
+                    </md-list-item>
+                </div>
+            </div>
+        </md-list>
+    </div>
+</div>

@@ -17,6 +17,7 @@ module.exports = function() {
     require('angular-aria');
     require('angular-animate');
     require('angular-material');
+    require('angular-vs-repeat');
     require('angular-jwt');
     require('angular-clipboard');
     require('js-data');
