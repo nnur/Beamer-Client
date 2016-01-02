@@ -18,6 +18,11 @@ var router = function($routeProvider) {
                 }
             }
         })
+        .when('/blogs', {
+            templateUrl: 'views/blog/blog-view.html',
+            controller: 'BlogController',
+            controllerAs: 'blogCtrl'
+        })
         .when('/', {
             templateUrl: 'views/landing/landing-view.html',
         })

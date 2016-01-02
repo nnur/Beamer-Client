@@ -7,6 +7,9 @@ module.exports = {
     views: {
         profile: {
             module: require('./views/profile/profile.js')
+        },
+        blog: {
+            module: require('./views/blog/blog.js')
         }
     },
     common: {

@@ -15,7 +15,8 @@ var app = angular.module('beamer', [
     beamer.common.editRouteModal.module.name,
     beamer.common.confirmDeleteModal.module.name,
     beamer.common.models.module.name,
-    beamer.views.profile.module.name
+    beamer.views.profile.module.name,
+    beamer.views.blog.module.name,
 ]);
 
 app.constant('apiEndpoint', 'http://127.0.0.1:1337/');
