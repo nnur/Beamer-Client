@@ -2,6 +2,7 @@ var beamer = require('./beamer');
 
 var app = angular.module('beamer', [
     'ngRoute',
+    'ui.router',
     'ngMaterial',
     'smoothScroll',
     'angular-jwt',

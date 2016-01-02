@@ -13,6 +13,7 @@ module.exports = function() {
     /* Angular */
     require('angular');
     require('angular-route');
+    require('angular-ui-router');
     require('angular-aria');
     require('angular-animate');
     require('angular-material');

@@ -1,6 +1,6 @@
 <div layout="horizontal" ng-cloak layout-fill class="bm-profile-view">
     <side-bar>
-        <div id="bm-settings-sidebar">
+        <div id="bm-blogs-sidebar">
             <!-- USER INITIAL ICON -->
             <div id="bm-sidebar-top">
                 <div class="bm-sidebar-icon">
@@ -9,16 +9,31 @@
                     </md-button>
                 </div>
             </div>
-            <!-- LIST -->
-            <div id="bm-sidebar-bottom">
-                <md-list>
-                    <!-- DELETE USER -->
-                    <md-list-item class="bm-blog-list-item">
-                        <md-button aria-label="aria-sucks">
-                            <md-icon md-svg-src="../../assets/images/icons/delete_user.svg"></md-icon>
-                            Delete account
-                        </md-button>
-                    </md-list-item>
+            <!-- BLOG LIST -->
+            <div id="bm-sidebar-bottom-blogs">
+                <md-list class="bm-blogs-list">
+                    <!-- BLOG ENTRY -->
+                    <div ng-repeat="blog in blogCtrl.blogs">
+                        <md-list-item class="bm-blog-list-item">
+                            <md-button class="bm-blog-btn-container" ng-class-even="'bm-btn-dark'" aria-label="aria-sucks">
+                                <div class="bm-blog-list-item-button">
+                                    <!-- Beamed/Draft Icon -->
+                                    <div class="bm-blog-beamed-icon">
+                                        <md-button class="md-fab" ng-class="'bm-beamed'">
+                                            <md-icon class="bm-check" md-svg-src="assets/images/icons/check.svg"></md-icon>
+                                        </md-button>
+                                    </div>
+                                    <!-- Blog Name -->
+                                    <div class="bm-blog-text">
+                                        <div id="text-w-ellipses">
+                                            <div>{{blog.title | limitTo: '32'}}</div>
+                                            <div ng-show="blog.title.length >= 32">...</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </md-button>
+                        </md-list-item>
+                    </div>
                 </md-list>
             </div>
         </div>

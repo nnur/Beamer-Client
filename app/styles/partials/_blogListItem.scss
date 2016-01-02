@@ -1,5 +1,57 @@
 .bm-blog-list-item {
-    md-button {
-        @extend .bm-sidebarBtn;
+    .bm-blog-btn-container {
+        flex: 1;
+        border-radius: 0;
+        height: remify(105);
+        pdding: 0;
+        background: $light-purple;
+        color: white;
+        text-transform: none!important;
+        margin: 0;
+        &:hover {
+            background: $light-purple;
+        }
+        &.bm-btn-dark {
+            background: $palid-purple!important;
+        }
+    }
+    .bm-blog-list-item-button {
+        display: flex;
+        flex-dirction: row;
+        width: 100%;
+        text-overflow: ellipsis;
+        .bm-blog-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-family: $font-futura;
+            font-weight: 700;
+            font-size: remify(14);
+            #text-w-ellipses {
+                display: flex;
+                flex-direction: row;
+            }
+        }
+    }
+    .bm-blog-beamed-icon {
+        margin-right: remify(13);
+        margin-left: remify(13);
+        .md-fab {
+            padding: 0;
+            width: remify(36);
+            height: remify(36);
+            border: solid 2px white;
+            margin: 0;
+            .bm-check {
+                width: remify(20)!important;
+                height: remify(20)!important;
+            }
+            &.bm-beamed {
+                background: $dark-teal;
+            }
+            &.bm-drafted {
+                background: $gross-pink;
+            }
+        }
     }
 }
