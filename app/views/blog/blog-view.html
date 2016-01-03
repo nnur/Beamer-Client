@@ -33,15 +33,7 @@
                 </div>
             </md-toolbar>
             <!-- TEXT ANGULAR BLOG EDITOR -->
-            <div class="bm-blog-right-panel">
-                <div class="bm-editor">
-                    <div class="bm-blog-title-input">
-                        <input ng-model="blogCtrl.currentBlog.title">
-                    </div>
-                    <div id="bm-text-editor" text-angular="text-angular" name="htmlcontent" ng-model="blogCtrl.currentBlog.text" ta-disabled='disabled'>
-                    </div>
-                </div>
-            </div>
+            <ui-view></ui-view>
         </md-content>
     </div>
 </div>

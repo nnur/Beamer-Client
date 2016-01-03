@@ -9,7 +9,10 @@ module.exports = {
             module: require('./views/profile/profile.js')
         },
         blog: {
-            module: require('./views/blog/blog.js')
+            module: require('./views/blog/blog.js'),
+            editBlogs: {
+                module: require('./views/blog/editBlogs/edit-blogs.js')
+            }
         }
     },
     common: {

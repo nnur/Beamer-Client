@@ -4,14 +4,14 @@ var BlogController = function($scope, $stateParams, $mdSidenav, $mdSidenav, $sta
     this.$mdSidenav_ = $mdSidenav;
     this.$state_ = $state;
 
-    // Public
+    // // Public
     this.logoutModal = logoutModal;
     this.currentUser = User.get(session.getUsername());
     this.searchQuery = "";
     this.blogs = blogs;
     this.blogsToShow = angular.copy(blogs);
     // No blog selected initiall
-    this.currentBlog = Blog.get($stateParams.blogid);
+    // this.currentBlog = Blog.get($stateParams.blogid);
 
     var self = this;
     $scope.$watch(function() {
@@ -21,8 +21,8 @@ var BlogController = function($scope, $stateParams, $mdSidenav, $mdSidenav, $sta
             return _.contains(blog.title, self.searchQuery);
         }, true);
     });
-    //text angular stuff
-    // $scope.htmlcontent = 'New post!';
+    // text angular stuff
+    $scope.htmlcontent = 'New post!';
     $scope.originalHtml = $scope.htmlcontent;
     $scope.disabled = false;
 };

@@ -23,7 +23,7 @@ var router = function($stateProvider, $urlRouterProvider) {
             }
         })
         .state('blogs', {
-            url: '/users/:username/routes/:routename/blogs/:blogid',
+            url: '/users/:username/routes/:routename/blogs',
             templateUrl: 'views/blog/blog-view.html',
             controller: 'BlogController',
             resolve: {
@@ -62,6 +62,35 @@ var router = function($stateProvider, $urlRouterProvider) {
                 }]
             },
             controllerAs: 'blogCtrl'
+        })
+        .state('blogs.edit', {
+            url: '/:blogid',
+            templateUrl: 'views/blog/editBlogs/edit-blogs.html',
+            controller: 'EditBlogsController',
+            controllerAs: 'editBlogCtrl'
+        })
+        .state('bugs', {
+            url: '/bugs',
+            // abstract: true,
+            template: 'I am /lemmons <br/> <input/><ui-view></ui-view>'
+        })
+        .state('bugs.edit', {
+            url: '/{bugid}',
+            templateUrl: 'bugs.html',
+            resolve: {
+                bug: function($stateParams) {
+                    return $stateParams
+                }
+            },
+            controller: function(bug, $state) {
+                this.bug = bug;
+                this.goPlace = function() {
+                    $state.go('bugs.edit', {
+                        bugid: 22
+                    })
+                }
+            },
+            controllerAs: 'bugCtrl'
         })
         .state('/', {
             url: '/',

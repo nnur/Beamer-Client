@@ -21,6 +21,7 @@ var app = angular.module('beamer', [
     beamer.common.models.module.name,
     beamer.views.profile.module.name,
     beamer.views.blog.module.name,
+    beamer.views.blog.editBlogs.module.name,
 ]);
 
 app.constant('apiEndpoint', 'http://127.0.0.1:1337/');

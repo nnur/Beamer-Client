@@ -9,7 +9,7 @@ var SearchBlogsListCtrl = function($scope, $state, $stateParams) {
 };
 
 SearchBlogsListCtrl.prototype.openBlog = function(blog) {
-    this.$state_.go('blogs', {
+    this.$state_.go('blogs.edit', {
         username: this.$stateParams_.username,
         routename: this.$stateParams_.routename,
         blogid: blog.id
