@@ -49,8 +49,6 @@ RoutesController.prototype.saveUserData = function() {
     this.isEditMode = false;
     // If it hasn't changed, do nothing
     if (this.currentUser.email === this.goldenUser.email) return;
-    // this.currentUser.email = this.user.email;
-    // users/dharness/
     this.currentUser.DSSave().then(function(user) {
         self.goldenUser = angular.copy(self.currentUser);
     }).catch(function(err) {

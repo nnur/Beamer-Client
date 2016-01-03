@@ -56,7 +56,7 @@ RoutesPanelCtrl.prototype.addRoute = function() {
         routename: this.newRoute
     };
     this.DSHttpAdapter_.create(this.Route_, newRoute, {
-        basePath: this.apiEndpoint_ + '/users/dharness/'
+        basePath: this.apiEndpoint_ + '/users/' + self.currentUser.username + '/'
     }).then(function(route) {
         var username = self.$scope_.currentUser.username;
         return self.User_.refresh(username);

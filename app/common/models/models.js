@@ -4,5 +4,5 @@ var Blog = require('./Blog.js');
 
 module.exports = angular.module('beamer.common.models', [])
     .factory('User', ['DS', 'apiEndpoint', 'session', User]).run(function(User) {})
-    .factory('Route', ['DS', 'apiEndpoint', Route]).run(function(Route) {})
+    .factory('Route', ['DS', 'apiEndpoint', 'session', Route]).run(function(Route) {})
     .factory('Blog', ['DS', 'apiEndpoint', Blog]).run(function(Blog) {});

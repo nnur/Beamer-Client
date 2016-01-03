@@ -1,4 +1,5 @@
-var Route = function(DS, apiEndpoint) {
+var Route = function(DS, apiEndpoint, session) {
+
     var route = DS.defineResource({
         name: 'routes',
         computed: {
@@ -7,7 +8,7 @@ var Route = function(DS, apiEndpoint) {
             }]
         },
         idAttribute: 'routename',
-        basePath: apiEndpoint + '/users/dharness/',
+        basePath: apiEndpoint + '/users/' + session.getUsername() + '/',
         cacheResponse: true,
         linkRelations: true,
         relations: {
