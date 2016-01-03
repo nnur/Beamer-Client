@@ -1,8 +1,11 @@
-var BlogController = function($scope, $stateParams, $mdSidenav, $mdSidenav, $state, logoutModal, User, Blog, session, currentUser, blogs) {
+var BlogController = function($scope, $stateParams, $mdSidenav, $state, logoutModal, User, Blog, session, currentUser, blogs, DSHttpAdapter, apiEndpoint) {
     // Private
     this.$mdSidenav_ = $mdSidenav;
-    this.$mdSidenav_ = $mdSidenav;
     this.$state_ = $state;
+    this.Blog_ = Blog;
+    this.User_ = User;
+    this.apiEndpoint_ = apiEndpoint;
+    this.DSHttpAdapter_ = DSHttpAdapter;
 
     // Public
     this.logoutModal = logoutModal;
@@ -10,6 +13,7 @@ var BlogController = function($scope, $stateParams, $mdSidenav, $mdSidenav, $sta
     this.searchQuery = "";
     this.blogs = blogs;
     this.blogsToShow = angular.copy(blogs);
+    this.selectedMode = 'md-scale';
     // No blog selected initiall
     this.currentBlog = Blog.get($stateParams.blogid);
 
@@ -50,6 +54,30 @@ BlogController.prototype.openSidebar = function() {
         $mdOpenMenu();
     }
 };
+
+BlogController.prototype.createBlog = function() {
+    var self = this;
+    console.log(this.blogs);
+
+    var newBlog = {
+        title: this.currentBlog.title,
+        text: this.currentBlog.text
+    };
+    this.DSHttpAdapter_.create(this.Blog_, newBlog, {
+        basePath: this.apiEndpoint_ + '/users/' + this.currentUser.username + '/routes/noodleIsPreeCute'
+    }).then(function(blog) {
+        return self.Blog_.inject(blog.data);
+    }).then(function(blogg) {
+        console.log(blogg);
+        // By this point, the route has been 
+        // added and the user is in sync
+
+    }).catch(function(err) {
+        //self.showToast(err.statusText + ', blog not added')
+        console.log(err);
+    });
+};
+
 
 
 module.exports = BlogController;
