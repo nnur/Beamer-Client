@@ -1,4 +1,4 @@
-var ProfileController = function($scope, currentUser, $mdSidenav, auth, $mdDialog, User, logoutModal, confirmDeleteModal) {
+var RoutesController = function($scope, currentUser, $mdSidenav, auth, $mdDialog, User, logoutModal, confirmDeleteModal) {
     // Private
     this.$scope_ = $scope;
     this.auth_ = auth;
@@ -13,7 +13,7 @@ var ProfileController = function($scope, currentUser, $mdSidenav, auth, $mdDialo
     this.confirmDeleteModal = confirmDeleteModal;
 };
 
-ProfileController.prototype.openUserMenu = function($mdOpenMenu) {
+RoutesController.prototype.openUserMenu = function($mdOpenMenu) {
     // Do not allow user to toggle sidenav in desktop
     if (!this.$mdSidenav_('left').isLockedOpen()) {
         this.$mdSidenav_('left').toggle();
@@ -25,7 +25,7 @@ ProfileController.prototype.openUserMenu = function($mdOpenMenu) {
 /**
  * Toggles if a User's Username is editable
  */
-ProfileController.prototype.toggleEditMode = function() {
+RoutesController.prototype.toggleEditMode = function() {
     // This branch is clicking cancel
     if (this.isEditMode) {
         this.currentUser.email = this.goldenUser.email;
@@ -44,7 +44,7 @@ ProfileController.prototype.toggleEditMode = function() {
     }
 };
 
-ProfileController.prototype.saveUserData = function() {
+RoutesController.prototype.saveUserData = function() {
     var self = this;
     this.isEditMode = false;
     // If it hasn't changed, do nothing
@@ -61,4 +61,4 @@ ProfileController.prototype.saveUserData = function() {
 
 
 
-module.exports = ProfileController;
+module.exports = RoutesController;

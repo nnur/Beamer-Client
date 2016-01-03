@@ -5,7 +5,7 @@
             <div id="bm-sidebar-top">
                 <div class="bm-sidebar-icon">
                     <md-button class="md-fab">
-                        <div class="bm-icon-letter">{{profileCtrl.currentUser.initial}}</div>
+                        <div class="bm-icon-letter">{{routesCtrl.currentUser.initial}}</div>
                     </md-button>
                 </div>
             </div>
@@ -14,34 +14,34 @@
                 <md-list>
                     <md-list-item>
                         <!-- ERRORS -->
-                        <div class="alert bm-update-error" ng-show="profileCtrl.updateError">
+                        <div class="alert bm-update-error" ng-show="routesCtrl.updateError">
                             <span class="glyphicon glyphicon-exclamation-sign"></span>
-                            <span class="sr-only">Error:</span> {{profileCtrl.updateError}}
+                            <span class="sr-only">Error:</span> {{routesCtrl.updateError}}
                         </div>
                     </md-list-item>
                     <!-- EMAIL -->
                     <md-list-item>
-                        <input id="email" class="bm-default-cursor md-button md-ink-ripple" type="text" ng-disabled="!profileCtrl.isEditMode" ng-model="profileCtrl.currentUser.email">
+                        <input id="email" class="bm-default-cursor md-button md-ink-ripple" type="text" ng-disabled="!routesCtrl.isEditMode" ng-model="routesCtrl.currentUser.email">
                         </input>
                     </md-list-item>
                     <!-- USERNAME -->
                     <md-list-item>
-                        <input class="bm-default-cursor md-button md-ink-ripple" type="email" ng-disabled="true" ng-model="profileCtrl.currentUser.username">
+                        <input class="bm-default-cursor md-button md-ink-ripple" type="email" ng-disabled="true" ng-model="routesCtrl.currentUser.username">
                         </input>
                     </md-list-item>
                     <!-- DELETE USER -->
                     <md-list-item>
-                        <md-button aria-label="aria-sucks" ng-click="profileCtrl.confirmDeleteModal.showConfirmation()">
+                        <md-button aria-label="aria-sucks" ng-click="routesCtrl.confirmDeleteModal.showConfirmation()">
                             <md-icon md-svg-src="../../assets/images/icons/delete_user.svg"></md-icon>
                             Delete account
                         </md-button>
                     </md-list-item>
                     <!-- CANCEL/SAVE -->
                     <md-list-item>
-                        <md-button class="bm-half-bar-btn " ng-click="profileCtrl.toggleEditMode()" ng-class="{'bm-editmode-dark': profileCtrl.isEditMode}" aria-label="aria-sucks">
-                            {{profileCtrl.isEditMode ? 'Cancel':'Edit'}}
+                        <md-button class="bm-half-bar-btn " ng-click="routesCtrl.toggleEditMode()" ng-class="{'bm-editmode-dark': routesCtrl.isEditMode}" aria-label="aria-sucks">
+                            {{routesCtrl.isEditMode ? 'Cancel':'Edit'}}
                         </md-button>
-                        <md-button class="bm-half-bar-btn" ng-click="profileCtrl.saveUserData();" aria-label="aria-sucks">
+                        <md-button class="bm-half-bar-btn" ng-click="routesCtrl.saveUserData();" aria-label="aria-sucks">
                             Save
                         </md-button>
                     </md-list-item>
@@ -59,20 +59,20 @@
             -->
             <md-toolbar class="bm-profile-toolbar">
                 <div class="md-toolbar-tools">
-                    <md-icon id="hamburger" hide-gt-sm ng-click="profileCtrl.openUserMenu()" md-svg-src="assets/images/icons/hamburger.svg"></md-icon>
+                    <md-icon id="hamburger" hide-gt-sm ng-click="routesCtrl.openUserMenu()" md-svg-src="assets/images/icons/hamburger.svg"></md-icon>
                     <span flex></span>
-                    <md-icon id="user" md-svg-src="assets/images/icons/user.svg" ng-click="profileCtrl.logoutModal.show()"></md-icon>
+                    <md-icon id="user" md-svg-src="assets/images/icons/user.svg" ng-click="routesCtrl.logoutModal.show()"></md-icon>
                 </div>
             </md-toolbar>
             <!-- 
                 CENTER PANEL
              -->
             <div class="bm-profile-center-panel">
-                <routes-panel current-user="profileCtrl.currentUser"></routes-panel>
+                <routes-panel current-user="routesCtrl.currentUser"></routes-panel>
             </div>
             <div class="bm-usage-icons-row">
                 <div class="bm-usage-icon">
-                    <md-button class="md-fab">{{profileCtrl.currentUser.routes.length}}</md-button>
+                    <md-button class="md-fab">{{routesCtrl.currentUser.routes.length}}</md-button>
                     <center>
                         <div>routes</div>
                     </center>

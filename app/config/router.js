@@ -8,10 +8,10 @@ var router = function($stateProvider, $urlRouterProvider) {
         })
         .state('users.routes', {
             url: '/:username/routes',
-            templateUrl: 'views/profile/profile-view.html',
+            templateUrl: 'views/user/routes/routes-view.html',
             // template: 'leo',
-            controller: 'ProfileController',
-            controllerAs: 'profileCtrl',
+            controller: 'RoutesController',
+            controllerAs: 'routesCtrl',
             resolve: {
                 currentUser: function($stateParams, DS, User) {
                     var username = $stateParams.username;

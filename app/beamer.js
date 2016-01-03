@@ -5,8 +5,10 @@
  */
 module.exports = {
     views: {
-        profile: {
-            module: require('./views/profile/profile.js')
+        user: {
+            routes: {
+                module: require('./views/user/routes/routes.js')
+            }
         },
         blog: {
             module: require('./views/blog/blog.js'),

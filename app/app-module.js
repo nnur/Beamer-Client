@@ -19,7 +19,7 @@ var app = angular.module('beamer', [
     beamer.common.confirmDeleteModal.module.name,
     beamer.common.blogsList.module.name,
     beamer.common.models.module.name,
-    beamer.views.profile.module.name,
+    beamer.views.user.routes.module.name,
     beamer.views.blog.module.name,
     beamer.views.blog.editBlogs.module.name,
 ]);
