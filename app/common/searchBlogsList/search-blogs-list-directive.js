@@ -4,7 +4,8 @@ var routesPanel = function() {
     return {
         restrict: 'E',
         scope: {
-            blogs: '='
+            blogs: '=',
+            noBlogs: '&'
         },
         templateUrl: 'common/searchBlogsList/search-blogs-list-directive.html',
         controller: SearchBlogsListCtrl,

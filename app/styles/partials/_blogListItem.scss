@@ -1,6 +1,7 @@
 .bm-blogs-list {
     padding-top: 0;
     padding-bottom: 0;
+    width: 100%;
     .bm-blog-list-item {
         .bm-blog-btn-container {
             flex: 1;
@@ -67,6 +68,7 @@
     justify-content: center;
     overflow: hidden;
     color: white;
+    background: $gross-purple;
     font-family: $font-futura;
     p {
         @extend .center-block;

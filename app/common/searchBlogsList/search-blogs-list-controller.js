@@ -5,6 +5,7 @@ var SearchBlogsListCtrl = function($scope, $state, $stateParams) {
 
     // Public
     this.blogs = $scope.blogs;
+    this.noBlogs = $scope.noBlogs();
 };
 
 SearchBlogsListCtrl.prototype.openBlog = function(blog) {

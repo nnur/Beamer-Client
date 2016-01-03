@@ -1,6 +1,7 @@
 <md-list class="bm-blogs-list" ng-show="searchBlogsListCtrl.blogs.length">
     <!-- BLOG ENTRY -->
     <div vs-repeat>
+        {{searchBlogsListCtrl.noBlogs}}
         <div ng-repeat="blog in searchBlogsListCtrl.blogs">
             <md-list-item class="bm-blog-list-item">
                 <md-button ng-click="searchBlogsListCtrl.openBlog(blog)" class="bm-blog-btn-container" ng-class-even="'bm-btn-dark'" aria-label="aria-sucks">
@@ -24,7 +25,10 @@
         </div>
     </div>
 </md-list>
-<div class="bm-no-blogs-message" ng-show="searchBlogsListCtrl.blogs.length === 0">
+<div class="bm-no-blogs-message" ng-show="searchBlogsListCtrl.noBlogs">
     <p>No blogs yet.</p>
     <p>Why not write some!</p>
+</div>
+<div class="bm-no-blogs-message" ng-show="searchBlogsListCtrl.blogs.length === 0" ng-hide="searchBlogsListCtrl.noBlogs">
+    <p>No search results were found.</p>
 </div>
