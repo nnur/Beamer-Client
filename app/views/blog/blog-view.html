@@ -14,7 +14,7 @@
                 <md-icon class="bm-search" md-svg-src="assets/images/icons/search.svg"></md-icon>
                 <input ng-model="blogCtrl.searchQuery">
             </div>
-            <search-blogs-list blogs="blogCtrl.blogs" id="bm-sidebar-bottom-blogs" ng-class="{'bm-no-blogs' : blogCtrl.blogs.length == 0}"></search-blogs-list>
+            <blogs-list blogs="blogCtrl.blogsToShow" no-blogs="blogCtrl.blogs.length == 0" id="bm-sidebar-bottom-blogs" ng-class="{'bm-no-blogs' : blogCtrl.blogs.length == 0}"></blogs-list>
         </div>
     </side-bar>
     <!-- 

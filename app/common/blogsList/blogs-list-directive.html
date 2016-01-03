@@ -1,10 +1,9 @@
-<md-list class="bm-blogs-list" ng-show="searchBlogsListCtrl.blogs.length">
+<md-list class="bm-blogs-list" ng-show="blogsListCtrl.blogs.length">
     <!-- BLOG ENTRY -->
     <div vs-repeat>
-        {{searchBlogsListCtrl.noBlogs}}
-        <div ng-repeat="blog in searchBlogsListCtrl.blogs">
+        <div ng-repeat="blog in blogsListCtrl.blogs">
             <md-list-item class="bm-blog-list-item">
-                <md-button ng-click="searchBlogsListCtrl.openBlog(blog)" class="bm-blog-btn-container" ng-class-even="'bm-btn-dark'" aria-label="aria-sucks">
+                <md-button ng-click="blogsListCtrl.openBlog(blog)" class="bm-blog-btn-container" ng-class-even="'bm-btn-dark'" aria-label="aria-sucks">
                     <div class="bm-blog-list-item-button">
                         <!-- Beamed/Draft Icon -->
                         <div class="bm-blog-beamed-icon">
@@ -25,10 +24,10 @@
         </div>
     </div>
 </md-list>
-<div class="bm-no-blogs-message" ng-show="searchBlogsListCtrl.noBlogs">
+<div class="bm-no-blogs-message" ng-show="blogsListCtrl.noBlogs">
     <p>No blogs yet.</p>
     <p>Why not write some!</p>
 </div>
-<div class="bm-no-blogs-message" ng-show="searchBlogsListCtrl.blogs.length === 0" ng-hide="searchBlogsListCtrl.noBlogs">
+<div class="bm-no-blogs-message" ng-show="blogsListCtrl.blogs.length === 0" ng-hide="blogsListCtrl.noBlogs">
     <p>No search results were found.</p>
 </div>

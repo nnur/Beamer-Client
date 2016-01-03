@@ -43,8 +43,8 @@ module.exports = {
         confirmDeleteModal: {
             module: require('./common/modals/confirmDeleteModal/confirm-delete-modal.js')
         },
-        searchBlogsList: {
-            module: require('./common/searchBlogsList/search-blogs-list.js')
+        blogsList: {
+            module: require('./common/blogsList/blogs-list.js')
         }
     },
     config: {

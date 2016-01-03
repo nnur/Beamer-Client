@@ -1,4 +1,4 @@
-var SearchBlogsListCtrl = function($scope, $state, $stateParams) {
+var BlogsListCtrl = function($scope, $state, $stateParams) {
     //Private
     this.$state_ = $state;
     this.$stateParams_ = $stateParams;
@@ -8,7 +8,7 @@ var SearchBlogsListCtrl = function($scope, $state, $stateParams) {
     this.noBlogs = $scope.noBlogs();
 };
 
-SearchBlogsListCtrl.prototype.openBlog = function(blog) {
+BlogsListCtrl.prototype.openBlog = function(blog) {
     this.$state_.go('blogs.edit', {
         username: this.$stateParams_.username,
         routename: this.$stateParams_.routename,
@@ -16,4 +16,4 @@ SearchBlogsListCtrl.prototype.openBlog = function(blog) {
     })
 };
 
-module.exports = SearchBlogsListCtrl;
+module.exports = BlogsListCtrl;
