@@ -22,7 +22,7 @@ var BlogController = function($scope, $stateParams, $mdSidenav, $mdSidenav, $sta
         }, true);
     });
     //text angular stuff
-    $scope.htmlcontent = 'New post!';
+    // $scope.htmlcontent = 'New post!';
     $scope.originalHtml = $scope.htmlcontent;
     $scope.disabled = false;
 };

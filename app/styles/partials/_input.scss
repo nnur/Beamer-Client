@@ -19,3 +19,18 @@
         @include svg-color(white)
     }
 }
+
+.bm-blog-title-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    input {
+        border: none;
+        @extend %bm-no-glow;
+        font-family: $font-heiti;
+        font-size: remify(23);
+        color: $light-purple;
+        flex: 1;
+    }
+}

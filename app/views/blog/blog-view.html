@@ -32,14 +32,16 @@
                     <md-icon id="user" md-svg-src="assets/images/icons/user.svg" ng-click="blogCtrl.logoutModal.show()"></md-icon>
                 </div>
             </md-toolbar>
-            <div flex layout="vertical" tabIndex="-1" role="main">
-                <!-- TEXT ANGULAR BLOG EDITOR -->
+            <!-- TEXT ANGULAR BLOG EDITOR -->
+            <div class="bm-blog-right-panel">
                 <div class="bm-editor">
-                    <div id="bm-text-editor" text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'>
+                    <div class="bm-blog-title-input">
+                        <input ng-model="blogCtrl.currentBlog.title">
+                    </div>
+                    <div id="bm-text-editor" text-angular="text-angular" name="htmlcontent" ng-model="blogCtrl.currentBlog.text" ta-disabled='disabled'>
                     </div>
                 </div>
             </div>
-            <p>{{blogCtrl.currentBlog.title}}</p>
         </md-content>
     </div>
 </div>

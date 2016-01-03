@@ -1,6 +1,22 @@
+.bm-blog-right-panel {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
 .bm-editor {
+    background-color: $bright-purple;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 70%;
+    @include on-medium {
+        width: 100%;
+    }
     #bm-text-editor {
         font-family: $font-lato!important;
+        @extend %bm-no-glow;
         .btn-toolbar {
             font-family: $font-heiti!important;
             display: flex;
@@ -27,8 +43,12 @@
     }
     .ta-editor {
         border-radius: 0px;
-        outline: none;
         box-shadow: 1px 1px 5px 1px rgba(122, 121, 122, 0.73);
+        overflow-y: scroll;
+        overflow-x: hidden;
+        word-wrap: break-word;
+        text-wrap: unrestricted;
         border: none;
+        outline: none;
     }
 }
