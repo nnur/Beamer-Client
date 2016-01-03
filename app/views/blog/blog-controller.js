@@ -38,7 +38,7 @@ var BlogController = function($scope, $stateParams, $mdSidenav, $state, logoutMo
 BlogController.prototype.go = function(state) {
     var params = {};
     // Configure the params for this specific route, '/profile/:username'
-    if (state === 'profile') {
+    if (state === 'users.routes') {
         _.extend(params, {
             username: this.currentUser.username
         });

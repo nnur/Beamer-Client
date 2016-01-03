@@ -2,15 +2,14 @@ var router = function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/');
     $stateProvider
-
-        .state('edit', {
-            url: '/edit',
-            templateUrl: 'views/edit/edit-view.html',
-            controller: 'EditController'
+        .state('users', {
+            url: '/users',
+            template: '<ui-view></ui-view>'
         })
-        .state('profile', {
-            url: '/profile/{username}',
+        .state('users.routes', {
+            url: '/:username/routes',
             templateUrl: 'views/profile/profile-view.html',
+            // template: 'leo',
             controller: 'ProfileController',
             controllerAs: 'profileCtrl',
             resolve: {
