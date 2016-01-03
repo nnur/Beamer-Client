@@ -3,7 +3,7 @@
     <div vs-repeat>
         <div ng-repeat="blog in searchBlogsListCtrl.blogs">
             <md-list-item class="bm-blog-list-item">
-                <md-button class="bm-blog-btn-container" ng-class-even="'bm-btn-dark'" aria-label="aria-sucks">
+                <md-button ng-click="searchBlogsListCtrl.openBlog(blog)" class="bm-blog-btn-container" ng-class-even="'bm-btn-dark'" aria-label="aria-sucks">
                     <div class="bm-blog-list-item-button">
                         <!-- Beamed/Draft Icon -->
                         <div class="bm-blog-beamed-icon">

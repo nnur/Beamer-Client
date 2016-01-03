@@ -23,7 +23,7 @@ var router = function($stateProvider, $urlRouterProvider) {
             }
         })
         .state('blogs', {
-            url: '/users/:username/routes/:routename/blogs/:blogname',
+            url: '/users/:username/routes/:routename/blogs/:blogid',
             templateUrl: 'views/blog/blog-view.html',
             controller: 'BlogController',
             resolve: {

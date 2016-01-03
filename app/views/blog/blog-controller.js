@@ -1,4 +1,4 @@
-var BlogController = function($scope, $mdSidenav, $mdSidenav, $state, logoutModal, User, session, currentUser, blogs) {
+var BlogController = function($scope, $stateParams, $mdSidenav, $mdSidenav, $state, logoutModal, User, Blog, session, currentUser, blogs) {
     // Private
     this.$mdSidenav_ = $mdSidenav;
     this.$mdSidenav_ = $mdSidenav;
@@ -10,6 +10,8 @@ var BlogController = function($scope, $mdSidenav, $mdSidenav, $state, logoutModa
     this.searchQuery = "";
     this.blogs = blogs;
     this.blogsToShow = angular.copy(blogs);
+    // No blog selected initiall
+    this.currentBlog = Blog.get($stateParams.blogid)
 
     var self = this;
     $scope.$watch(function() {
