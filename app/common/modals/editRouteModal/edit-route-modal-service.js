@@ -3,7 +3,7 @@ var editRouteModalController = require('./edit-route-modal-controller.js');
 var editRouteModal = function($mdDialog, User, session) {
     this.openEditMenu = function(route) {
         $mdDialog.show({
-            templateUrl: './common/editRouteModal/edit-route-modal-template.html',
+            templateUrl: './common/modals/editRouteModal/edit-route-modal-template.html',
             parent: angular.element(document.body),
             controller: editRouteModalController,
             controllerAs: 'editRouteDialgoueCtrl',

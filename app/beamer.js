@@ -35,13 +35,13 @@ module.exports = {
             module: require('./common/models/models.js')
         },
         logoutModal: {
-            module: require('./common/logoutModal/logout-modal.js')
+            module: require('./common/modals/logoutModal/logout-modal.js')
         },
         editRouteModal: {
-            module: require('./common/editRouteModal/edit-route-modal.js')
+            module: require('./common/modals/editRouteModal/edit-route-modal.js')
         },
         confirmDeleteModal: {
-            module: require('./common/confirmDeleteModal/confirm-delete-modal.js')
+            module: require('./common/modals/confirmDeleteModal/confirm-delete-modal.js')
         },
         searchBlogsList: {
             module: require('./common/searchBlogsList/search-blogs-list.js')
