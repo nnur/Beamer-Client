@@ -2,10 +2,13 @@ var beamer = require('./beamer');
 
 var app = angular.module('beamer', [
     'ngRoute',
+    'ui.router',
     'ngMaterial',
     'smoothScroll',
+    'vs-repeat',
     'angular-jwt',
     'js-data',
+    'textAngular',
     beamer.common.auth.module.name,
     beamer.common.login.module.name,
     beamer.common.routesPanel.module.name,
@@ -14,6 +17,7 @@ var app = angular.module('beamer', [
     beamer.common.logoutModal.module.name,
     beamer.common.editRouteModal.module.name,
     beamer.common.confirmDeleteModal.module.name,
+    beamer.common.searchBlogsList.module.name,
     beamer.common.models.module.name,
     beamer.views.profile.module.name,
     beamer.views.blog.module.name,

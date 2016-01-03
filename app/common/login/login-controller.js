@@ -46,6 +46,7 @@ module.exports = function LoginController($scope, auth, $location, $mdToast) {
 
     // Adds the login error to the scope to be shown
     function loginError(res) {
+        console.log(res);
         if (res.data.err) {
             $scope.login.error = res.data.err;
         } else if (res.status == 422) {
@@ -55,6 +56,7 @@ module.exports = function LoginController($scope, auth, $location, $mdToast) {
 
     // A successful login routes view to profile
     function loginSuccess(res) {
+        //TODO: This should be switched to s $state.go
         $location.path("/profile/" + res.user.username);
     }
 };

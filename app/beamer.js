@@ -39,6 +39,9 @@ module.exports = {
         },
         confirmDeleteModal: {
             module: require('./common/confirmDeleteModal/confirm-delete-modal.js')
+        },
+        searchBlogsList: {
+            module: require('./common/searchBlogsList/search-blogs-list.js')
         }
     },
     config: {

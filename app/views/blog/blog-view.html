@@ -1,6 +1,45 @@
-<div flex layout="vertical" tabIndex="-1" role="main">
-    <div class="bm-editor">
-        <div id="bm-text-editor" text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'>
+<div layout="horizontal" ng-cloak layout-fill class="bm-profile-view">
+    <side-bar>
+        <div id="bm-blogs-sidebar">
+            <!-- USER INITIAL ICON -->
+            <div id="bm-sidebar-top">
+                <div class="bm-sidebar-icon">
+                    <md-button class="md-fab" ng-click="blogCtrl.go('profile')">
+                        <div class="bm-icon-letter">{{blogCtrl.currentUser.initial}}</div>
+                    </md-button>
+                </div>
+            </div>
+            <!-- BLOG LIST -->
+            <div class="bm-blog-search-bar">
+                <md-icon class="bm-search" md-svg-src="assets/images/icons/search.svg"></md-icon>
+                <input ng-model="blogCtrl.searchQuery">
+            </div>
+            <search-blogs-list blogs="blogCtrl.blogsToShow" id="bm-sidebar-bottom-blogs" ng-class="{'bm-no-blogs' : blogCtrl.blogs.length == 0}"></search-blogs-list>
         </div>
+    </side-bar>
+    <!-- 
+        PAGE CONTENTS
+     -->
+    <div flex layout="vertical" tabIndex="-1" role="main">
+        <md-content flex>
+            <!-- 
+                TOOL BAR
+            -->
+            <md-toolbar class="bm-profile-toolbar">
+                <div class="md-toolbar-tools">
+                    <md-icon id="hamburger" hide-gt-sm ng-click="blogCtrl.openSidebar()" md-svg-src="assets/images/icons/hamburger.svg"></md-icon>
+                    <span flex></span>
+                    <md-icon id="user" md-svg-src="assets/images/icons/user.svg" ng-click="blogCtrl.logoutModal.show()"></md-icon>
+                </div>
+            </md-toolbar>
+            <div flex layout="vertical" tabIndex="-1" role="main">
+                <!-- TEXT ANGULAR BLOG EDITOR -->
+                <div class="bm-editor">
+                    <div id="bm-text-editor" text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'>
+                    </div>
+                </div>
+            </div>
+            <p>{{blogCtrl.currentBlog.title}}</p>
+        </md-content>
     </div>
 </div>

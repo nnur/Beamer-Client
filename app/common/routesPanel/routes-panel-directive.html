@@ -9,7 +9,7 @@
     <div ng-repeat="route in currentUser.sortedRoutes track by $index">
         <md-fab-toolbar md-open="false" md-direction="left">
             <form ng-submit="routesPanelCtrl.addRoute()">
-                <md-button aria-label="routes" class="bm-route-item-text bm-route-input">{{route.routeSlashName}}</md-button>
+                <md-button ng-click="routesPanelCtrl.goToBlogsView(route.routename)" aria-label="routes" class="bm-route-item-text bm-route-input">{{route.routeSlashName}}</md-button>
             </form>
             <md-fab-trigger class="align-with-text">
                 <md-button aria-label="menu" class="md-fab md-primary bm-route-options">
