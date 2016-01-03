@@ -1,7 +1,8 @@
-var RoutesPanelCtrl = function($scope, DS, DSHttpAdapter, apiEndpoint, User, Route, $mdToast, $mdSidenav, $mdDialog, auth, logoutModal, editRouteModal) {
+var RoutesPanelCtrl = function($scope, $state, session, DS, DSHttpAdapter, apiEndpoint, User, Route, $mdToast, $mdSidenav, $mdDialog, auth, logoutModal, editRouteModal) {
     // Private
     this.auth_ = auth;
     this.$scope_ = $scope;
+    this.$state_ = $state;
     this.DS_ = DS;
     this.DSHttpAdapter_ = DSHttpAdapter;
     this.apiEndpoint_ = apiEndpoint;
@@ -12,6 +13,7 @@ var RoutesPanelCtrl = function($scope, DS, DSHttpAdapter, apiEndpoint, User, Rou
     this.$mdDialog_ = $mdDialog;
 
     // Public
+    this.currentUser = User.get(session.getUsername());
     this.editMode = {};
     this.newRoute = "";
     this.logoutModal = logoutModal;
@@ -29,6 +31,13 @@ RoutesPanelCtrl.prototype.showToast = function(text, options) {
         .position('top right')
         .hideDelay(3000)
     );
+};
+
+RoutesPanelCtrl.prototype.goToBlogsView = function(routename) {
+    this.$state_.go('blogs', {
+        username: this.currentUser.username,
+        routename: routename
+    });
 };
 
 RoutesPanelCtrl.prototype.openUserMenu = function($mdOpenMenu) {

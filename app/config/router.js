@@ -43,12 +43,22 @@ var router = function($stateProvider, $urlRouterProvider) {
                     }
                     return currentUser;
                 }],
-                blogs: ['currentUser', 'Blog', 'User', 'Route', function(currentUser, Blog, User, Route) {
-                    return Blog.findAll().then(function(blogs) {
-                        return Blog.getAll();
-                    }).catch(function(err) {
-                        console.log(err);
-                    });
+                blogs: ['$stateParams', 'DSHttpAdapter', 'currentUser', 'apiEndpoint', 'Blog', function($stateParams, DSHttpAdapter, currentUser, apiEndpoint, Blog) {
+                    // For url query params
+                    var params = {};
+                    var options = {
+                        basePath: apiEndpoint + '/users/' + $stateParams.username + '/routes/' + $stateParams.routename + '/'
+                    };
+                    // Use the adapter for custom basepath
+                    return DSHttpAdapter
+                        .findAll(Blog, params, options)
+                        .then(function(res) {
+                            // inject manually, due to adapter
+                            _.each(res.data.blogs, function(blog) {
+                                Blog.inject(blog);
+                            });
+                            return res.data.blogs;
+                        });
                 }]
             },
             controllerAs: 'blogCtrl'

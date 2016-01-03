@@ -1,7 +1,8 @@
-var BlogController = function($scope, $mdSidenav, $mdSidenav, logoutModal, User, session, currentUser, blogs) {
+var BlogController = function($scope, $mdSidenav, $mdSidenav, $state, logoutModal, User, session, currentUser, blogs) {
     // Private
     this.$mdSidenav_ = $mdSidenav;
     this.$mdSidenav_ = $mdSidenav;
+    this.$state_ = $state;
 
     // Public
     this.logoutModal = logoutModal;
@@ -17,8 +18,22 @@ var BlogController = function($scope, $mdSidenav, $mdSidenav, logoutModal, User,
         self.blogsToShow = _.filter(angular.copy(self.blogs), function(blog) {
             return _.contains(blog.title, self.searchQuery);
         }, true);
-        console.log(self.blogsToShow);
     })
+};
+
+/**
+ * @param  {string} state - the name of the sate to go to, see router
+ * Move to a specific state with appropriate params
+ */
+BlogController.prototype.go = function(state) {
+    var params = {};
+    // Configure the params for this specific route, '/profile/:username'
+    if (state === 'profile') {
+        _.extend(params, {
+            username: this.currentUser.username
+        });
+    }
+    this.$state_.go(state, params)
 };
 
 BlogController.prototype.openSidebar = function() {

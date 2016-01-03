@@ -59,3 +59,16 @@
         }
     }
 }
+
+.bm-no-blogs-message {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    color: white;
+    font-family: $font-futura;
+    p {
+        @extend .center-block;
+    }
+}

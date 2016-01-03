@@ -54,11 +54,15 @@ $bm-sidebar-width: 264px;
 }
 
 #bm-sidebar-bottom-blogs {
+    display: flex;
     overflow-y: scroll;
     scrollbar-face-color: slategray;
     scrollbar-track-color: #b8c0c8;
     height: 100%;
-    background: transparentize(black, .8);
+    background: $gross-purple;
+    &.bm-no-blogs {
+        background: $palid-purple!important;
+    }
     &::-webkit-scrollbar {
         width: remify(11);
     }

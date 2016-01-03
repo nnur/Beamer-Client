@@ -1,7 +1,8 @@
 var Blog = function(DS, apiEndpoint) {
     var blog = DS.defineResource({
         name: 'blogs',
-        basePath: apiEndpoint + '/users/dharness/routes/noodleIsPreeCute/',
+        // basePath: apiEndpoint + '/users/dharness/routes/noodleIsPreeCute/',
+        basePath: 'elm',
         cacheResponse: true,
         linkRelations: true,
         relations: {
