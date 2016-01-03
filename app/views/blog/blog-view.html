@@ -33,39 +33,26 @@
                 </div>
             </md-toolbar>
             <!-- TEXT ANGULAR BLOG EDITOR -->
-            <<<<<<< HEAD <ui-view>
-                </ui-view>
-                =======
-                <div class="bm-blog-right-panel">
-                    <div class="bm-editor">
-                        <div class="bm-blog-title-input">
-                            <input ng-model="blogCtrl.currentBlog.title">
-                        </div>
-                        <div id="bm-text-editor" text-angular="text-angular" name="htmlcontent" ng-model="blogCtrl.currentBlog.text" ta-disabled='disabled'>
-                        </div>
-                    </div>
-                </div>
-                <md-fab-speed-dial md-open="false" md-direction="up" ng-class="blogCtrl.selectedMode">
-                    <md-fab-trigger>
-                        <md-button aria-label="menu" class="md-fab md-warn">
-                            <md-icon md-svg-src="assets/images/icons/hamburger.svg"></md-icon>
-                        </md-button>
-                    </md-fab-trigger>
-                    <md-fab-actions>
-                        <md-button aria-label="New" class="md-fab md-raised md-mini">
-                            +
-                            <md-icon md-svg-src="img/icons/twitter.svg" aria-label="Twitter"></md-icon>
-                        </md-button>
-                        <md-button aria-label="Delete" class="md-fab md-raised md-mini">
-                            <md-icon md-svg-src="assets/images/icons/delete.svg" aria-label="Facebook"></md-icon>
-                        </md-button>
-                        <md-button aria-label="Beam" class="md-fab md-raised md-mini" ng-click="blogCtrl.createBlog()">
-                            %
-                            <md-icon md-svg-src="img/icons/hangout.svg" aria-label="Google Hangout"></md-icon>
-                        </md-button>
-                    </md-fab-actions>
-                </md-fab-speed-dial>
-                >>>>>>> CRUDBlog
+            <ui-view></ui-view>
+            <md-fab-speed-dial md-open="false" md-direction="up" ng-class="blogCtrl.selectedMode">
+                <md-fab-trigger>
+                    <md-button aria-label="menu" class="md-fab md-warn">
+                        <md-icon md-svg-src="assets/images/icons/hamburger.svg"></md-icon>
+                    </md-button>
+                </md-fab-trigger>
+                <md-fab-actions>
+                    <md-button aria-label="New" class="md-fab md-raised md-mini">
+                        +
+                        <md-icon md-svg-src="img/icons/twitter.svg" aria-label="Twitter"></md-icon>
+                    </md-button>
+                    <md-button aria-label="Delete" class="md-fab md-raised md-mini">
+                        <md-icon md-svg-src="assets/images/icons/delete.svg" aria-label="Facebook"></md-icon>
+                    </md-button>
+                    <md-button aria-label="Beam" class="md-fab md-raised md-mini" ng-click="blogCtrl.createBlog()">
+                        <md-icon md-svg-src="img/icons/hangout.svg" aria-label="Google Hangout"></md-icon>
+                    </md-button>
+                </md-fab-actions>
+            </md-fab-speed-dial>
         </md-content>
     </div>
 </div>

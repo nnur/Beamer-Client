@@ -69,29 +69,6 @@ var router = function($stateProvider, $urlRouterProvider) {
             controller: 'EditBlogsController',
             controllerAs: 'editBlogCtrl'
         })
-        .state('bugs', {
-            url: '/bugs',
-            // abstract: true,
-            template: 'I am /lemmons <br/> <input/><ui-view></ui-view>'
-        })
-        .state('bugs.edit', {
-            url: '/{bugid}',
-            templateUrl: 'bugs.html',
-            resolve: {
-                bug: function($stateParams) {
-                    return $stateParams
-                }
-            },
-            controller: function(bug, $state) {
-                this.bug = bug;
-                this.goPlace = function() {
-                    $state.go('bugs.edit', {
-                        bugid: 22
-                    })
-                }
-            },
-            controllerAs: 'bugCtrl'
-        })
         .state('/', {
             url: '/',
             templateUrl: 'views/landing/landing-view.html',
