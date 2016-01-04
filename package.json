@@ -1,52 +1,53 @@
 {
-  "name": "beamer-front",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app-module.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node node_modules/.bin/webpack-dev-server --content-base app/ --hot --host 0.0.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nnur/Beamer-Client.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nnur/Beamer-Client/issues"
-  },
-  "homepage": "https://github.com/nnur/Beamer-Client#readme",
-  "dependencies": {
-    "angular": "^1.4.8",
-    "angular-animate": "^1.4.8",
-    "angular-aria": "^1.4.8",
-    "angular-clipboard": "^1.2.0",
-    "angular-jwt": "0.0.9",
-    "angular-material": "^1.0.1",
-    "angular-route": "^1.4.8",
-    "angular-ui-router": "^0.2.15",
-    "angular-vs-repeat": "^1.0.0-beta.1",
-    "bootstrap-sass": "^3.3.6",
-    "imports-loader": "^0.6.5",
-    "js-data": "^2.8.2",
-    "js-data-angular": "^3.1.0",
-    "js-data-http": "^2.1.2",
-    "mobile-angular-ui": "0.0.0",
-    "ng-smooth-scroll": "^1.7.3",
-    "scriptjs": "^2.5.8",
-    "textangular": "^1.4.6"
-  },
-  "devDependencies": {
-    "css-loader": "^0.23.0",
-    "file-loader": "^0.8.5",
-    "karma-sourcemap-loader": "^0.3.6",
-    "node-sass": "^3.4.2",
-    "null-loader": "^0.1.1",
-    "sass-loader": "^3.1.2",
-    "style-loader": "^0.13.0",
-    "url-loader": "^0.5.7",
-    "webpack": "^1.2",
-    "webpack-dev-server": "^1.14.0"
-  }
+    "name": "beamer-front",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app-module.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node node_modules/.bin/webpack-dev-server --content-base app/ --hot --host 0.0.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nnur/Beamer-Client.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/nnur/Beamer-Client/issues"
+    },
+    "homepage": "https://github.com/nnur/Beamer-Client#readme",
+    "dependencies": {
+        "angular": "^1.4.8",
+        "angular-animate": "^1.4.8",
+        "angular-aria": "^1.4.8",
+        "angular-clipboard": "^1.2.0",
+        "angular-jwt": "0.0.9",
+        "angular-material": "^1.0.1",
+        "angular-route": "^1.4.8",
+        "angular-ui-router": "^0.2.15",
+        "angular-vs-repeat": "^1.0.0-beta.1",
+        "bootstrap-sass": "^3.3.6",
+        "imports-loader": "^0.6.5",
+        "js-data": "^2.8.2",
+        "js-data-angular": "^3.1.0",
+        "js-data-http": "^2.1.2",
+        "karma-coverage": "^0.5.3",
+        "mobile-angular-ui": "0.0.0",
+        "ng-smooth-scroll": "^1.7.3",
+        "scriptjs": "^2.5.8",
+        "textangular": "^1.4.6"
+    },
+    "devDependencies": {
+        "css-loader": "^0.23.0",
+        "file-loader": "^0.8.5",
+        "karma-sourcemap-loader": "^0.3.6",
+        "node-sass": "^3.4.2",
+        "null-loader": "^0.1.1",
+        "sass-loader": "^3.1.2",
+        "style-loader": "^0.13.0",
+        "url-loader": "^0.5.7",
+        "webpack": "^1.2",
+        "webpack-dev-server": "^1.14.0"
+    }
 }

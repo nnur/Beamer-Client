@@ -1,7 +1,7 @@
 /**
  * Login Controller handles login and signup forms
  */
-module.exports = function LoginController($scope, auth, $location, $mdToast) {
+module.exports = function LoginController($scope, $state, auth, $location, $mdToast) {
     $scope.showButt = true;
     $scope.login = {};
     $scope.signup = {};
@@ -56,7 +56,8 @@ module.exports = function LoginController($scope, auth, $location, $mdToast) {
 
     // A successful login routes view to profile
     function loginSuccess(res) {
-        //TODO: This should be switched to s $state.go
-        $location.path("/profile/" + res.user.username);
+        $state.go('users.routes', {
+            username: res.user.username
+        });
     }
 };
