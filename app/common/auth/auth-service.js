@@ -36,7 +36,6 @@ var auth = function($http, session, $q) {
             url: root + '/users/login',
             data: user
         }).then(function(res) {
-            console.log(res);
             var data = res.data.data;
             if (data.token) {
 

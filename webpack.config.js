@@ -4,7 +4,6 @@ var webpack = require('webpack'),
 var APP = __dirname + '/app';
 
 delete webpack.optimize.DedupePlugin;
-debugger;
 
 module.exports = {
     context: APP,

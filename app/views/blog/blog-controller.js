@@ -57,7 +57,6 @@ BlogController.prototype.openSidebar = function() {
 
 BlogController.prototype.createBlog = function() {
     var self = this;
-    console.log(this.blogs);
 
     var newBlog = {
         title: this.currentBlog.title,
@@ -68,7 +67,6 @@ BlogController.prototype.createBlog = function() {
     }).then(function(blog) {
         return self.Blog_.inject(blog.data);
     }).then(function(blogg) {
-        console.log(blogg);
         // By this point, the route has been 
         // added and the user is in sync
 

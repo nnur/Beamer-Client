@@ -24,13 +24,9 @@ module.exports = angular.module('beamer.views.edit', [])
                 userid: 'hinkypinky'
             };
 
-            $http.post('http://localhost:1337/blog/create', blog).
-            success(function(data, status, headers, config) {
-                console.log(data);
-            }).
-            error(function(data, status, headers, config) {
-                console.log('oops');
-            });
+            $http.post('http://localhost:1337/blog/create', blog)
+                .success(function(data, status, headers, config) {})
+                .error(function(data, status, headers, config) {});
 
             $scope.blog = {};
         };

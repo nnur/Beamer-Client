@@ -27,13 +27,13 @@ describe('Routes Controller', function() {
     beforeEach(inject(function(_$controller_, user) {
         $controller = _$controller_;
         mockUser = user;
-        profileController = $controller('ProfileController', {
+        profileController = $controller('RoutesController', {
             $scope: $scope
         });
     }));
 
     //deleteUser
-    it('should delete a user', function() {
+    fit('should delete a user', function() {
         expect(1).toBe(1)
             // profileController.deleteUser();
             // expect(mockUser.DSDestroy).toHaveBeenCalled();
