@@ -5,9 +5,9 @@
 	 id="Layer_1" xmlns:svg="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://creativecommons.org/ns#"
 	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="720px" height="720px"
 	 viewBox="0 0 720 720" enable-background="new 0 0 720 720" xml:space="preserve">
-<path fill="#E75487" d="M100.359,41.225h180.297V-5.688h154.028v46.912c62.379,0,117.919,0,180.298,0v70.992H100.359
-	 M419.268,10.797H298.59v30.837h120.676L419.268,10.797z"/>
-<path fill="#E75487" d="M147.432,142.312h429.186l-51.016,444.95H198.448 M509.829,191.772h-42.711l-24.984,361.25h32.558
-	L509.829,191.772z M381.147,192.082h-42.712l5.608,361.177h32.558L381.147,192.082z M252.465,194.942h-42.711l36.2,360.496h32.558
-	L252.465,194.942z"/>
+<path fill="#E75487" d="M57.705,67.764h211.128V12.829h180.366v54.934c73.046,0,138.084,0,211.13,0v83.131H57.705 M431.146,32.132
+	H289.833v36.11h141.312L431.146,32.132z"/>
+<path fill="#E75487" d="M112.827,186.137h502.576l-59.74,521.035H172.567 M537.193,244.054H487.18l-29.257,423.023h38.126
+	L537.193,244.054z M386.507,244.417h-50.016l6.567,422.938h38.125L386.507,244.417z M235.82,247.766h-50.014l42.39,422.14h38.125
+	L235.82,247.766z"/>
 </svg>

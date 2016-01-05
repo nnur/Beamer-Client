@@ -51,3 +51,34 @@
         border: solid 1px white;
     }
 }
+
+#bm-blog-actions-fab {
+    md-fab-trigger {
+        button {
+            background: $bright-purple;
+            width: remify(58);
+            height: remify(58);
+        }
+    }
+    md-fab-actions {
+        button {
+            width: remify(58);
+            height: remify(58);
+        }
+        #beam {
+            background: $bm-teal;
+        }
+        #create {
+            border: 2px solid $bright-purple;
+            @include svg-color($bright-purple);
+        }
+        #delete {
+            border: 2px solid $pink;
+            @include svg-color($pink);
+            md-icon {
+                width: remify(30);
+                height: remify(30);
+            }
+        }
+    }
+}

@@ -2,15 +2,38 @@
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+}
+
+.bm-fab-sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    #bm-blog-actions-fab {
+        position: fixed;
+        bottom: remify(40);
+        right: remify(40);
+    }
+}
+
+.bm-editor-wrapper {
+    flex: 4;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 .bm-editor {
-    background-color: $bright-purple;
+    .ta-toolbar {
+        background-color: $bright-purple;
+        width: 100%;
+        margin-left: 0;
+    }
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 70%;
+    width: 100%;
     @include on-medium {
         width: 100%;
     }

@@ -56,7 +56,7 @@ var router = function($stateProvider, $urlRouterProvider) {
                             _.each(res.data.blogs, function(blog) {
                                 Blog.inject(blog);
                             });
-                            return res.data.blogs;
+                            return Blog.getAll();
                         });
                 }]
             },

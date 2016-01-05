@@ -1,7 +1,6 @@
 var Blog = function(DS, apiEndpoint) {
     var blog = DS.defineResource({
         name: 'blogs',
-        basePath: 'elm',
         cacheResponse: true,
         linkRelations: true,
         relations: {
@@ -16,6 +15,10 @@ var Blog = function(DS, apiEndpoint) {
         afterFindAll: function(resource, data, cb) {
             // do something more specific to "blogs"
             cb(null, data.data.blogs);
+        },
+        afterCreate: function(resource, data, cb) {
+            // do something more specific to "blogs"
+            cb(null, data.data);
         },
         afterUpdate: function(resource, data, cb) {
             cb(null, data.data);

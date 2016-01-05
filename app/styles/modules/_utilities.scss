@@ -79,3 +79,7 @@
     $rem: $px/16;
     @return $rem - 0rem;
 }
+
+.bm-spacer-1 {
+    flex: 1;
+}
