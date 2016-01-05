@@ -5,6 +5,8 @@ var EditBlogsController = function($state, $stateParams, $mdToast, Blog, apiEndp
     this.$state_ = $state;
     this.$mdToast_ = $mdToast;
     this.apiEndpoint_ = apiEndpoint;
+    this.basePath = this.apiEndpoint_ + '/users/' + this.$stateParams_.username + '/routes/' +
+        this.$stateParams_.routename;
 }
 
 EditBlogsController.prototype.createBlog = function() {
@@ -39,10 +41,37 @@ EditBlogsController.prototype.createBlog = function() {
 };
 
 EditBlogsController.prototype.updateBlog = function() {
-
+    var self = this;
+    this.Blog_.update(this.$stateParams_.blogid, {
+        title: this.currentBlog.title,
+        text: this.currentBlog.text
+    }, {
+        basePath: this.apiEndpoint_
+    }).then(function() {
+        self.$mdToast_.show(
+            self.$mdToast_.simple()
+            .textContent('Blog updated!')
+            .position('top right')
+            .hideDelay(3000)
+        );
+    })
 };
 
 EditBlogsController.prototype.deleteBlog = function() {
-
+    var self = this;
+    this.Blog_.destroy(this.$stateParams_.blogid, {
+        basePath: 'http://127.0.0.1:1337/'
+    }).then(function() {
+        self.$state_.go('blogs', {
+            username: self.$stateParams_.username,
+            routename: self.$stateParams_.routename
+        });
+        self.$mdToast_.show(
+            self.$mdToast_.simple()
+            .textContent('Blog deleted!')
+            .position('top right')
+            .hideDelay(3000)
+        );
+    })
 };
 module.exports = EditBlogsController;

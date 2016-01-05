@@ -2,6 +2,7 @@ var BlogController = function($scope, $stateParams, $mdSidenav, $state, logoutMo
     // Private
     this.$mdSidenav_ = $mdSidenav;
     this.$state_ = $state;
+    this.$stateParams_ = $stateParams;
     this.Blog_ = Blog;
     this.User_ = User;
     this.apiEndpoint_ = apiEndpoint;
@@ -55,25 +56,72 @@ BlogController.prototype.openSidebar = function() {
     }
 };
 
-BlogController.prototype.createBlog = function() {
-    var self = this;
 
-    var newBlog = {
+BlogController.prototype.createBlog = function() {
+    console.log('here');
+    var self = this;
+    return this.Blog_.create({
+        title: '',
+        text: ''
+    }, {
+        basePath: this.apiEndpoint_ + '/users/' + this.$stateParams_.username + '/routes/' +
+            this.$stateParams_.routename
+    }).then(function(res) {
+        self.$state_.go('blogs.edit', {
+            username: self.$stateParams_.username,
+            routename: self.$stateParams_.routename,
+            blogid: res.id
+        });
+
+        self.$mdToast_.show(
+            self.$mdToast_.simple()
+            .textContent('Blog created!')
+            .position('top right')
+            .hideDelay(3000)
+        );
+    }).catch(function(err) {
+        self.$mdToast_.show(
+            self.$mdToast_.simple()
+            .textContent(err)
+            .position('top right')
+            .hideDelay(3000)
+        );
+    });
+};
+
+BlogController.prototype.updateBlog = function() {
+    var self = this;
+    this.Blog_.update(this.$stateParams_.blogid, {
         title: this.currentBlog.title,
         text: this.currentBlog.text
-    };
-    this.DSHttpAdapter_.create(this.Blog_, newBlog, {
-        basePath: this.apiEndpoint_ + '/users/' + this.currentUser.username + '/routes/noodleIsPreeCute'
-    }).then(function(blog) {
-        return self.Blog_.inject(blog.data);
-    }).then(function(blogg) {
-        // By this point, the route has been 
-        // added and the user is in sync
+    }, {
+        basePath: this.apiEndpoint_
+    }).then(function() {
+        self.$mdToast_.show(
+            self.$mdToast_.simple()
+            .textContent('Blog updated!')
+            .position('top right')
+            .hideDelay(3000)
+        );
+    })
+};
 
-    }).catch(function(err) {
-        //self.showToast(err.statusText + ', blog not added')
-        console.log(err);
-    });
+BlogController.prototype.deleteBlog = function() {
+    var self = this;
+    this.Blog_.destroy(this.$stateParams_.blogid, {
+        basePath: 'http://127.0.0.1:1337/'
+    }).then(function() {
+        self.$state_.go('blogs', {
+            username: self.$stateParams_.username,
+            routename: self.$stateParams_.routename
+        });
+        self.$mdToast_.show(
+            self.$mdToast_.simple()
+            .textContent('Blog deleted!')
+            .position('top right')
+            .hideDelay(3000)
+        );
+    })
 };
 
 
