@@ -63,11 +63,10 @@ EditBlogsController.prototype.deleteBlog = function() {
     this.Blog_.destroy(this.$stateParams_.blogid, {
         basePath: 'http://127.0.0.1:1337/'
     }).then(function() {
-
-        // self.$state_.go('blogs', {
-        //     username: self.$stateParams_.username,
-        //     routename: self.$stateParams_.routename
-        // });
+        self.$state_.go('blogs', {
+            username: self.$stateParams_.username,
+            routename: self.$stateParams_.routename
+        });
         self.$mdToast_.show(
             self.$mdToast_.simple()
             .textContent('Blog deleted!')

@@ -61,6 +61,9 @@
         }
     }
     md-fab-actions {
+        .md-fab-action-item {
+            transform: scale(0.0)
+        }
         button {
             width: remify(58);
             height: remify(58);
