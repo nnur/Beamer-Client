@@ -1,10 +1,11 @@
-var BlogController = function($scope, $stateParams, $mdSidenav, $state, logoutModal, User, Blog, session, currentUser, blogs, DSHttpAdapter, apiEndpoint, DS) {
+var BlogController = function($scope, $stateParams, $mdSidenav, $state, logoutModal, User, Blog, Route, session, currentUser, blogs, DSHttpAdapter, apiEndpoint, DS) {
     // Private
     this.$mdSidenav_ = $mdSidenav;
     this.$state_ = $state;
     this.$stateParams_ = $stateParams;
     this.Blog_ = Blog;
     this.User_ = User;
+    this.Route_ = Route;
     this.apiEndpoint_ = apiEndpoint;
     this.DSHttpAdapter_ = DSHttpAdapter;
 
@@ -12,11 +13,9 @@ var BlogController = function($scope, $stateParams, $mdSidenav, $state, logoutMo
     this.logoutModal = logoutModal;
     this.currentUser = User.get(session.getUsername());
     this.searchQuery = "";
-    this.blogs = blogs;
-    this.blogsToShow = angular.copy(blogs);
+    this.blogs = Route.get($stateParams.routename).blogs;
+    this.blogsToShow = angular.copy(Route.get($stateParams.routename).blogs);
     this.selectedMode = 'md-scale';
-    // No blog selected initiall
-    // this.currentBlog = Blog.get($stateParams.blogid);
 
     var self = this;
     $scope.$watch(function() {
@@ -34,6 +33,23 @@ var BlogController = function($scope, $stateParams, $mdSidenav, $state, logoutMo
             return _.contains(blog.title, self.searchQuery);
         }, true);
     }, true);
+
+    // $scope.$watch(function() {
+    //     return self.blogs.length;
+    // }, function(newVal, oldVal) {
+    //     self.blogsToShow = _.filter(angular.copy(self.blogs), function(blog) {
+    //         return _.contains(blog.title, self.searchQuery);
+    //     }, true);
+    // }, true);
+
+    $scope.$watch(function() {
+        return self.Route_.get(self.$stateParams_.routename).blogs.length;
+    }, function(newVal, oldVal) {
+        self.blogsToShow = _.filter(angular.copy(self.Route_.get(self.$stateParams_.routename).blogs), function(blog) {
+            return _.contains(blog.title, self.searchQuery);
+        }, true);
+    }, true);
+
     // text angular stuff
     $scope.htmlcontent = 'New post!';
     $scope.originalHtml = $scope.htmlcontent;
@@ -65,72 +81,71 @@ BlogController.prototype.openSidebar = function() {
 };
 
 
-BlogController.prototype.createBlog = function() {
-    console.log('here');
-    var self = this;
-    return this.Blog_.create({
-        title: '',
-        text: ''
-    }, {
-        basePath: this.apiEndpoint_ + '/users/' + this.$stateParams_.username + '/routes/' +
-            this.$stateParams_.routename
-    }).then(function(res) {
-        self.$state_.go('blogs.edit', {
-            username: self.$stateParams_.username,
-            routename: self.$stateParams_.routename,
-            blogid: res.id
-        });
+// BlogController.prototype.createBlog = function() {
+//     var self = this;
+//     return this.Blog_.create({
+//         title: '',
+//         text: ''
+//     }, {
+//         basePath: this.apiEndpoint_ + '/users/' + this.$stateParams_.username + '/routes/' +
+//             this.$stateParams_.routename
+//     }).then(function(res) {
+//         self.$state_.go('blogs.edit', {
+//             username: self.$stateParams_.username,
+//             routename: self.$stateParams_.routename,
+//             blogid: res.id
+//         });
 
-        self.$mdToast_.show(
-            self.$mdToast_.simple()
-            .textContent('Blog created!')
-            .position('top right')
-            .hideDelay(3000)
-        );
-    }).catch(function(err) {
-        self.$mdToast_.show(
-            self.$mdToast_.simple()
-            .textContent(err)
-            .position('top right')
-            .hideDelay(3000)
-        );
-    });
-};
+//         self.$mdToast_.show(
+//             self.$mdToast_.simple()
+//             .textContent('Blog created!')
+//             .position('top right')
+//             .hideDelay(3000)
+//         );
+//     }).catch(function(err) {
+//         self.$mdToast_.show(
+//             self.$mdToast_.simple()
+//             .textContent(err)
+//             .position('top right')
+//             .hideDelay(3000)
+//         );
+//     });
+// };
 
-BlogController.prototype.updateBlog = function() {
-    var self = this;
-    this.Blog_.update(this.$stateParams_.blogid, {
-        title: this.currentBlog.title,
-        text: this.currentBlog.text
-    }, {
-        basePath: this.apiEndpoint_
-    }).then(function() {
-        self.$mdToast_.show(
-            self.$mdToast_.simple()
-            .textContent('Blog updated!')
-            .position('top right')
-            .hideDelay(3000)
-        );
-    })
-};
+// BlogController.prototype.updateBlog = function() {
+//     var self = this;
+//     this.Blog_.update(this.$stateParams_.blogid, {
+//         title: this.currentBlog.title,
+//         text: this.currentBlog.text
+//     }, {
+//         basePath: this.apiEndpoint_
+//     }).then(function() {
+//         self.$mdToast_.show(
+//             self.$mdToast_.simple()
+//             .textContent('Blog updated!')
+//             .position('top right')
+//             .hideDelay(3000)
+//         );
+//     })
+// };
 
-BlogController.prototype.deleteBlog = function() {
-    var self = this;
-    this.Blog_.destroy(this.$stateParams_.blogid, {
-        basePath: 'http://127.0.0.1:1337/'
-    }).then(function() {
-        self.$state_.go('blogs', {
-            username: self.$stateParams_.username,
-            routename: self.$stateParams_.routename
-        });
-        self.$mdToast_.show(
-            self.$mdToast_.simple()
-            .textContent('Blog deleted!')
-            .position('top right')
-            .hideDelay(3000)
-        );
-    })
-};
+// BlogController.prototype.deleteBlog = function() {
+//     var self = this;
+//     this.Blog_.destroy(this.$stateParams_.blogid, {
+//         basePath: 'http://127.0.0.1:1337/'
+//     }).then(function() {
+//         self.$state_.go('blogs', {
+//             username: self.$stateParams_.username,
+//             routename: self.$stateParams_.routename
+//         });
+//         self.$mdToast_.show(
+//             self.$mdToast_.simple()
+//             .textContent('Blog deleted!')
+//             .position('top right')
+//             .hideDelay(3000)
+//         );
+//     })
+// };
 
 
 
