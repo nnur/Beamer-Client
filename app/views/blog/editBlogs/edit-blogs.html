@@ -21,15 +21,18 @@
             <md-fab-actions>
                 <!-- BEAM -->
                 <md-button id="beam" aria-label="Beam" class="md-fab md-raised md-mini" ng-click="editBlogCtrl.updateBlog()">
-                    <md-icon md-svg-src="assets/images/icons/bolt.svg" aria-label="Google Hangout"></md-icon>
+                    <md-tooltip md-direction="left">beam</md-tooltip>
+                    <md-icon md-svg-src="assets/images/icons/bolt.svg" aria-label="beam"></md-icon>
                 </md-button>
                 <!-- DELETE -->
                 <md-button id="delete" aria-label="Delete blog" class="md-fab md-raised md-mini" ng-click="editBlogCtrl.deleteBlog()">
-                    <md-icon md-svg-src="assets/images/icons/delete.svg" aria-label="Facebook"></md-icon>
+                    <md-tooltip md-direction="left">delete</md-tooltip>
+                    <md-icon md-svg-src="assets/images/icons/delete.svg" aria-label="delete"></md-icon>
                 </md-button>
                 <!-- CREATE -->
                 <md-button id="create" aria-label="New blog" class="md-fab md-raised md-mini" ng-click="editBlogCtrl.createBlog()">
-                    <md-icon md-svg-src="assets/images/icons/plus.svg" aria-label="Twitter"></md-icon>
+                    <md-tooltip md-direction="left">new blog</md-tooltip>
+                    <md-icon md-svg-src="assets/images/icons/plus.svg" aria-label="new blog"></md-icon>
                 </md-button>
             </md-fab-actions>
         </md-fab-speed-dial>

@@ -12,6 +12,13 @@ var EditBlogsController = function($state, $stateParams, $mdToast, Blog, apiEndp
 
 EditBlogsController.prototype.createBlog = function() {
     var self = this;
+
+    return self.$state_.go('blogs.edit', {
+        username: self.$stateParams_.username,
+        routename: self.$stateParams_.routename,
+        blogid: 'newBlog'
+    });
+
     return this.Blog_.create({
         title: '',
         text: ''
