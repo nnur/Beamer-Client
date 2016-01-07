@@ -1,4 +1,4 @@
-var BlogController = function($scope, $stateParams, $mdSidenav, $state, logoutModal, User, Blog, session, currentUser, blogs, DSHttpAdapter, apiEndpoint) {
+var BlogController = function($scope, $stateParams, $mdSidenav, $state, logoutModal, User, Blog, session, currentUser, blogs, DSHttpAdapter, apiEndpoint, DS) {
     // Private
     this.$mdSidenav_ = $mdSidenav;
     this.$state_ = $state;
@@ -20,12 +20,20 @@ var BlogController = function($scope, $stateParams, $mdSidenav, $state, logoutMo
 
     var self = this;
     $scope.$watch(function() {
-        return self.searchQuery
+        return self.searchQuery;
     }, function(newVal, oldVal) {
         self.blogsToShow = _.filter(angular.copy(self.blogs), function(blog) {
             return _.contains(blog.title, self.searchQuery);
         }, true);
     });
+
+    $scope.$watch(function() {
+        return self.blogs;
+    }, function(newVal, oldVal) {
+        self.blogsToShow = _.filter(angular.copy(self.blogs), function(blog) {
+            return _.contains(blog.title, self.searchQuery);
+        }, true);
+    }, true);
     // text angular stuff
     $scope.htmlcontent = 'New post!';
     $scope.originalHtml = $scope.htmlcontent;

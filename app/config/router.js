@@ -42,7 +42,7 @@ var router = function($stateProvider, $urlRouterProvider) {
                     }
                     return currentUser;
                 }],
-                blogs: ['$stateParams', 'DSHttpAdapter', 'currentUser', 'apiEndpoint', 'Blog', function($stateParams, DSHttpAdapter, currentUser, apiEndpoint, Blog) {
+                blogs: ['$stateParams', 'DSHttpAdapter', 'currentUser', 'apiEndpoint', 'Blog', 'Route', function($stateParams, DSHttpAdapter, currentUser, apiEndpoint, Blog, Route) {
                     // For url query params
                     var params = {};
                     var options = {
@@ -56,7 +56,7 @@ var router = function($stateProvider, $urlRouterProvider) {
                             _.each(res.data.blogs, function(blog) {
                                 Blog.inject(blog);
                             });
-                            return Blog.getAll();
+                            return Route.get($stateParams.routename).blogs;
                         });
                 }]
             },
