@@ -15,6 +15,7 @@ var app = angular.module('beamer', [
     beamer.common.session.module.name,
     beamer.common.sidebar.module.name,
     beamer.common.logoutModal.module.name,
+    beamer.common.saveChangesModal.module.name,
     beamer.common.editRouteModal.module.name,
     beamer.common.confirmDeleteModal.module.name,
     beamer.common.blogsList.module.name,
@@ -34,9 +35,13 @@ app.constant('unprotected', [
 app.config(beamer.config.jwt);
 app.config(beamer.config.router);
 app.config(beamer.config.textAnguarBtns);
+app.value('unsavedChanges', {
+    blogs: false
+});
 
 // RUN
 app.run(beamer.config.routeAccess);
+app.run(beamer.config.saveChanges);
 app.run(beamer.config.ds);
 
 module.exports = app;

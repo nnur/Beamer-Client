@@ -45,6 +45,9 @@ module.exports = {
         confirmDeleteModal: {
             module: require('./common/modals/confirmDeleteModal/confirm-delete-modal.js')
         },
+        saveChangesModal: {
+            module: require('./common/modals/saveChangesModal/save-changes-modal.js')
+        },
         blogsList: {
             module: require('./common/blogsList/blogs-list.js')
         }
@@ -54,6 +57,7 @@ module.exports = {
         jwt: require('./config/jwt'),
         ds: require('./config/ds'),
         routeAccess: require('./config/routeAccess'),
+        saveChanges: require('./config/saveChanges'),
         textAnguarBtns: require('./config/textAngularBtns')
     }
 };

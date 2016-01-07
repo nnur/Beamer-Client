@@ -34,9 +34,10 @@ RoutesPanelCtrl.prototype.showToast = function(text, options) {
 };
 
 RoutesPanelCtrl.prototype.goToBlogsView = function(routename) {
-    this.$state_.go('blogs', {
+    this.$state_.go('blogs.edit', {
         username: this.currentUser.username,
-        routename: routename
+        routename: routename,
+        blogid: 'newBlog'
     });
 };
 

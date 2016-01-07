@@ -3,11 +3,13 @@
     <div class="bm-spacer-1"></div>
     <div class="bm-editor-wrapper">
         <div class="bm-editor">
-            <div class="bm-blog-title-input">
-                <input ng-model="editBlogCtrl.currentBlog.title">
-            </div>
-            <div id="bm-text-editor" text-angular="text-angular" name="htmlcontent" ng-model="editBlogCtrl.currentBlog.text" ta-disabled='disabled'>
-            </div>
+            <form name="editBlogCtrl.form">
+                <div class="bm-blog-title-input">
+                    <input ng-model="editBlogCtrl.currentBlog.title">
+                </div>
+                <div id="bm-text-editor" text-angular="text-angular" name="htmlcontent" ng-model="editBlogCtrl.currentBlog.text" ta-disabled='disabled'>
+                </div>
+            </form>
         </div>
     </div>
     <!-- SPEED DIAL -->
@@ -30,7 +32,7 @@
                     <md-icon md-svg-src="assets/images/icons/delete.svg" aria-label="delete"></md-icon>
                 </md-button>
                 <!-- CREATE -->
-                <md-button id="create" aria-label="New blog" class="md-fab md-raised md-mini" ng-click="editBlogCtrl.createBlog()">
+                <md-button id="create" aria-label="New blog" class="md-fab md-raised md-mini" ng-click="editBlogCtrl.showNewBlog()">
                     <md-tooltip md-direction="left">new blog</md-tooltip>
                     <md-icon md-svg-src="assets/images/icons/plus.svg" aria-label="new blog"></md-icon>
                 </md-button>
