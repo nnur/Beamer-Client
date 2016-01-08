@@ -19,6 +19,7 @@ var RoutesPanelCtrl = function($scope, $state, session, DS, DSHttpAdapter, apiEn
     this.logoutModal = logoutModal;
     this.editRouteModal = editRouteModal;
 };
+
 /**
  * Utility function to display a toast in the upper right hand corner
  * @param  {string} text - the message to show on the toast

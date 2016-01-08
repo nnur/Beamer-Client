@@ -15,6 +15,9 @@
         bottom: remify(40);
         right: remify(40);
     }
+    @include on-xsmall {
+        position: absolute;
+    }
 }
 
 .bm-editor-wrapper {
@@ -40,6 +43,13 @@
     #bm-text-editor {
         font-family: $font-lato!important;
         @extend %bm-no-glow;
+        &.focussed {
+            @extend %bm-no-glow;
+            .ta-scroll-window {
+                border-color: black;
+                box-shadow: 1px 1px 5px 1px rgba(122, 121, 122, 0.73);
+            }
+        }
         .btn-toolbar {
             font-family: $font-heiti!important;
             display: flex;
