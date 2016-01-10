@@ -22,7 +22,7 @@ var BlogController = function($scope, $stateParams, $mdSidenav, $state, logoutMo
         return self.searchQuery;
     }, function(newVal, oldVal) {
         self.blogsToShow = _.filter(angular.copy(self.blogs), function(blog) {
-            return _.contains(blog.title, self.searchQuery);
+            return _.contains(blog.title.toLowerCase(), self.searchQuery.toLowerCase());
         }, true);
     });
 
