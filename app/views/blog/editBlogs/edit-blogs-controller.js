@@ -42,6 +42,9 @@ EditBlogsController.prototype.setUnsavedChanges = function(isChanged) {
 
 EditBlogsController.prototype.createBlog = function() {
     var self = this;
+    if(this.currentBlog.title ==''){
+        this.currentBlog.title = 'Untitled';
+    }
     return this.Blog_.create({
         title: this.currentBlog.title,
         text: this.currentBlog.text
