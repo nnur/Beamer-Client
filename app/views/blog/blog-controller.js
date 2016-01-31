@@ -26,6 +26,7 @@ var BlogController = function($scope, $stateParams, $mdSidenav, $state, logoutMo
         }, true);
     });
 
+    // This is so the edit blog panel updates
     $scope.$watch(function() {
         return self.blogs;
     }, function(newVal, oldVal) {
@@ -34,6 +35,8 @@ var BlogController = function($scope, $stateParams, $mdSidenav, $state, logoutMo
         }, true);
     }, true);
 
+    // This is so the sidepanel updates, because sidepanel is actually bound to
+    // the Routes blogs
     $scope.$watch(function() {
         return self.Route_.get(self.$stateParams_.routename).blogs.length;
     }, function(newVal, oldVal) {
