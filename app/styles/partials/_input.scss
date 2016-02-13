@@ -1,0 +1,39 @@
+.bm-blog-search-bar {
+    display: flex;
+    flex-direction: row;
+    margin-top: remify(30);
+    margin-bottom: remify(30);
+    input {
+        margin-right: remify(21);
+        flex: 1;
+        @extend %bm-no-glow;
+        border: none;
+        border-bottom: 1px solid white;
+        background: none;
+        color: white;
+        font-family: $font-heiti;
+        font-size: remify(15);
+        padding-top: remify(20);
+        padding-bottom: remify(10);
+    }
+    .bm-search {
+        margin-left: remify(11);
+        margin-right: remify(11);
+        @include svg-color(white)
+    }
+}
+
+.bm-blog-title-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    input {
+        border: none;
+        @extend %bm-no-glow;
+        font-family: $font-heiti;
+        font-size: remify(23);
+        color: $light-purple;
+        flex: 1;
+    }
+}

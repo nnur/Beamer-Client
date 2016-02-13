@@ -1,7 +1,8 @@
-var RoutesPanelCtrl = function($scope, DS, DSHttpAdapter, apiEndpoint, User, Route, $mdToast, $mdSidenav, $mdDialog, auth, logoutModal, editRouteModal) {
+var RoutesPanelCtrl = function($scope, $state, session, DS, DSHttpAdapter, apiEndpoint, User, Route, $mdToast, $mdSidenav, $mdDialog, auth, logoutModal, editRouteModal) {
     // Private
     this.auth_ = auth;
     this.$scope_ = $scope;
+    this.$state_ = $state;
     this.DS_ = DS;
     this.DSHttpAdapter_ = DSHttpAdapter;
     this.apiEndpoint_ = apiEndpoint;
@@ -12,11 +13,13 @@ var RoutesPanelCtrl = function($scope, DS, DSHttpAdapter, apiEndpoint, User, Rou
     this.$mdDialog_ = $mdDialog;
 
     // Public
+    this.currentUser = User.get(session.getUsername());
     this.editMode = {};
     this.newRoute = "";
     this.logoutModal = logoutModal;
     this.editRouteModal = editRouteModal;
 };
+
 /**
  * Utility function to display a toast in the upper right hand corner
  * @param  {string} text - the message to show on the toast
@@ -29,6 +32,14 @@ RoutesPanelCtrl.prototype.showToast = function(text, options) {
         .position('top right')
         .hideDelay(3000)
     );
+};
+
+RoutesPanelCtrl.prototype.goToBlogsView = function(routename) {
+    this.$state_.go('blogs.edit', {
+        username: this.currentUser.username,
+        routename: routename,
+        blogid: 'newBlog'
+    });
 };
 
 RoutesPanelCtrl.prototype.openUserMenu = function($mdOpenMenu) {
@@ -47,14 +58,14 @@ RoutesPanelCtrl.prototype.addRoute = function() {
         routename: this.newRoute
     };
     this.DSHttpAdapter_.create(this.Route_, newRoute, {
-        basePath: this.apiEndpoint_ + '/users/dharness/'
+        basePath: this.apiEndpoint_ + '/users/' + self.currentUser.username + '/'
     }).then(function(route) {
         var username = self.$scope_.currentUser.username;
         return self.User_.refresh(username);
     }).then(function(refreshedUser) {
         //updates computed properties
         refreshedUser.DSCompute();
-        // By this point, the route has been 
+        // By this point, the route has been
         // added and the user is in sync
         self.newRoute = "";
     }).catch(function(err) {

@@ -5,8 +5,16 @@
  */
 module.exports = {
     views: {
-        profile: {
-            module: require('./views/profile/profile.js')
+        user: {
+            routes: {
+                module: require('./views/user/routes/routes.js')
+            }
+        },
+        blog: {
+            module: require('./views/blog/blog.js'),
+            editBlogs: {
+                module: require('./views/blog/editBlogs/edit-blogs.js')
+            }
         }
     },
     common: {
@@ -29,13 +37,19 @@ module.exports = {
             module: require('./common/models/models.js')
         },
         logoutModal: {
-            module: require('./common/logoutModal/logout-modal.js')
+            module: require('./common/modals/logoutModal/logout-modal.js')
         },
         editRouteModal: {
-            module: require('./common/editRouteModal/edit-route-modal.js')
+            module: require('./common/modals/editRouteModal/edit-route-modal.js')
         },
         confirmDeleteModal: {
-            module: require('./common/confirmDeleteModal/confirm-delete-modal.js')
+            module: require('./common/modals/confirmDeleteModal/confirm-delete-modal.js')
+        },
+        saveChangesModal: {
+            module: require('./common/modals/saveChangesModal/save-changes-modal.js')
+        },
+        blogsList: {
+            module: require('./common/blogsList/blogs-list.js')
         }
     },
     config: {
@@ -43,5 +57,7 @@ module.exports = {
         jwt: require('./config/jwt'),
         ds: require('./config/ds'),
         routeAccess: require('./config/routeAccess'),
+        saveChanges: require('./config/saveChanges'),
+        textAnguarBtns: require('./config/textAngularBtns')
     }
 };

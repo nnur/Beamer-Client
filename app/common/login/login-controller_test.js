@@ -10,7 +10,16 @@ describe('LoginController', function() {
         angular.mock.module(function($provide) {
             jwtHelper = {};
             $provide.value('jwtHelper', jwtHelper);
-
+            $provide.value('currentUser', {});
+            $provide.value('$state', {
+                go: jasmine.createSpy('$state.go')
+            });
+            $provide.value('$mdToast', {});
+            $provide.value('$mdSidenav', {});
+            $provide.value('$mdDialog', {});
+            $provide.value('User', {});
+            $provide.value('logoutModal', {});
+            $provide.value('confirmDeleteModal', {});
         });
     });
 

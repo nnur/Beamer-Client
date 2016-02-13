@@ -1,0 +1,42 @@
+<div layout="horizontal" ng-cloak layout-fill class="bm-profile-view">
+    <side-bar>
+        <div id="bm-blogs-sidebar">
+            <!-- USER INITIAL ICON -->
+            <div id="bm-sidebar-top">
+                <div class="bm-sidebar-icon">
+                    <md-button class="md-fab" ng-click="blogCtrl.go('users.routes')">
+                        <div class="bm-icon-letter">{{blogCtrl.currentUser.initial}}</div>
+                    </md-button>
+                </div>
+            </div>
+            <!-- BLOG LIST -->
+            <div class="bm-blog-search-bar">
+                <md-icon class="bm-search" md-svg-src="assets/images/icons/search.svg"></md-icon>
+                <input ng-model="blogCtrl.searchQuery">
+            </div>
+            <blogs-list blogs="blogCtrl.blogsToShow" no-blogs="blogCtrl.blogs.length == 0" id="bm-sidebar-bottom-blogs" ng-class="{'bm-no-blogs' : blogCtrl.blogs.length == 0}"></blogs-list>
+        </div>
+    </side-bar>
+    <!-- 
+        PAGE CONTENTS
+     -->
+    <div flex layout="vertical" tabIndex="-1" role="main">
+        <md-content flex>
+            <!-- 
+                TOOL BAR
+            -->
+            <md-toolbar class="bm-profile-toolbar">
+                <div class="md-toolbar-tools">
+                    <md-icon id="hamburger" hide-gt-sm ng-click="blogCtrl.openSidebar()" md-svg-src="assets/images/icons/hamburger.svg"></md-icon>
+                    <span flex></span>
+                    <md-icon id="user" md-svg-src="assets/images/icons/user.svg" ng-click="blogCtrl.logoutModal.show()"></md-icon>
+                </div>
+            </md-toolbar>
+            <!-- TEXT ANGULAR BLOG EDITOR -->
+            <ui-view></ui-view>
+            <!-- FAB SPEED DIALER -->
+            <div class="bm-right-toolbar">
+            </div>
+        </md-content>
+    </div>
+</div>

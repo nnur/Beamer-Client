@@ -1,6 +1,10 @@
-require('./vendor.js')();
-var app = require('../app-module');
+var promise = require('./vendor.js');
+promise.then(function() {
 
-angular.element(document).ready(function() {
-    angular.bootstrap(document, [app.name], {});
+    var app = require('../app-module');
+
+    angular.element(document).ready(function() {
+        angular.bootstrap(document, [app.name], {});
+    });
+
 });

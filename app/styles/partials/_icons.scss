@@ -43,10 +43,45 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 20px;
     .md-fab {
         width: 120px!important;
         height: 120px!important;
         background: $medium-purple!important;
         border: solid 1px white;
+    }
+}
+
+#bm-blog-actions-fab {
+    md-fab-trigger {
+        button {
+            background: $bright-purple;
+            width: remify(58);
+            height: remify(58);
+        }
+    }
+    md-fab-actions {
+        .md-fab-action-item {
+            transform: scale(0.0)
+        }
+        button {
+            width: remify(58);
+            height: remify(58);
+        }
+        #beam {
+            background: $bm-teal;
+        }
+        #create {
+            border: 2px solid $bright-purple;
+            @include svg-color($bright-purple);
+        }
+        #delete {
+            border: 2px solid $pink;
+            @include svg-color($pink);
+            md-icon {
+                width: remify(30);
+                height: remify(30);
+            }
+        }
     }
 }

@@ -1,4 +1,5 @@
-var Route = function(DS, apiEndpoint) {
+var Route = function(DS, apiEndpoint, session) {
+
     var route = DS.defineResource({
         name: 'routes',
         computed: {
@@ -7,19 +8,26 @@ var Route = function(DS, apiEndpoint) {
             }]
         },
         idAttribute: 'routename',
-        basePath: apiEndpoint + '/users/dharness/',
+        basePath: apiEndpoint + '/users/' + session.getUsername() + '/',
         cacheResponse: true,
+        linkRelations: true,
         relations: {
             belongsTo: {
                 users: {
                     parent: true,
-                    localField: 'users',
+                    localField: 'user',
                     localKey: 'username'
                 }
+            },
+            hasMany: {
+                blogs: [{
+                    localField: 'blogs',
+                    foreignKey: 'routename'
+                }]
             }
         },
         afterFindAll: function(resource, data, cb) {
-            // do something more specific to "users"
+            // do something more specific to "routes"
             cb(null, data.data.routes);
         },
         afterUpdate: function(resource, data, cb) {

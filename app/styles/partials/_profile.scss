@@ -27,9 +27,9 @@
     #hamburger {
         @extend %bm-no-glow;
     }
-    @include on-xsmall {
-        display: none;
-    }
+    // @include on-xsmall {
+    //     display: none;
+    // }
 }
 
 .bm-profile-center-panel {

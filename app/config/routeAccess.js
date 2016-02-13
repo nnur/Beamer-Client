@@ -11,7 +11,8 @@ var routeAccess = function($rootScope, $location, auth, unprotected, session) {
 
     $rootScope.$on('$routeChangeStart', function() {
         if (auth.isAuthenticated() && isMainPage($location.url())) {
-            $location.path('/profile/' + sessionStorage.username);
+            $location
+.path('/profile/' + sessionStorage.username);
         }
 
         if (isRouteProtected($location.url()) && !auth.isAuthenticated()) {

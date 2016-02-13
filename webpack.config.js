@@ -1,15 +1,27 @@
 var webpack = require('webpack'),
+    CopyWebpackPlugin = require('copy-webpack-plugin'),
     path = require('path');
 
 var APP = __dirname + '/app';
+
+delete webpack.optimize.DedupePlugin;
 
 module.exports = {
     context: APP,
     entry: ['./core/bootstrap.js'],
     output: {
-        path: APP,
+        path: 'dist',
         filename: 'beamer.bundle.js',
     },
+    plugins: [
+        new CopyWebpackPlugin([{
+            from: APP + '/index.html',
+            to: 'index.html'
+        },{
+            from: APP + '/assets/images/icons/**/*',
+            to: '/assets/images/icons'
+        }])
+    ],
     devtool: 'sourcemap',
     module: {
         loaders: [{

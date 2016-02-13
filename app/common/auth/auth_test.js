@@ -1,9 +1,8 @@
-describe('auth service', function() {
+describe('auth service', function(apiEndpoint) {
 
     var auth, jwtHelper, $httpBackend, mockSession, $window;
     var deferred, promise, authRequestHandler;
-    var root = 'http://localhost:1337';
-
+    var root = apiEndpoint;
 
     beforeEach(function() {
         angular.mock.module('beamer.common.auth');
@@ -17,7 +16,6 @@ describe('auth service', function() {
                 this.create = jasmine.createSpy('session.create');
             });
         });
-
     });
 
     beforeEach(function() {
@@ -26,25 +24,23 @@ describe('auth service', function() {
         });
     });
 
-    beforeEach(
-        inject(function(_auth_, _session_, $q, _$window_) {
-            auth = _auth_;
-            mockSession = _session_;
-            $window = _$window_;
-            $window.sessionStorage = {
-                token: 'someToken'
-            };
-            //handling promises
-            deferred = $q.defer();
-        }));
+    beforeEach(inject(function(_auth_, _session_, $q, _$window_) {
+        auth = _auth_;
+        mockSession = _session_;
+        $window = _$window_;
+        $window.sessionStorage = {
+            token: 'someToken'
+        };
+        //handling promises
+        deferred = $q.defer();
+    }));
 
 
 
-    it('should check if session is valid and return the result',
-        function() {
-            auth.isAuthenticated();
-            expect(mockSession.isValid).toHaveBeenCalled();
-        });
+    it('should check if session is valid and return the result', function() {
+        auth.isAuthenticated();
+        expect(mockSession.isValid).toHaveBeenCalled();
+    });
 
     it('should logout the user by destroying their session',
         function() {

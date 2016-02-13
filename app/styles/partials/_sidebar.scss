@@ -1,4 +1,8 @@
 $bm-sidebar-width: 264px;
+.bm-blogs-sidebar {
+    overflow-y: hidden;
+}
+
 .bm-sidebar {
     md-sidenav {
         background: url($bg) no-repeat fixed;
@@ -7,7 +11,7 @@ $bm-sidebar-width: 264px;
         -o-background-size: cover;
         background-size: cover;
     }
-    md-list {
+    md-list:not(.bm-blogs-list) {
         md-list-item {
             padding: 0px;
         }
@@ -30,6 +34,44 @@ $bm-sidebar-width: 264px;
     }
     .md-ripple-container {
         border-radius: 0!important;
+    }
+}
+
+#bm-blogs-sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: hidden;
+    #bm-sidebar-top {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        // Less padding on the bottom because the errors provide some padding
+        // but are hidden most of the time
+        margin-bottom: remify(25)!important;
+        margin-top: remify(50)!important;
+    }
+}
+
+#bm-sidebar-bottom-blogs {
+    display: flex;
+    overflow-y: scroll;
+    scrollbar-face-color: slategray;
+    scrollbar-track-color: #b8c0c8;
+    height: 100%;
+    background: $gross-purple;
+    &.bm-no-blogs {
+        background: $palid-purple!important;
+    }
+    &::-webkit-scrollbar {
+        width: remify(11);
+    }
+    &::-webkit-scrollbar-thumb {
+        background: $bm-teal-light;
+        height: remify(55)!important;
+    }
+    &::-webkit-scrollbar-track {
+        background: $gross-purple;
     }
 }
 

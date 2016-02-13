@@ -65,8 +65,8 @@
 }
 
 %bm-no-glow {
-    outline: none;
-    box-shadow: none;
+    outline: none!important;
+    box-shadow: none!important;
 }
 
 %bm-flex-container-vertical-center {
@@ -78,4 +78,11 @@
 @function remify($px) {
     $rem: $px/16;
     @return $rem - 0rem;
+}
+
+.bm-spacer-1 {
+    flex: 1;
+    @include on-xsmall {
+        display: none;
+    }
 }
