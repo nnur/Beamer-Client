@@ -40,6 +40,7 @@ var BlogController = function($scope, $stateParams, $mdSidenav, $state, logoutMo
     $scope.$watch(function() {
         return self.Route_.get(self.$stateParams_.routename).blogs.length;
     }, function(newVal, oldVal) {
+        self.blogs = self.Route_.get(self.$stateParams_.routename).blogs;
         self.blogsToShow = _.filter(angular.copy(self.Route_.get(self.$stateParams_.routename).blogs), function(blog) {
             return _.contains(blog.title, self.searchQuery);
         }, true);
