@@ -20,7 +20,6 @@ module.exports = function LoginController($scope, $state, auth, $location, $mdTo
 
     // Authenticates user credentials.
     $scope.login = function() {
-      alert('lemmons')
         var user = {
             email: $scope.user.email,
             password: $scope.user.pwd
