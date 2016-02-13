@@ -1,6 +1,7 @@
 .bm-blog-search-bar {
     display: flex;
     flex-direction: row;
+    margin-top: remify(30);
     margin-bottom: remify(30);
     input {
         margin-right: remify(21);
@@ -12,6 +13,8 @@
         color: white;
         font-family: $font-heiti;
         font-size: remify(15);
+        padding-top: remify(20);
+        padding-bottom: remify(10);
     }
     .bm-search {
         margin-left: remify(11);

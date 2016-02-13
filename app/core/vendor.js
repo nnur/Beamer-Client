@@ -3,6 +3,8 @@
  * @author Naila Nur
  */
 module.exports = new Promise(function(resolve, reject) {
+
+    require('imports?jQuery=jquery!bootstrap-sass/assets/javascripts/bootstrap.min.js')
     /* JS */
     require('../views/landing/js/agency');
     require('../views/landing/js/cbpAnimatedHeader');

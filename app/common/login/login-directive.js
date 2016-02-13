@@ -1,6 +1,8 @@
+var templateUrl = require('ngtemplate!html!./login-directive.html');
+
 module.exports = function loginDirective() {
     return {
-        templateUrl: "common/login/login-directive.html",
+        templateUrl: templateUrl,
         controller: 'LoginController'
     };
 };

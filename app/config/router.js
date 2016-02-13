@@ -1,3 +1,8 @@
+var landingViewUrl = require('ngtemplate!html!../views/landing/landing-view.html');
+var editBlogsViewUrl = require('ngtemplate!html!../views/blog/editBlogs/edit-blogs.html');
+var routesViewUrl = require('ngtemplate!html!../views/user/routes/routes-view.html');
+var blogsViewUrl = require('ngtemplate!html!../views/blog/blog-view.html');
+
 var router = function($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider.otherwise('/');
@@ -8,7 +13,7 @@ var router = function($stateProvider, $urlRouterProvider) {
         })
         .state('users.routes', {
             url: '/:username/routes',
-            templateUrl: 'views/user/routes/routes-view.html',
+            templateUrl: routesViewUrl,
             // template: 'leo',
             controller: 'RoutesController',
             controllerAs: 'routesCtrl',
@@ -23,7 +28,7 @@ var router = function($stateProvider, $urlRouterProvider) {
         })
         .state('blogs', {
             url: '/users/:username/routes/:routename/blogs',
-            templateUrl: 'views/blog/blog-view.html',
+            templateUrl: blogsViewUrl,
             controller: 'BlogController',
             resolve: {
                 currentUser: ['$stateParams', 'DS', 'User', function($stateParams, DS, User) {
@@ -64,13 +69,13 @@ var router = function($stateProvider, $urlRouterProvider) {
         })
         .state('blogs.edit', {
             url: '/:blogid',
-            templateUrl: 'views/blog/editBlogs/edit-blogs.html',
+            templateUrl: editBlogsViewUrl,
             controller: 'EditBlogsController',
             controllerAs: 'editBlogCtrl'
         })
         .state('/', {
             url: '/',
-            templateUrl: 'views/landing/landing-view.html',
+            templateUrl: landingViewUrl,
         })
 };
 

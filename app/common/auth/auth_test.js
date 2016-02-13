@@ -1,8 +1,8 @@
-describe('auth service', function() {
+describe('auth service', function(apiEndpoint) {
 
     var auth, jwtHelper, $httpBackend, mockSession, $window;
     var deferred, promise, authRequestHandler;
-    var root = 'http://localhost:1337';
+    var root = apiEndpoint;
 
     beforeEach(function() {
         angular.mock.module('beamer.common.auth');

@@ -1,11 +1,13 @@
 var editRouteModalController = require('./edit-route-modal-controller.js');
+var templateUrl = require('ngtemplate!html!./edit-route-modal-template.html');
+
 
 var editRouteModal = function($mdDialog, User, session) {
     this.openEditMenu = function(route) {
         $mdDialog.show({
-            templateUrl: './common/modals/editRouteModal/edit-route-modal-template.html',
+            templateUrl: templateUrl,
             parent: angular.element(document.body),
-            controller: editRouteModalController,
+            controller: ['$mdDialog', 'apiEndpoint', 'routename', 'currentUser', 'DSHttpAdapter', 'Route', 'User', editRouteModalController],
             controllerAs: 'editRouteDialgoueCtrl',
             locals: {
                 currentUser: User.get(session.getUsername()),

@@ -1,8 +1,10 @@
+var templateUrl = require('ngtemplate!html!./sidebar-directive.html');
+
 var sidebar = function() {
     return {
         restrict: 'E',
         transclude: true,
-        templateUrl: 'common/sidebar/sidebar-directive.html'
+        templateUrl: templateUrl
     };
 };
 

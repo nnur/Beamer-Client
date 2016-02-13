@@ -1,13 +1,14 @@
 var RoutesPanelCtrl = require('./routes-panel-controller');
+var templateUrl = require('ngtemplate!html!./routes-panel-directive.html');
 
 var routesPanel = function() {
     return {
         restrict: 'E',
-        templateUrl: 'common/routesPanel/routes-panel-directive.html',
+        templateUrl: templateUrl,
         scope: {
             currentUser: '='
         },
-        controller: RoutesPanelCtrl,
+        controller: ['$scope', '$state', 'session', 'DS', 'DSHttpAdapter', 'apiEndpoint', 'User', 'Route', '$mdToast', '$mdSidenav', '$mdDialog', 'auth', 'logoutModal', 'editRouteModal', RoutesPanelCtrl],
         controllerAs: 'routesPanelCtrl'
     }
 

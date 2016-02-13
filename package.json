@@ -5,7 +5,8 @@
   "main": "app-module.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node node_modules/.bin/webpack-dev-server --content-base app/ --hot --host 0.0.0.0"
+    "dev": "NODE_ENV=development webpack -d --config webpack.config.js && node server",
+    "deploy": "export NODE_ENV=production && webpack -d --config webpack.config.js && node server"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,8 @@
     "angular-ui-router": "^0.2.15",
     "angular-vs-repeat": "^1.0.0-beta.1",
     "bootstrap-sass": "^3.3.6",
+    "html-loader": "^0.4.0",
+    "image-webpack-loader": "^1.6.3",
     "imports-loader": "^0.6.5",
     "js-data": "^2.8.2",
     "js-data-angular": "^3.1.0",
@@ -41,9 +44,11 @@
     "textangular": "^1.4.6"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "^1.1.1",
     "css-loader": "^0.23.0",
     "file-loader": "^0.8.5",
     "karma-sourcemap-loader": "^0.3.6",
+    "ngtemplate-loader": "^1.3.1",
     "node-sass": "^3.4.2",
     "null-loader": "^0.1.1",
     "sass-loader": "^3.1.2",

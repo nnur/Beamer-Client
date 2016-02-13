@@ -57,6 +57,4 @@ RoutesController.prototype.saveUserData = function() {
     });
 };
 
-
-
 module.exports = RoutesController;

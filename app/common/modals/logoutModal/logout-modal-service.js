@@ -1,11 +1,12 @@
 var logoutModalController = require('./logout-modal-controller.js');
+var templateUrl = require('ngtemplate!html!./logout-modal-template.html');
 
 var logoutModal = function($mdDialog) {
     this.show = function() {
         $mdDialog.show({
-            templateUrl: './common/modals/logoutModal/logout-modal-template.html',
+            templateUrl: templateUrl,
             parent: angular.element(document.body),
-            controller: logoutModalController,
+            controller: ['$scope', 'auth','$mdDialog', 'User', 'session', logoutModalController],
             clickOutsideToClose: true
         });
     };

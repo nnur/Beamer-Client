@@ -1,3 +1,5 @@
+var _ = require('lodash');
+
 var session = function($window, jwtHelper) {
 
     this.getUsername = function() {
@@ -39,7 +41,6 @@ var session = function($window, jwtHelper) {
     // Checks if token is expired and returns the result
     this.isValid = function() {
         if (this.getToken()) {
-
             return !jwtHelper.isTokenExpired(this.getToken());
         } else {
             return false;

@@ -7,7 +7,7 @@
         <md-icon id="user" md-svg-src="assets/images/icons/user.svg" ng-click="routesPanelCtrl.logoutModal.show()"></md-icon>
     </div>
     <div ng-repeat="route in currentUser.sortedRoutes track by $index">
-        <md-fab-toolbar md-open="false" md-direction="left">
+        <md-fab-toolbar md-direction="left">
             <form ng-submit="routesPanelCtrl.addRoute()">
                 <md-button ng-click="routesPanelCtrl.goToBlogsView(route.routename)" aria-label="routes" class="bm-route-item-text bm-route-input">{{route.routeSlashName}}</md-button>
             </form>

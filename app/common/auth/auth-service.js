@@ -1,6 +1,6 @@
-var auth = function($http, session, $q) {
+var auth = function($http, session, $q, apiEndpoint) {
 
-    var root = 'http://localhost:1337';
+    var root = apiEndpoint;
 
     // Checks session expiry. Returns boolean
     this.isAuthenticated = function() {
@@ -27,7 +27,7 @@ var auth = function($http, session, $q) {
         return promise;
     };
 
-    // Posts user to /login and creates a session if 
+    // Posts user to /login and creates a session if
     //         server responds with a token. Returns a promise.
     this.loginUser = function(user) {
 

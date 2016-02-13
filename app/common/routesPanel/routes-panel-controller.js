@@ -65,7 +65,7 @@ RoutesPanelCtrl.prototype.addRoute = function() {
     }).then(function(refreshedUser) {
         //updates computed properties
         refreshedUser.DSCompute();
-        // By this point, the route has been 
+        // By this point, the route has been
         // added and the user is in sync
         self.newRoute = "";
     }).catch(function(err) {

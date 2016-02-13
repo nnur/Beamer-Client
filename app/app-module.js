@@ -25,7 +25,7 @@ var app = angular.module('beamer', [
     beamer.views.blog.editBlogs.module.name,
 ]);
 
-app.constant('apiEndpoint', 'http://127.0.0.1:1337/');
+app.constant('apiEndpoint', 'http://159.203.29.130:1337');
 app.constant('unprotected', [
     '/', // for the base angular route, <url>:<port>/#/
     '' // for the empty route, <url>:<port>

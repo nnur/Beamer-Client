@@ -1,4 +1,5 @@
 var BlogsListCtrl = require('./blogs-list-controller');
+var templateUrl = require('ngtemplate!html!./blogs-list-directive.html');
 
 var blogsList = function() {
 
@@ -8,8 +9,8 @@ var blogsList = function() {
             blogs: '=',
             noBlogs: '&'
         },
-        templateUrl: 'common/blogsList/blogs-list-directive.html',
-        controller: BlogsListCtrl,
+        templateUrl: templateUrl,
+        controller: ['$scope', '$state', '$stateParams', '$mdSidenav', BlogsListCtrl],
         controllerAs: 'blogsListCtrl',
         link: function(scope, e, a, controller) {
             scope.$watch('blogs', function(newVal) {
