@@ -1,29 +1,26 @@
-var routeAccess = function($rootScope, $location, auth, unprotected, session) {
+var routeAccess = function($rootScope, $state, auth, unprotected, session) {
 
-    // This establishes route protection when the app starts.
-    var isRouteProtected = function(route) {
-        return !_.contains(unprotected, route);
-    };
+    // This establishes route protection when the app starts.
+    var isRouteProtected = function(route) {
+        return !_.contains(unprotected, route);
+    };
 
-    var isMainPage = function(route) {
-        return _.contains(['', '/'], route);
-    };
+    $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+        //prevent a logged in user from seeing the login page
+        if (auth.isAuthenticated() && toState.name == 'login') {
+            event.preventDefault();
+            $state.go('users.routes', {username: sessionStorage.username})
+        }
+        //prevent a non-logged in user from seeing the apps contents
+        else if (isRouteProtected(toState.name) && !auth.isAuthenticated()) {
+            console.warn('Route ' + toState.url + ' requires an auth token.');
+            $state.go('login');
+        }
+    });
 
-    $rootScope.$on('$routeChangeStart', function() {
-        if (auth.isAuthenticated() && isMainPage($location.url())) {
-            $location
-.path('/profile/' + sessionStorage.username);
-        }
-
-        if (isRouteProtected($location.url()) && !auth.isAuthenticated()) {
-            console.warn('Route ' + $location.url() + ' requires an auth token.');
-            $location.path('/');
-        }
-    });
-
-    $rootScope.$on('userLogoutSuccess', function() {
-        $location.path('/');
-    })
+    $rootScope.$on('userLogoutSuccess', function() {
+        $state.go('login');
+    })
 
 }
 

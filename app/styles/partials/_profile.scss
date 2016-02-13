@@ -27,9 +27,11 @@
     #hamburger {
         @extend %bm-no-glow;
     }
-    // @include on-xsmall {
-    //     display: none;
-    // }
+    &.routes-mobile-toolbar{
+      @include on-xsmall {
+        display: none;
+      }
+    }
 }
 
 .bm-profile-center-panel {

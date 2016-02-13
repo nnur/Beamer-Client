@@ -27,8 +27,7 @@ var app = angular.module('beamer', [
 
 app.constant('apiEndpoint', 'http://159.203.29.130:1337');
 app.constant('unprotected', [
-    '/', // for the base angular route, <url>:<port>/#/
-    '' // for the empty route, <url>:<port>
+    'login', // for the base angular route, <url>:<port>/#/
 ]);
 
 // CONFIGURATION

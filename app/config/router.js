@@ -73,7 +73,7 @@ var router = function($stateProvider, $urlRouterProvider) {
             controller: 'EditBlogsController',
             controllerAs: 'editBlogCtrl'
         })
-        .state('/', {
+        .state('login', {
             url: '/',
             templateUrl: landingViewUrl,
         })
