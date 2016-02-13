@@ -28,6 +28,6 @@
     <p>No blogs yet.</p>
     <p>Why not write some!</p>
 </div>
-<div class="bm-no-blogs-message" ng-show="blogsListCtrl.blogs.length === 0" ng-hide="blogsListCtrl.noBlogs">
+<div class="bm-no-blogs-message" ng-show="blogsListCtrl.blogs.length === 0 && !blogsListCtrl.noBlogs" ng-hide="blogsListCtrl.noBlogs">
     <p>No search results were found.</p>
 </div>

@@ -114,11 +114,12 @@ EditBlogsController.prototype.updateBlog = function() {
 EditBlogsController.prototype.deleteBlog = function() {
     var self = this;
     this.Blog_.destroy(this.$stateParams_.blogid, {
-        basePath: 'http://127.0.0.1:1337/'
+        basePath: this.apiEndpoint_
     }).then(function() {
-        self.$state_.go('blogs', {
+        self.$state_.go('blogs.edit', {
             username: self.$stateParams_.username,
-            routename: self.$stateParams_.routename
+            routename: self.$stateParams_.routename,
+            blogid: 'newBlog'
         });
         self.$mdToast_.show(
             self.$mdToast_.simple()
